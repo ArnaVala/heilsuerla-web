@@ -1,0 +1,5 @@
+export {default as authorReference} from './authorReference'
+export {default as bioPortableText} from './bioPortableText'
+export {default as bodyPortableText} from './bodyPortableText'
+export {default as excerptPortableText} from './excerptPortableText'
+export {default as mainImage} from './mainImage'

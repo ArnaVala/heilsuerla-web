@@ -6,7 +6,8 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Name'
+      title: 'Name',
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'slug',
@@ -27,6 +28,15 @@ export default {
       name: 'bio',
       type: 'bioPortableText',
       title: 'Biography'
+    },
+    {
+      name: 'social',
+      title: 'Social Media',
+      type: 'array',
+      of: [{
+        type: 'string'
+      }],
+      description: 'social media links, email etc'
     }
   ],
   preview: {

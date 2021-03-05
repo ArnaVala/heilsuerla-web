@@ -9,15 +9,15 @@ import AuthorList from './author-list'
 import styles from './blog-post.module.css'
 
 function BlogPost (props) {
-  const {_rawBody, authors, categories, title, mainImage, publishedAt} = props
+  const {_rawBody, authors, title, mainImage, publishedAt} = props
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
+              .width(1080)
+              .height(Math.floor((9 / 16) * 1080))
               .fit('crop')
               .auto('format')
               .url()}
@@ -40,16 +40,7 @@ function BlogPost (props) {
               </div>
             )}
             {authors && <AuthorList items={authors} title='Authors' />}
-            {categories && (
-              <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Categories</h3>
-                <ul>
-                  {categories.map(category => (
-                    <li key={category._id}>{category.title}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+
           </aside>
         </div>
       </Container>

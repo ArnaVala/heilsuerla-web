@@ -1,15 +1,19 @@
-import {format} from 'date-fns'
-
 export default {
   name: 'post',
   type: 'document',
-  title: 'Blog Post',
+  title: 'Blogg',
   fields: [
     {
       name: 'title',
       type: 'string',
       title: 'Title',
       description: 'Titles should be catchy, descriptive, and not too long'
+    },
+    {
+      name: 'featured',
+      type: 'boolean',
+      title: 'Featured',
+      description: 'is this post featured?'
     },
     {
       name: 'slug',
@@ -51,16 +55,11 @@ export default {
     },
     {
       name: 'categories',
-      type: 'array',
       title: 'Categories',
-      of: [
-        {
-          type: 'reference',
-          to: {
-            type: 'category'
-          }
-        }
-      ]
+      type: 'reference',
+      to: {
+        type: 'category'
+      }
     },
     {
       name: 'body',
@@ -101,18 +100,14 @@ export default {
   preview: {
     select: {
       title: 'title',
-      publishedAt: 'publishedAt',
-      slug: 'slug',
-      media: 'mainImage'
+      media: 'mainImage',
+      category: 'category.title',
+      featured: 'featured'
     },
-    prepare ({title = 'No title', publishedAt, slug = {}, media}) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
-      return {
-        title,
-        media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
-      }
-    }
+    prepare: ({title, media, category, featured}) => ({
+      title: `${title} ${featured ? '*' : ''}`,
+      media: media,
+      subtitle: `${category}`
+    })
   }
 }
