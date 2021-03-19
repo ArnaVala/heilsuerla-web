@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'Recoleta Alt';
+  src: url('../assets/fonts/Recoleta/RecoletaAlt-Regular.eot');
+  src: url('../assets/fonts/Recoleta/RecoletaAlt-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/Recoleta/RecoletaAlt-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta Alt';
+  src: url('../assets/fonts/Recoleta/RecoletaAlt-Light.eot');
+  src: url('../assets/fonts/Recoleta/RecoletaAlt-Light.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/Recoleta/RecoletaAlt-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta Alt';
+  src: url('../assets/fonts/Recoleta/RecoletaAlt-Medium.eot');
+  src: url('../assets/fonts/Recoleta/RecoletaAlt-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/Recoleta/RecoletaAlt-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta Alt';
+  src: url('../assets/fonts/Recoleta/RecoletaAlt-Semibold.eot');
+  src: url('../assets/fonts/Recoleta/RecoletaAlt-Semibold.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/Recoleta/RecoletaAlt-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Recoleta Alt';
+  src: url('../assets/fonts/Recoleta/RecoletaAlt-Bold.eot');
+  src: url('../assets/fonts/Recoleta/RecoletaAlt-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/Recoleta/RecoletaAlt-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('../assets/fonts/SofiaPro/SofiaPro-Light.woff2') format('woff2'),
+    url('../assets/fonts/SofiaPro/SofiaPro-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('../assets/fonts/SofiaPro/SofiaProRegular.woff2') format('woff2'),
+    url('../assets/fonts/SofiaPro/SofiaProRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('../assets/fonts/SofiaPro/SofiaPro-Italic.woff2') format('woff2'),
+    url('../assets/fonts/SofiaPro/SofiaPro-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('../assets/fonts/SofiaPro/SofiaPro-Medium.woff2') format('woff2'),
+    url('../assets/fonts/SofiaPro/SofiaPro-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('../assets/fonts/SofiaPro/SofiaPro-MediumItalic.woff2') format('woff2'),
+    url('../assets/fonts/SofiaPro/SofiaPro-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('../assets/fonts/SofiaPro/SofiaPro-SemiBoldItalic.woff2') format('woff2'),
+    url('../assets/fonts/SofiaPro/SofiaPro-SemiBoldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('../assets/fonts/SofiaPro/SofiaPro-SemiBold.woff2') format('woff2'),
+    url('../assets/fonts/SofiaPro/SofiaPro-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('../assets/fonts/SofiaPro/SofiaPro-Bold.woff2') format('woff2'),
+    url('../assets/fonts/SofiaPro/SofiaPro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('../assets/fonts/SofiaPro/SofiaPro-BoldItalic.woff2') format('woff2'),
+    url('../assets/fonts/SofiaPro/SofiaPro-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}

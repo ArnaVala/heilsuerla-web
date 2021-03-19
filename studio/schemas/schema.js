@@ -5,6 +5,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // document schemas
 import * as documents from './documents'
 import * as objects from './objects'
+import * as plugs from './plugs'
 
 const allDocuments = Object.values(documents).map(document => {
   return {...document, fields: document.fields}
@@ -12,6 +13,9 @@ const allDocuments = Object.values(documents).map(document => {
 
 const allObjects = Object.values(objects).map(object => {
   return {...object, fields: object.fields}
+})
+const allPlugs = Object.values(plugs).map(plug => {
+  return {...plug, fields: plug.fields}
 })
 
 export default createSchema({
@@ -22,4 +26,5 @@ export default createSchema({
   types: schemaTypes
     .concat(allObjects)
     .concat(allDocuments)
+    .concat(allPlugs)
 })

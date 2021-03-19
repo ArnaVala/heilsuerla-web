@@ -2,6 +2,7 @@ export default {
   name: 'author',
   type: 'document',
   title: 'Author',
+  __experimental_actions: [/* 'create', */ 'update', /* 'delete', */ 'publish'],
   fields: [
     {
       name: 'name',
@@ -27,16 +28,22 @@ export default {
     {
       name: 'bio',
       type: 'bioPortableText',
-      title: 'Biography'
+      title: 'bio'
     },
     {
-      name: 'social',
-      title: 'Social Media',
+      name: 'aboutIntro',
+      type: 'intro',
+      title: 'Intro Erla'
+    },
+    {
+      name: 'content',
       type: 'array',
-      of: [{
-        type: 'string'
-      }],
-      description: 'social media links, email etc'
+      title: 'Page sections',
+      description: 'Add, edit, and reorder sections',
+      of: [
+        {type: 'hero'}
+
+      ]
     }
   ],
   preview: {

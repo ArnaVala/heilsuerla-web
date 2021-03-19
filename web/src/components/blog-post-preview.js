@@ -1,41 +1,48 @@
-import {format} from 'date-fns'
 import {Link} from 'gatsby'
 import React from 'react'
-import {buildImageObj, cn, getBlogUrl} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
-import PortableText from './portableText'
+import {getBlogUrl} from '../lib/helpers'
+import Image from 'gatsby-plugin-sanity-image'
 
-import styles from './blog-post-preview.module.css'
-import {responsiveTitle3} from './typography.module.css'
+import {Box, Flex, Text} from 'theme-ui'
+import Card from '../components/common/Card'
 
 function BlogPostPreview (props) {
   return (
-    <Link
-      className={props.isInList ? styles.inList : styles.inGrid}
-      to={getBlogUrl(props.publishedAt, props.slug.current)}
-    >
-      <div className={styles.leadMediaThumb}>
-        {props.mainImage && props.mainImage.asset && (
-          <img
-            src={imageUrlFor(buildImageObj(props.mainImage))
-              .width(600)
-              .height(Math.floor((9 / 16) * 600))
-              .auto('format')
-              .url()}
-            alt={props.mainImage.alt}
-          />
-        )}
-      </div>
-      <div className={styles.text}>
-        <h3 className={cn(responsiveTitle3, styles.title)}>{props.title}</h3>
-        {props._rawExcerpt && (
-          <div className={styles.excerpt}>
-            <PortableText blocks={props._rawExcerpt} />
-          </div>
-        )}
-        <div className={styles.date}>{format(props.publishedAt, 'MMMM Do, YYYY')}</div>
-      </div>
-    </Link>
+    <Card>
+      <Link
+        to={getBlogUrl(props.slug.current)}
+      >
+        <Box>
+          {props.categories && (
+            <Box sx={{display: 'inline-block'}}>
+              {props.categories.map((category) => (
+                <Box variant='text.tag' sx={{}} key={props.category._id}>
+                  {props.category.title}
+                </Box>
+              ))}
+            </Box>
+          )}
+        </Box>
+
+        <Flex>
+          {props.image && props.image.asset && (
+            <Image
+              {...props.image}
+              width={1920}
+              height={1920}
+              alt={props.image.alt}
+              css={{width: '100%', height: '100%', objectFit: 'cover', maxWidth: '480px'}}
+            />
+
+          )}
+        </Flex>
+      </Link>
+      <Box >
+        <Box as='h4' variant='text.postTitle'>{props.title}</Box>
+
+      </Box>
+    </Card>
+
   )
 }
 

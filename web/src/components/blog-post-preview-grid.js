@@ -1,27 +1,30 @@
 import {Link} from 'gatsby'
 import React from 'react'
 import BlogPostPreview from './blog-post-preview'
+import {Styled, Box, Flex, Grid} from 'theme-ui'
 
-import styles from './blog-post-preview-grid.module.css'
+import {Section, Wrapper} from '../components/common'
 
 function BlogPostPreviewGrid (props) {
   return (
-    <div className={styles.root}>
-      {props.title && <h2 className={styles.headline}>{props.title}</h2>}
-      <ul className={styles.grid}>
-        {props.nodes &&
+    <Section>
+      <Wrapper variant='container.inner'>
+        {props.title && <h2>{props.title}</h2>}
+        <ul>
+          {props.nodes &&
           props.nodes.map(node => (
             <li key={node.id}>
               <BlogPostPreview {...node} />
             </li>
           ))}
-      </ul>
-      {props.browseMoreHref && (
-        <div className={styles.browseMoreNav}>
-          <Link to={props.browseMoreHref}>Browse more</Link>
-        </div>
-      )}
-    </div>
+        </ul>
+        {props.browseMoreHref && (
+          <div>
+            <Link>Fara á bloggið</Link>
+          </div>
+        )}
+      </Wrapper>
+    </Section>
   )
 }
 

@@ -1,4 +1,5 @@
-import React from 'react'
+
+/** @jsx jsx */
 import {graphql} from 'gatsby'
 import {
   mapEdgesToNodes,
@@ -6,42 +7,32 @@ import {
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
 import BlogPostPreviewList from '../components/blog-post-preview-list'
-import Container from '../components/container'
-import GraphQLErrorList from '../components/graphql-error-list'
-import SEO from '../components/seo'
-import Layout from '../containers/layout'
+import GraphQLErrorList from '../components/atoms/graphql-error-list'
+import SEO from '../components/atoms/seo'
+
+import {jsx, Container} from 'theme-ui'
+import Layout from '../components/organisms/layout'
+import PageBuilder from '../components/organisms/pageBuilder'
 
 export const query = graphql`
-  fragment SanityImage on SanityMainImage {
-    crop {
-      _key
-      _type
-      top
-      bottom
-      left
-      right
-    }
-    hotspot {
-      _key
-      _type
-      x
-      y
-      height
-      width
-    }
-    asset {
-      _id
-    }
-  }
-
   query IndexPageQuery {
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+    site: 
+    sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
       title
       description
       keywords
-    }
+    },
+    indexPage: sanityPage(id: {eq: "20cdae87-1eeb-5515-a9e5-e28f9e4f8af7"}) {
+      id
+      title
+      slug {
+        current
+      }
+      ... PageBuilder
+    },
+   
     posts: allSanityPost(
-      limit: 6
+      limit: 3
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
@@ -49,7 +40,7 @@ export const query = graphql`
         node {
           id
           publishedAt
-          mainImage {
+          image {
             ...SanityImage
             alt
           }
@@ -64,8 +55,10 @@ export const query = graphql`
   }
 `
 
-const IndexPage = props => {
+const IndexPage = (props) => {
   const {data, errors} = props
+  const indexPage = data && data.indexPage
+  const {pageBuilder, _rawPageBuilder} = indexPage
 
   if (errors) {
     return (
@@ -74,8 +67,8 @@ const IndexPage = props => {
       </Layout>
     )
   }
-
   const site = (data || {}).site
+
   const postNodes = (data || {}).posts
     ? mapEdgesToNodes(data.posts)
       .filter(filterOutDocsWithoutSlugs)
@@ -97,13 +90,14 @@ const IndexPage = props => {
       />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        {postNodes && (
-          <BlogPostPreviewList
-            title='Latest blog posts'
-            nodes={postNodes}
-            browseMoreHref='/archive/'
-          />
-        )}
+      </Container>
+      <PageBuilder pageBuilder={pageBuilder} _rawPageBuilder={_rawPageBuilder} />
+      <Container>
+        {
+          postNodes && (
+            <BlogPostPreviewList title='Nýjast á blogginu' nodes={postNodes} browseMoreHref='/pistlar/' />
+          )
+        }
       </Container>
     </Layout>
   )

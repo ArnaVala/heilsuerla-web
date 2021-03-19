@@ -16,10 +16,25 @@ export default {
       description: 'Describe your blog for search engines and social media.'
     },
     {
+      name: 'url',
+      type: 'url',
+      title: 'Site URL'
+    },
+    {
+      name: 'email',
+      type: 'string',
+      title: 'Email'
+    },
+    {
+      name: 'phone',
+      title: 'Phone',
+      type: 'string'
+    },
+
+    {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',
-      description: 'Add keywords that describes your blog.',
       of: [{type: 'string'}],
       options: {
         layout: 'tags'

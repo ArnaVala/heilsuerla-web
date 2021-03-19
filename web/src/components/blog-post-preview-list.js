@@ -1,34 +1,31 @@
+/** @jsx jsx */
 import {Link} from 'gatsby'
 import React from 'react'
+import {jsx, Box, Flex, Grid, Styled} from 'theme-ui'
 import BlogPostPreview from './blog-post-preview'
 
-import styles from './blog-post-preview-list.module.css'
-
-function BlogPostPreviewGrid (props) {
+function BlogPostPreviewList (props) {
   return (
-    <div className={styles.root}>
-      {props.title && <h2 className={styles.headline}>{props.title}</h2>}
-      <ul className={styles.grid}>
-        {props.nodes &&
+    <Box as='section' variant='container.full'>
+      <Flex bg='white' variant='container.wide' sx={{width: '100%', flexDirection: 'column', overFlow: 'hidden'
+      }}>
+        {props.title && <Styled.h3 sx={{width: '100%', textAlign: 'center'}}>{props.title}</Styled.h3>}
+        <Grid sx={{gridTemplateColumns: 'repeat( 3, minmax(360px, 1fr) )'}}>
+          {props.nodes &&
           props.nodes.map(node => (
-            <li key={node.id}>
+            <Box key={node.id}>
               <BlogPostPreview {...node} isInList />
-            </li>
+            </Box>
           ))}
-      </ul>
-      {props.browseMoreHref && (
-        <div className={styles.browseMoreNav}>
-          <Link to={props.browseMoreHref}>Browse more</Link>
-        </div>
-      )}
-    </div>
+        </Grid>
+        {props.browseMoreHref && (
+          <div>
+            <Link as='a' to={props.browseMoreHref}>Fara á bloggið</Link>
+          </div>
+        )}
+      </Flex>
+    </Box>
   )
 }
 
-BlogPostPreviewGrid.defaultProps = {
-  title: '',
-  nodes: [],
-  browseMoreHref: ''
-}
-
-export default BlogPostPreviewGrid
+export default BlogPostPreviewList

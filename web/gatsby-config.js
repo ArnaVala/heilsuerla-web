@@ -9,10 +9,8 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   plugins: [
+    'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-styled-components',
-
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -20,6 +18,17 @@ module.exports = {
         token: process.env.SANITY_READ_TOKEN,
         watchMode: !isProd,
         overlayDrafts: !isProd
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-sanity-image',
+      options: {
+        ...clientConfig.sanity,
+        defaultImageConfig: {
+          quality: 80,
+          fit: 'max',
+          auto: 'format'
+        }
       }
     }
   ]

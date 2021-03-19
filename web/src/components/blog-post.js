@@ -1,50 +1,64 @@
 import {format, distanceInWords, differenceInDays} from 'date-fns'
 import React from 'react'
-import {buildImageObj} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
-import PortableText from './portableText'
-import Container from './container'
-import AuthorList from './author-list'
-
-import styles from './blog-post.module.css'
+import PortableText from '../components/atoms/portableText'
+import AuthorList from '../components/atoms/author-list'
+import {Container, Flex, Grid, Box} from 'theme-ui'
+import Image from 'gatsby-plugin-sanity-image'
 
 function BlogPost (props) {
-  const {_rawBody, authors, title, mainImage, publishedAt} = props
+  const {_rawBody, _rawExcerpt, authors, title, image, publishedAt} = props
   return (
-    <article className={styles.root}>
-      {mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
-          <img
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(1080)
-              .height(Math.floor((9 / 16) * 1080))
-              .fit('crop')
-              .auto('format')
-              .url()}
-            alt={mainImage.alt}
-          />
-        </div>
-      )}
-      <Container>
-        <div className={styles.grid}>
-          <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
-            {_rawBody && <PortableText blocks={_rawBody} />}
-          </div>
-          <aside className={styles.metaContent}>
-            {publishedAt && (
-              <div className={styles.publishedAt}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do, YYYY')}
-              </div>
-            )}
-            {authors && <AuthorList items={authors} title='Authors' />}
+    <Container as='section' variant='container.full'>
+      <Box variant='container.wrapper' bg='muted'>
+        {image && image.asset && (
+          <Box as='header' variant='container.innerWrapper' sx={{pt: '128px', pb: '64px'}}>
+            <Box sx={{mb: '64px'}}>
+              <Box variant='text.title' color='primary' sx={{mb: '16px'}}>
+                {title}
+              </Box>
+            </Box>
+            <Grid variant='container.gridContainer' sx={{textAlign: 'left'}}>
+              <Flex
+                as='p'
+                sx={{
+                  maxWidth: '560px',
+                  alignSelf: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto'
+                }}
+              >
+                {_rawExcerpt && <PortableText blocks={_rawExcerpt} />}
+              </Flex>
 
-          </aside>
-        </div>
-      </Container>
-    </article>
+              <Flex sx={{justifyContent: 'center'}}>
+                <Image
+                  {...image}
+                  width={1920}
+                  height={1920}
+                  alt={image.alt}
+                  css={{width: '100%', height: '100%', objectFit: 'cover', maxWidth: '480px'}}
+                />
+              </Flex>
+            </Grid>
+          </Box>
+        )}
+      </Box>
+      <Flex as='article' variant='container.flex' sx={{width: '100%'}}>
+        <Box variant='container.blog'>
+          <div>{_rawBody && <PortableText blocks={_rawBody} />}</div>
+          {publishedAt && (
+            <div>
+              {differenceInDays(new Date(publishedAt), new Date()) > 3
+                ? distanceInWords(new Date(publishedAt), new Date())
+                : format(new Date(publishedAt), 'MMMM Do, YYYY')}
+            </div>
+          )}
+        </Box>
+        <Box variant='container.wide'>
+          {authors && <AuthorList items={authors} title='Authors' />}
+        </Box>
+      </Flex>
+    </Container>
   )
 }
 

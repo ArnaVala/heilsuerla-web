@@ -1,0 +1,21 @@
+export {default as textImageBlock} from './textImageBlock'
+
+// donesections
+export {default as hero} from './hero'
+export {default as textHeader} from './textHeader'
+export {default as aboutIntro} from './aboutIntro'
+export {default as aboutStory} from './aboutStory'
+export {default as intro} from './intro'
+export {default as imageTextList} from './imageTextList'
+export {default as testimonials} from './testimonials'
+//
+export {default as quoteBanner} from './quoteBanner'
+export {default as divider} from './divider'
+export {default as textDivider} from './textDivider'
+export {default as heilsumarkIntro} from './heilsumarkIntro'
+export {default as imageTextListWithIcon} from './imageTextListWithIcon'
+export {default as heilsumarkContent} from './heilsumarkContent'
+export {default as ctaHero} from './ctaHero'
+export {default as ctaHeilsuvidtal} from './ctaHeilsuvidtal'
+export {default as ctaSimple} from './ctaSimple'
+export {default as pricing} from './pricing'

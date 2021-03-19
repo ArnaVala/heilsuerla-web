@@ -1,18 +1,17 @@
 export default {
   name: 'excerptPortableText',
   type: 'array',
-  title: 'Excerpt',
+  title: 'Úrdráttur, kynning',
   of: [
     {
       title: 'Block',
       type: 'block',
-      styles: [{title: 'Normal', value: 'normal'}],
+      styles: [{title: 'Stór texti', value: 'bigBody'}],
       lists: [],
       marks: {
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
-          {title: 'Code', value: 'code'}
+          {title: 'Feitletrað', value: 'strong'},
+          {title: 'Skáletrað', value: 'em'}
         ],
         annotations: []
       }

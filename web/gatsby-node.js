@@ -1,23 +1,86 @@
 const {isFuture} = require('date-fns')
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
 const {format} = require('date-fns')
 
 async function createBlogPostPages (graphql, actions) {
   const {createPage} = actions
   const result = await graphql(`
     {
-      allSanityPost(
-        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      allSanityPost(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}) {
+        nodes {
+          title
+          id
+          publishedAt
+            slug {
+              current
+            }
+          }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  const postNodes = (result.data.allSanityPost || {}).nodes || []
+
+  postNodes
+    .filter((node) => !isFuture(node.publishedAt))
+    .forEach((node, index) => {
+      const {id, slug = {}} = node
+      const path = `/blogg/${slug.current}/`
+
+      createPage({
+        path,
+        component: require.resolve('./src/templates/postTemplate.js'),
+        context: {
+          slug: slug.current
+        }
+      })
+    })
+}
+
+async function createCategoryPages (graphql, actions) {
+  const {createPage} = actions
+  const result = await graphql(`
+    {
+      allSanityCategory {
+        nodes {
+          title
+          slug {
+            current
+          }
+          id
+        }
+      }
+    }
+  `)
+  if (result.errors) throw result.errors
+
+  const categoryNodes = (result.data.allSanityCategory || {}).nodes || []
+
+  categoryNodes.forEach((node) => {
+    const {title} = node
+    const path = `/blogg/${title}`
+
+    createPage({
+      path,
+      component: require.resolve('./src/pages/pistlar.js'),
+      context: {
+        category: title
+      }
+    })
+  })
+}
+
+/* async function createSanityPage (graphql, actions) {
+  const {createPage} = actions
+  const result = await graphql(`
+    {
+      allSanityPage(
+        filter: { slug: { current: { ne: null } } }
       ) {
         edges {
           node {
             id
-            publishedAt
             slug {
               current
             }
@@ -26,26 +89,27 @@ async function createBlogPostPages (graphql, actions) {
       }
     }
   `)
-
   if (result.errors) throw result.errors
 
-  const postEdges = (result.data.allSanityPost || {}).edges || []
+  const pageEdges = (result.data.allSanityPage || {}).edges || []
 
-  postEdges
-    .filter(edge => !isFuture(edge.node.publishedAt))
+  pageEdges
     .forEach((edge, index) => {
-      const {id, slug = {}, publishedAt} = edge.node
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/blog/${dateSegment}/${slug.current}/`
+      const {id, slug = {}} = edge.node
+      const path = `/${slug.current}/`
+      console.log(path)
 
       createPage({
         path,
-        component: require.resolve('./src/templates/blog-post.js'),
+        component: require.resolve('./src/templates/page.js'),
         context: {id}
       })
     })
-}
+} */
 
 exports.createPages = async ({graphql, actions}) => {
-  await createBlogPostPages(graphql, actions)
+  await Promise.all([
+    createBlogPostPages(graphql, actions),
+    createCategoryPages(graphql, actions)
+  ])
 }

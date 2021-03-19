@@ -1,7 +1,7 @@
 export default {
   name: 'post',
   type: 'document',
-  title: 'Blogg',
+  title: 'Blog Post',
   fields: [
     {
       name: 'title',
@@ -32,9 +32,9 @@ export default {
       description: 'This can be used to schedule post for publishing'
     },
     {
-      name: 'mainImage',
+      name: 'image',
       type: 'mainImage',
-      title: 'Main image'
+      title: 'Image'
     },
     {
       name: 'excerpt',
@@ -56,10 +56,8 @@ export default {
     {
       name: 'categories',
       title: 'Categories',
-      type: 'reference',
-      to: {
-        type: 'category'
-      }
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'category'}}]
     },
     {
       name: 'body',
@@ -100,14 +98,23 @@ export default {
   preview: {
     select: {
       title: 'title',
-      media: 'mainImage',
-      category: 'category.title',
-      featured: 'featured'
+      media: 'image',
+      featured: 'featured',
+      category0: 'categories.0.title',
+      category1: 'categories.1.title',
+      category2: 'categories.2.title',
+      category3: 'categories.3.title',
+      category4: 'categories.4.title',
+      category5: 'categories.5.title'
     },
-    prepare: ({title, media, category, featured}) => ({
-      title: `${title} ${featured ? '*' : ''}`,
-      media: media,
-      subtitle: `${category}`
-    })
+    prepare: ({title, media, featured, ...categories}) => {
+      const categ = Object.values(categories).filter(Boolean)
+      return {
+        title: `${title} ${featured ? '*' : ''}`,
+        media,
+        subtitle: categ.join(' ')
+
+      }
+    }
   }
 }
