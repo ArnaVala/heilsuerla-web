@@ -30,16 +30,6 @@
 
 @font-face {
   font-family: 'Recoleta Alt';
-  src: url('../assets/fonts/Recoleta/RecoletaAlt-Semibold.eot');
-  src: url('../assets/fonts/Recoleta/RecoletaAlt-Semibold.eot?#iefix') format('embedded-opentype'),
-    url('../assets/fonts/Recoleta/RecoletaAlt-Semibold.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Recoleta Alt';
   src: url('../assets/fonts/Recoleta/RecoletaAlt-Bold.eot');
   src: url('../assets/fonts/Recoleta/RecoletaAlt-Bold.eot?#iefix') format('embedded-opentype'),
     url('../assets/fonts/Recoleta/RecoletaAlt-Bold.woff') format('woff');

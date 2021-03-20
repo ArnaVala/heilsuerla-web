@@ -37,7 +37,7 @@ export default {
     light: 300,
     normal: 400,
     medium: 500,
-    bold: 600
+    bold: 500
   },
   fontSizes: [14, 16, 18, 20, 24, 32, 40, 48, 56, 64, 72, 80],
   letterSpacing: {
