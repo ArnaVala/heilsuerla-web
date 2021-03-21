@@ -1,12 +1,14 @@
+
+/** @jsx jsx */
 import React from 'react'
-import {Box} from 'theme-ui'
+import {jsx, Box, Flex} from 'theme-ui'
 import SlickSlider from 'react-slick'
 
 import {arrowStyles, dotContainerStyles, slickStyles} from './styles'
 import DotsWithLabel from './DotsWithLabel'
 import Icon from '../../atoms/Icons'
 
-const NextArrow = (props) => {
+/* const NextArrow = (props) => {
   const {onClick} = props
 
   return (
@@ -37,7 +39,7 @@ const PrevArrow = (props) => {
       variant='arrow'
       onClick={onClick}
       __themeKey='slider'
-      __css={{
+      sx={{
         left: ['35%', null, null, '-52px'],
         ...arrowStyles
       }}
@@ -46,12 +48,14 @@ const PrevArrow = (props) => {
       <Icon name='arrowLeft' />
     </Box>
   )
-}
+} */
 
 const AppendDots = (dots) => {
   return (
-    <Box __css={dotContainerStyles} __themeKey='slider.appendDots'>
-      <ul>{dots}</ul>
+    <Box sx={{maxWidth: '1280px'}}>
+      <Box sx={dotContainerStyles} variant='slider.appendDots'>
+        <ul>{dots}</ul>
+      </Box>
     </Box>
   )
 }
@@ -73,8 +77,6 @@ const Slider = ({
       <SlickSlider
         appendDots={AppendDots}
         draggable={draggable}
-        nextArrow={<NextArrow />}
-        prevArrow={<PrevArrow />}
         speed={speed}
         {...customPagingProp}
         {...props}

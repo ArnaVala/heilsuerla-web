@@ -59,7 +59,6 @@ const AboutStory = ({block, raw}) => {
               )}
             </Flex>
           )}
-
           {blockImageDirectionLeft ? (
             <Flex sx={{justifyContent: 'center', alignItems: 'center'}}>
               <Box sx={{position: 'absolute',
@@ -102,7 +101,6 @@ const AboutStory = ({block, raw}) => {
                 </Box>
               )}
             </Flex>
-
           ) : (
             <Flex variant='container.column' sx={{
               justifyContent: 'center'}}>
@@ -111,7 +109,6 @@ const AboutStory = ({block, raw}) => {
               </Text>
               <PortableText blocks={raw.text} />
             </Flex>
-
           )}
         </Grid>
       </Wrapper>

@@ -1,7 +1,7 @@
 export default {
-  name: 'intro',
+  name: 'ctaHeilsuvidtal',
   type: 'object',
-  title: 'Intro',
+  title: 'ctaHeilsuvidtal',
   fields: [
     {
       title: 'Eyebrow',
@@ -16,12 +16,35 @@ export default {
     {
       title: 'Description',
       name: 'description',
-      type: 'bodyPortableText'
+      type: 'text'
+    },
+    {
+      title: 'List with Icon',
+      name: 'listWithIcon',
+      type: 'array',
+      of: [
+        {
+          type: 'text'
+        }
+      ]
+    },
+    {
+      name: 'ctaLink',
+      type: 'callToAction',
+      title: 'CTA Link'
     },
     {
       name: 'image',
       type: 'mainImage',
       title: 'Image',
+      options: {
+        hotspot: true
+      }
+    },
+    {
+      name: 'backgroundImage',
+      type: 'mainImage',
+      title: 'Background Image',
       options: {
         hotspot: true
       }

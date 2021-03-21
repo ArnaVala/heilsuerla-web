@@ -17,13 +17,13 @@ span.inner {
   font-size: 16px
 }
 ::-moz-selection {
-  background: #ff7d73;
-  color: #173e4c;
+  background: #cde3e7;
+  color: #00788c;
   text-shadow: none;
 }
 ::selection {
-  background: #ff7d73;
-  color: #173e4c;
+  background: #cde3e7;
+  color: #00788c;
   text-shadow: none;
 }
 * {
@@ -40,7 +40,7 @@ span.inner {
   position: relative;
   height: 70px;
   border-radius: 35px;
-  color: #316c76;
+  color: #cde3e7;
   letter-spacing: 0.1em;
   line-height: 70px;
   white-space: nowrap;
@@ -52,9 +52,15 @@ span.inner {
   right: 0;
   bottom: 0;
   left: 0;
-  border: 2px solid#316c76;
+  border: 2px solid#00788c;
   border-radius: inherit;
   content: '';
+  background-color: #00788c;
+/*takeaway*/
+}
+.btn:hover:before {
+  background-color:#cde3e7;
+
 }
 .btn .dot {
   display: block;
@@ -74,7 +80,7 @@ span.inner {
   position: absolute;
   width: 5px;
   height: 5px;
-  background: #ff7d73;
+  background: #cde3e7;
   border-radius: 50%;
   content: '';
   -webkit-transform: scale(1);
@@ -92,7 +98,7 @@ span.inner {
   left: 50%;
   border-top: 5px dashed transparent;
   border-bottom: 5px dashed transparent;
-  border-left: 5px solid #ff7d73;
+  border-left: 5px solid #00788c;
   content: '';
   -webkit-transform: scale(0);
   transform: scale(0);
@@ -121,8 +127,10 @@ span.inner {
     -webkit-clip-path 0.6s cubic-bezier(0.66, -0.18, 0.27, 1.26);
   white-space: nowrap;
   z-index: 3;
-  color: #ff7d73;
+  color:#00788c;
+;
   margin: 0 30px 0 40px;
+  
 }
 .btn .inner {
   display: inline-block;
@@ -132,29 +140,41 @@ span.inner {
   transition: margin 0.25s cubic-bezier(0.18, 0.89, 0.32, 1.28) 0.1s;
   z-index: 2;
   margin: 0 30px 0 40px;
+  color: #cde3e7;
+
+
+
 }
 .btn:hover .inner {
   margin-right: 50px;
   -webkit-transition-delay: 0.4s;
   transition-delay: 0.4s;
   margin-right: 40px;
+
 }
 .btn:hover:after {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+
 }
 .btn:hover .dot {
   margin-left: -35px;
   left: 100%;
   margin-left: -30px;
+  background-color: #00788c;
+
 }
 .btn:hover .dot:before {
   -webkit-transform: scale(0);
   transform: scale(0);
+  background-color: #00788c;
+
 }
 .btn:hover .dot:after {
   -webkit-transform: scale(1);
   transform: scale(1);
+
 }
 @media only screen and (max-width: 1440px) {
   .btn {

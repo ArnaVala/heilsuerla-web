@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import {Link} from 'gatsby'
-import {Box, Flex, jsx, Styled} from 'theme-ui'
+import {Box, Flex, jsx, NavLink, Styled} from 'theme-ui'
 import styled from '@emotion/styled'
 import Hamburger from '../atoms/Hamburger'
 import HeMonogram from '../atoms/Logo/heMonogram'
@@ -9,8 +9,9 @@ import Logo from '../../assets/Logo_HE.png'
 const StyledLi = ({children}) => (
   <li
     sx={{
-      fontWeight: 'normal',
-      display: ['none', 'list-item']
+      fontWeight: '300',
+      color: 'white',
+      display: ['none', 'none', 'list-item']
     }}
   >
     {children}
@@ -18,9 +19,8 @@ const StyledLi = ({children}) => (
 )
 
 const LogoContainer = styled(Box)`
-  width: 48px;
-  height: 48px;
   object-fit: contain;
+  display: flex;  
 
   img {
     width: 100%;
@@ -35,6 +35,7 @@ const StyledHeader = () => {
         sx={{
           margin: '0 auto',
           display: 'flex',
+          flexWrap: 'wrap',
           alignContent: 'center',
           flexDirection: 'row',
           justifyContent: 'space-between',
@@ -49,7 +50,7 @@ const StyledHeader = () => {
               alignItems: 'center'
             }}
           >
-            <LogoContainer>
+            <LogoContainer sx={{width: ['36px']}}>
               <img src={Logo} alt='logo' />
             </LogoContainer>
             <span
@@ -57,12 +58,14 @@ const StyledHeader = () => {
                 color: 'primary',
                 fontSize: ['24px', '32px'],
                 fontFamily: 'heading',
+                fontWeight: '300',
                 mx: 2,
+                mt: '4px',
                 display: 'inline'
               }}
             >
               Heilsu
-              <strong>Erla</strong>
+              <strong sx={{color: 'primary'}}>Erla</strong>
             </span>
           </Box>
         </Link>
@@ -76,22 +79,23 @@ const StyledHeader = () => {
               alignItems: 'center',
               listStyle: 'none',
               '* + *': {
-                ml: '4'
+                ml: 3
               }
             }}
           >
-            <StyledLi>
-              <Link to='/heilsumarkthjalfun'>Heilsumarkþjálfun</Link>
-            </StyledLi>
-            <StyledLi>
-              <Link to='/radgjof'>Ráðgjöf</Link>
-            </StyledLi>
-            <StyledLi>
-              <Link to='/um-erlu'>Um Erlu</Link>
-            </StyledLi>
-            <StyledLi>
-              <Link to='/blogg'>Blogg</Link>
-            </StyledLi>
+
+            <NavLink as={Link} to='/heilsumarkthjalfun'>Heilsumarkþjálfun</NavLink>
+            <NavLink as={Link} to='/radgjof'>
+              Ráðgjöf
+            </NavLink>
+            <NavLink as={Link} to='/blogg'>
+              Blogg
+            </NavLink>
+
+            <NavLink as={Link} to='/um-erlu'>
+              Um Erlu
+            </NavLink>
+
           </Styled.ul>
           <Hamburger />
         </nav>

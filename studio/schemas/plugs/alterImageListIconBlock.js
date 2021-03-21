@@ -1,27 +1,36 @@
 export default {
-  name: 'ctaHero',
+  name: 'alterImageListIconBlock',
   type: 'object',
-  title: 'Cta Hero',
+  title: 'Section-Image and Bullet List',
+  description: 'Options for textblock and CTA',
   fields: [
     {
       title: 'Eyebrow',
       name: 'eyebrow',
-      type: 'string'
+      type: 'string',
+      description: 'Optional'
     },
     {
       title: 'Heading',
       name: 'heading',
-      type: 'string'
+      type: 'string',
+      description: 'Optional,For bigger text CTA'
     },
     {
-      title: 'Description',
-      name: 'description',
-      type: 'bodyPortableText'
+      title: 'SubHeading',
+      name: 'subheading',
+      type: 'string',
+      description: 'optional if using as head of paragraph'
     },
     {
-      name: 'ctaLink',
-      type: 'callToAction',
-      title: 'CTA Link'
+      title: 'List with Icon',
+      name: 'listWithIcon',
+      type: 'array',
+      of: [
+        {
+          type: 'text'
+        }
+      ]
     },
     {
       name: 'image',
@@ -31,6 +40,7 @@ export default {
         hotspot: true
       }
     },
+
     {
       title: 'Image to left',
       name: 'blockImageDirectionLeft',

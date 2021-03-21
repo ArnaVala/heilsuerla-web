@@ -1,30 +1,43 @@
 /** @jsx jsx */
-import {jsx, Flex, Grid} from 'theme-ui'
+import {jsx, Box, Flex, Grid, Container} from 'theme-ui'
 import Image from 'gatsby-plugin-sanity-image'
 
 import {Section, Wrapper} from '../common'
 import IntroTextBlock from '../atoms/introTextBlock'
 
+import TextLink from '../atoms/TextLink'
+
 const AboutIntro = ({block, raw}) => {
-  const {eyebrow, heading, image} = block
+  const {eyebrow, heading, image, ctaLink} = block
 
   return (
-    <Section bg='muted'>
+    <Section>
       <Wrapper variant='container.wide'>
-        <Grid columns={[1, 1, 2]}>
-          <IntroTextBlock eyebrow={eyebrow} heading={heading} description={raw.description} />
+        <Flex sx={{flexDirection: ['column-reverse', null, 'row'], width: '100%'}}>
+          <IntroTextBlock eyebrow={eyebrow} heading={heading} description={raw.description}>
+            {ctaLink && (
+              <Box sx={{mt: '32px'}}>
+                <TextLink toLink={ctaLink.url} data-text={ctaLink.linkText}>
+                  {ctaLink.linkText}
+                </TextLink>
+              </Box>
+            )
+            }
+          </IntroTextBlock>
           {image && image.asset && (
-            <Flex variant='container.row' sx={{justifyContent: 'center', height: ['320px', null, '100%']}}>
-              <Image
-                {...image}
-                width={1600}
-                height={1600}
-                alt={image.alt}
-                css={{width: '100%', height: '100%', objectFit: 'cover'}}
-              />
+            <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center'}}>
+              <Box sx={{maxWidth: ['320px', null, '520px']}}>
+                <Image
+                  {...image}
+                  width={1600}
+                  height={2000}
+                  alt={image.alt}
+                  css={{width: '100%', height: '100%', objectFit: 'contain'}}
+                />
+              </Box>
             </Flex>
           )}
-        </Grid>
+        </Flex>
       </Wrapper>
     </Section>
   )

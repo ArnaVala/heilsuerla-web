@@ -1,5 +1,6 @@
 import React from 'react'
 import {css, keyframes} from '@emotion/core'
+import {jsx, Box} from 'theme-ui'
 
 export function Close ({className}) {
   return (
@@ -31,13 +32,13 @@ export function NavCaret ({className}) {
   )
 }
 
-export function DownArrow ({className}) {
+export function DownArrow ({color}) {
   return (
-    <svg className={className} width='11px' height='126px' viewBox='0 0 11 126' version='1.1'>
-      <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
+    <svg width='11' height='64' viewBox='0 0 11 126' version='1.1'>
+      <g stroke={color} strokeWidth='2' fill='none' fillRule='evenodd'>
         <path
           d='M6.28125,122.886634 L9.84546223,116.550257 L10.0905929,116.114469 L10.9621684,116.60473 L10.7170378,117.040518 L6.21703777,125.040518 L5.78125,125.815252 L5.34546223,125.040518 L0.845462231,117.040518 L0.600331612,116.60473 L1.47190715,116.114469 L1.71703777,116.550257 L5.28125,122.886634 L5.28125,116.795387 L5.28125,0.859375 L5.28125,0.359375 L6.28125,0.359375 L6.28125,0.859375 L6.28125,116.795387 L6.28125,122.886634 Z'
-          fill='currentColor'
+          fill={color}
           fillRule='nonzero'
         />
       </g>
@@ -47,6 +48,7 @@ export function DownArrow ({className}) {
 
 export function ArrowLong ({className}) {
   return (
+
     <svg className={className} width='92px' height='11px' viewBox='0 0 92 11' version='1.1'>
       <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
         <path
@@ -102,7 +104,7 @@ export function Instagram ({className}) {
   return (
     <svg
       aria-hidden='true'
-      className={cx('inline-block', className)}
+      className={sx('inline-block', className)}
       width='19px'
       height='20px'
       viewBox='0 0 19 20'

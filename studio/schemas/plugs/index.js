@@ -1,21 +1,54 @@
-export {default as textImageBlock} from './textImageBlock'
 
-// donesections
-export {default as hero} from './hero'
-export {default as textHeader} from './textHeader'
-export {default as aboutIntro} from './aboutIntro'
-export {default as aboutStory} from './aboutStory'
-export {default as intro} from './intro'
-export {default as imageTextList} from './imageTextList'
-export {default as testimonials} from './testimonials'
+
+
+
+export { default as pricing } from './pricing'
+
+
+
+// recent articles on the blog
+// featured posts
+// SHARED - banner text
+
+
+//radgjofPage sections
+
+
+
+//contactPage sections
+
+
+//sharedSections
+export { default as textHeader } from './textHeader' 
+export { default as textDivider } from './textDivider'
+export { default as quoteBanner } from './quoteBanner'
+export { default as divider } from './divider'
+
+
+//_______//
+export { default as alterImageTextBlock } from './alterImageTextBlock'
+export { default as alterImageListBlock } from './alterImageListBlock'
+export { default as alterImageListIconBlock } from './alterImageListIconBlock'
 //
-export {default as quoteBanner} from './quoteBanner'
-export {default as divider} from './divider'
-export {default as textDivider} from './textDivider'
-export {default as heilsumarkIntro} from './heilsumarkIntro'
-export {default as imageTextListWithIcon} from './imageTextListWithIcon'
-export {default as heilsumarkContent} from './heilsumarkContent'
-export {default as ctaHero} from './ctaHero'
-export {default as ctaHeilsuvidtal} from './ctaHeilsuvidtal'
-export {default as ctaSimple} from './ctaSimple'
-export {default as pricing} from './pricing'
+
+//Special page sections
+//Cta's
+
+export { default as ctaSimple } from './ctaSimple'
+//Dividers
+
+
+
+//
+
+// Heros
+
+
+
+
+
+export { default as textImageBlock } from './textImageBlock'
+
+
+
+

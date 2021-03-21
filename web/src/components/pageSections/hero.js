@@ -11,7 +11,7 @@ const Hero = ({block, raw}) => {
 
   return (
     <Box as='section' variant='layout.container' sx={{m: '0'}}>
-      <Grid columns={[1, null, 2]} gap={0} sx={{width: '100%'}}>
+      <Flex sx={{flexDirection: ['column-reverse', null, 'row'], width: '100%'}}>
         <HeroTextBlock eyebrow={eyebrow} heading={heading} description={raw.description}>
           <Box sx={{mt: '32px'}}>
             <TextLink toLink={ctaLink.url} data-text={ctaLink.linkText}>
@@ -19,10 +19,10 @@ const Hero = ({block, raw}) => {
             </TextLink>
           </Box>
         </HeroTextBlock>
-        <Box variant='container.imgCol' sx={{minHeight: '50vw'}}>
+        <Box variant='container.column' sx={{minHeight: '50vw'}}>
           {
             image && image.asset && (
-              <Flex sx={{justifyContent: 'center', height: '100%'}}>
+              <Flex sx={{justifyContent: 'center', height: ['320px', '50vh', '100%']}}>
                 <Image
                   {...image}
                   width={1600}
@@ -35,7 +35,7 @@ const Hero = ({block, raw}) => {
           }
 
         </Box>
-      </Grid>
+      </Flex>
     </Box>
   )
 }

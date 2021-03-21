@@ -1,12 +1,14 @@
 export default {
-  name: 'aboutIntro',
+  name: 'sectionHeader',
   type: 'object',
-  title: 'About Intro',
+  title: 'Section header',
+  description: 'Optional fields',
   fields: [
     {
       title: 'Eyebrow',
       name: 'eyebrow',
-      type: 'string'
+      type: 'string',
+      description: 'optional eyebrow'
     },
     {
       title: 'Heading',
@@ -16,21 +18,15 @@ export default {
     {
       title: 'Description',
       name: 'description',
-      type: 'bodyPortableText'
-    },
-    {
-      name: 'image',
-      type: 'mainImage',
-      title: 'Image',
-      options: {
-        hotspot: true
-      }
+      type: 'bodyPortableText',
+      description: 'optional eyebrow'
+
     }
   ],
   preview: {
     select: {
       title: 'heading',
-      media: 'image'
+      subtitle: 'eyebrow'
     }
   }
 }

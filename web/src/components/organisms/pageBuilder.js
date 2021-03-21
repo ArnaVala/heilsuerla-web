@@ -1,34 +1,47 @@
 import React from 'react'
-
 import AboutIntro from '../pageSections/aboutIntro'
 import AboutStory from '../pageSections/aboutStory'
 import Hero from '../pageSections/hero'
 import TextImageBlock from '../pageSections/textImageBlock'
-import TextHeader from '../pageSections/textHeader'
+import PageHeader from '../pageSections/pageHeader'
 import ImageTextList from '../pageSections/imageTextList'
 import Testimonials from '../pageSections/testimonials'
 import HeilsumarkIntro from '../pageSections/heilsumarkIntro'
 import HeilsumarkContent from '../pageSections/heilsumarkContent'
 import QuoteBanner from '../pageSections/quoteBanner'
+import HomeServices from '../pageSections/homeServices'
+import CtaHeilsuvidtal from '../pageSections/ctaHeilsuvidtal'
 
 function PageBuilder (props) {
   const {type, pageBuilder, _rawPageBuilder} = props
   // Load the right component, based on the _type from Sanity
   const Components = {
-    // homePage
+    // ** homePage **//
     hero: Hero,
-    // about
+    homeServices: HomeServices,
+    ctaHeilsuvidtal: CtaHeilsuvidtal,
+    testimonials: Testimonials,
+
+    // ** aboutPage **//
     aboutIntro: AboutIntro,
     aboutStory: AboutStory,
-    // heislumark
+
+    // ** heislumark **//
     heilsumarkIntro: HeilsumarkIntro,
     heilsumarkContent: HeilsumarkContent,
+    // pricing: HeilsumarkPricing
+
+    // ** radgjofPage **//
+    // shared-pageHeader
+    // radgjofServices (image with list)
+
     // common
     textImageBlock: TextImageBlock,
-    textHeader: TextHeader,
     imageTextList: ImageTextList,
-    testimonials: Testimonials,
-    quoteBanner: QuoteBanner
+
+    // ** shared **/
+    quoteBanner: QuoteBanner,
+    textHeader: PageHeader
 
   }
   // 'raw' content needs to be passed in for the PortableText Component

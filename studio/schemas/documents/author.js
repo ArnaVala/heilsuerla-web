@@ -30,21 +30,6 @@ export default {
       type: 'bioPortableText',
       title: 'bio'
     },
-    {
-      name: 'aboutIntro',
-      type: 'intro',
-      title: 'Intro Erla'
-    },
-    {
-      name: 'content',
-      type: 'array',
-      title: 'Page sections',
-      description: 'Add, edit, and reorder sections',
-      of: [
-        {type: 'hero'}
-
-      ]
-    }
   ],
   preview: {
     select: {

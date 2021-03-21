@@ -8,9 +8,6 @@ import {Section, Wrapper} from '../../common'
 import TextImageBlock from '../../molecules/TextImageBlock/index'
 
 const AboutText = () => {
-  const aboutDesc = useStaticQuery(query)
-  const {aboutText} = aboutDesc.sanityAuthor
-
   return (
     <Section bg='muted'>
       <Wrapper variant='container.wide' />
@@ -18,11 +15,3 @@ const AboutText = () => {
   )
 }
 export default AboutText
-
-export const query = graphql`
-  query AboutDescQuery {
-    sanityAuthor(slug: {current: {eq: "erla-gudmundsdottir"}}) {
-      ...SanityAbout
-    }
-  }
-`

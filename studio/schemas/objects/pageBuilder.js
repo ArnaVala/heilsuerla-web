@@ -3,6 +3,23 @@ export default {
   type: 'array',
   title: 'Page Builder',
   of: [
+    // Home page
+     {
+      type: 'hero',
+      title: 'Home - Hero Section header'
+    },
+    {
+      type: 'homeServices',
+      title: 'Home - Service Section CTA'
+    },
+    {
+      type: 'ctaHeilsuvidtal',
+      title: 'Call to Action Heilsuviðtal'
+    },
+     {
+      type: 'testimonials',
+      title: 'Testimonials'
+    },
 
     // About page
     {
@@ -13,14 +30,26 @@ export default {
       type: 'aboutStory',
       title: 'About Story'
     },
+
+    
+    // Heilsumark page
     {
-      type: 'ctaHeilsuvidtal',
-      title: 'ctaHeilsuvidtal'
+      type: 'heilsumarkIntro',
+      title: 'Heilsumark Intro'
     },
     {
-      type: 'ctaHero',
-      title: 'ctaHero'
+      type: 'heilsumarkContent',
+      title: 'Heilsumark Content'
     },
+    {
+      type: 'pricing',
+      title: 'Pricing'
+    },
+    
+    // Radgjof page
+
+
+    // Shared sections
     {
       type: 'ctaSimple',
       title: 'ctaSimple'
@@ -28,30 +57,6 @@ export default {
     {
       type: 'divider',
       title: 'Divider'
-    },
-    {
-      type: 'heilsumarkContent',
-      title: 'Heilsumark Content'
-    },
-    {
-      type: 'heilsumarkIntro',
-      title: 'Heilsumark Intro'
-    },
-    {
-      type: 'hero',
-      title: 'Hero for homepage'
-    },
-    {
-      type: 'imageTextList',
-      title: 'Image with Text List and Heading'
-    },
-    {
-      type: 'imageTextListWithIcon',
-      title: 'Image with Text List with Icon'
-    },
-    {
-      type: 'pricing',
-      title: 'Pricing'
     },
     {
       type: 'quoteBanner',
@@ -62,17 +67,14 @@ export default {
       title: 'Divider with Text'
     },
     {
-      type: 'testimonials',
-      title: 'Testimonials'
-    },
-    {
       type: 'textHeader',
       title: 'Page header text'
     },
     {
       type: 'textImageBlock',
       title: 'Text Heading Image'
-    }
+    },
+
 
   ]
 }

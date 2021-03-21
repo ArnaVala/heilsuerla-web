@@ -16,12 +16,12 @@ export default {
     monospace: 'Menlo, monospace'
   },
   colors: {
-    text: '#00465a',
-    heading: '#163e4d',
+    text: '#003c51',
+    heading: '#003c51',
     background: 'white',
     white: '#fff',
     primaryLight: '#00788c',
-    primary: '#00465a',
+    primary: '#003c51',
     primaryMuted: '#cde3e7',
     secondary: '#d2e4eb',
     accent: '#fe7576',
@@ -55,19 +55,25 @@ export default {
 
   container: {
     full: {
-      width: '100vw',
+      minWidth: '100vw',
+      width: '100%',
       m: '0 auto'
     },
     section: {
       width: '100%',
-      px: ['16px', '32px', '64px'],
+      minWidth: '100vw',
+      px: ['0px', '32px', '64px'],
       py: ['64px', '96px', '128px'],
       display: 'flex',
       flexDirection: 'column',
       flexWrap: 'wrap',
       margin: '0 auto'
     },
-
+    wide: {
+      width: '100%',
+      maxWidth: '1280px',
+      margin: '0 auto'
+    },
     inner: {
       width: '100%',
       maxWidth: '1120px',
@@ -102,11 +108,8 @@ export default {
       display: 'flex',
       flexDirection: 'column',
       flexBasis: '100%',
-      minWidth: '320px',
-      flex: '1',
-      px: '16px'
+      flex: '1'
     },
-
     textCol: {
       flexDirection: 'column',
       justifyContent: 'flex-start',
@@ -123,8 +126,6 @@ export default {
     },
 
     quoteBanner: {
-      my: ['32px', '64px', null],
-      mx: ['32px', '64px', null, '128px'],
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
@@ -146,11 +147,7 @@ export default {
       height: '100%',
       minHeight: '100vh'
     },
-    wide: {
-      width: '100%',
-      maxWidth: '1360px',
-      margin: '0 auto'
-    },
+
     flex: {
       justifyContent: 'center',
       alignItems: 'center',
@@ -193,20 +190,22 @@ export default {
 
     },
     header: {
-      backgroundColor: 'muted',
-      color: 'primary',
+      backgroundColor: 'transparent',
       fontWeight: 'normal',
       margin: '0 auto',
-      padding: 2,
-      maxWidth: '100vw',
-      a: {
-        color: 'inherit',
-        textDecoration: 'none'
+      width: '100%',
+      pr: ['16px', '32px'],
+      pl: ['16px', '32px'],
+      py: '24px',
+
+      logo: {
+        width: ['40px', '48px', '64px']
       }
     },
     main: {
       bg: 'white',
-      width: '100vw',
+      width: '100%',
+      minWidth: '100vw',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -215,7 +214,7 @@ export default {
     },
     container: {
       bg: 'white',
-      width: '100vw',
+      width: '100%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -224,7 +223,6 @@ export default {
     }
   },
   text: {
-
     tag: {
       bg: 'accentMuted',
       textTransform: 'uppercase',
@@ -250,18 +248,10 @@ export default {
       fontWeight: 'medium',
       lineHeight: '1.125',
       letterSpacing: '0.01em',
-      fontSize: [9, 11, '80px', '88px'],
-      maxWidth: '600px',
+      fontSize: ['50px', '70px', '70px', '70px'],
       mb: '32px'
     },
-    this: {
-      fontFamily: 'heading',
-      lineHeight: 'heading',
-      fontWeight: 'body',
-      letterSpacing: '0.05em',
-      fontSize: [5, 6, null, null, 6],
-      mb: 3
-    },
+
     // collection of used
     body: {
       fontFamily: 'body',
@@ -271,9 +261,11 @@ export default {
     },
     bigBody: {
       fontFamily: 'body',
+      color: 'primary',
+      fontWeight: '300',
       lineHeight: '1.5',
       fontSize: 3,
-      mb: [4, null, null, 4]
+      mb: [2, 3]
     },
     description: {
       fontFamily: 'body',
@@ -287,7 +279,7 @@ export default {
       fontFamily: 'heading',
       fontWeight: 'heading',
       lineHeight: 'heading',
-      fontSize: '30px'
+      fontSize: ['24px', '30px']
     },
     subheading: {
       fontFamily: 'body',
@@ -299,7 +291,7 @@ export default {
       fontFamily: 'Recoleta',
       fontWeight: '500',
       lineHeight: 'heading',
-      fontSize: ['40px', '50px', '60px'],
+      fontSize: ['50px', '60px', '60px'],
       marginBottom: 3,
       maxWidth: '840px'
     },
@@ -307,23 +299,27 @@ export default {
       fontFamily: 'heading',
       fontWeight: 'heading',
       lineHeight: 'heading',
-      fontSize: ['30px', '40px']
-
+      fontSize: ['30px', '40px', '50px']
+    },
+    cardtitle: {
+      fontFamily: 'heading',
+      fontWeight: 'heading',
+      lineHeight: 'heading',
+      fontSize: ['32px', '40px', '50px']
     },
     eyebrow: {
       fontFamily: 'body',
-      fontWeight: 'body',
+      fontWeight: '400',
       lineHeight: 'body',
       textTransform: 'uppercase',
-      color: 'accent',
+      color: 'primaryLight',
       fontSize: '16px',
       letterSpacing: '.05em',
       mb: 3
     },
-
     postTitle: {
       fontFamily: 'heading',
-      fontWeight: '500',
+      fontWeight: 'heading',
       fontSize: '24px'
     },
     caps: {
@@ -349,23 +345,41 @@ export default {
   },
   links: {
     nav: {
-      px: 2,
-      textDecoration: 'none',
-      fontFamily: 'body',
-      fontWeight: 'normal',
-      letterSpacing: '0.05em',
-      fontSize: '18px',
+      color: 'primaryLight',
+      display: ['none', 'none', 'grid'],
+      gridTemplateColumns: 'auto 1fr',
+      mx: 1,
+      borderBottom: '1px solid',
+      borderColor: 'transparent',
+      transition: 'all 0.3s ease-in-out',
+
       '&:hover': {
-        color: 'accent'
+        color: 'primaryLight',
+        borderBottom: '1px solid',
+        borderColor: 'primaryLight',
+        transition: 'all 0.3s ease-in-out'
+
       },
-      '&:active': {
+      '&[aria-current= "page"]': {
         color: 'primary',
         borderBottom: '1px solid',
         borderColor: 'primary',
         transition: 'all 0.3s ease-in-out'
       }
+    },
+    hamburger: {
+      px: 2,
+      zIndex: '1000',
+      textDecoration: 'none',
+      color: 'white',
+      fontFamily: 'body',
+      fontWeight: 'normal',
+      letterSpacing: '0.05em',
+      fontSize: '24px',
+      '&:hover': {
+        color: 'pink'
+      }
     }
-
   },
   hr: {
     border: '2px solid black'
@@ -373,40 +387,55 @@ export default {
   buttons: {
 
   },
+  slider: {
+    arrow: {
+      backgroundColor: 'accentMuted',
+      border: '2px dotted transparent',
+      color: 'accent',
+      '&:focus': {
+        borderColor: 'accent'
+      },
+      '&:hover': {
+        color: 'accent',
+        borderColor: 'accent'
+      }
+    },
+    quoteSymbol: {
+      backgroundColor: 'primaryMuted'
+    }
+  },
   cards: {
     default: {
       bg: 'white',
-      px: '32px',
-      color: 'primaryLight',
-      outline: '2px solid',
-      outlineColor: 'primaryLight',
+      px: ['16px', '32px', '64px'],
+      py: ['64px', '96px', null],
+      mx: ['16px', '0px', null],
+      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
       zIndex: 2,
 
       '&:hover': {
-        boxShadow: '0px 0px 48px rgba(0, 0, 0, 0.15)',
-        zIndex: '10'
+        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
+        zIndex: '10',
+        bg: 'white'
       }
     },
     primary: {
-      color: 'primaryLight',
+      bg: 'muted',
       padding: 2,
       borderRadius: 4,
-      boxShadow: '0 12px 48px rgba(0, 0, 0, 1)'
+      boxShadow: '0 12px 32px rgba(0,0,0, 0.3)'
     },
     testimonial: {
-      display: 'flex',
-      bg: 'muted',
-      overflow: 'hidden',
-      color: 'primary',
-      p: '24px',
-      m: ['0px', null, '64px'],
-      borderRadius: '8px',
+      width: '100%',
+      bg: 'primaryBg',
+      px: ['16px', '32px', '64px'],
 
       quote: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        mb: '24px'
+        mb: '24px',
+        textAlign: 'center'
       }
     }
   },

@@ -1,28 +1,26 @@
 export const arrowStyles = {
   cursor: 'pointer',
   borderRadius: '50%',
-  display: 'block',
+  display: 'none',
   fontSize: 0,
-  height: '2.75rem',
+  height: '40px',
+  width: '40px',
   lineHeight: 0,
   outline: 'none',
   padding: '0.5rem',
   position: 'absolute',
   bottom: ['-70px', null, '50%'],
-  transform: [null, null, 'translate(0, 50%)'],
-  width: '2.75rem'
+  transform: [null, null, 'translate(0, 50%)']
+
 }
 
 export const dotContainerStyles = {
-  position: ' absolute',
-  bottom: -40,
-  display: 'block',
+  position: 'relative',
   width: '100%',
-  p: 0,
+  p: '48px',
   m: 0,
   listStyle: 'none',
   textAlign: 'center',
-
   ul: {
     m: 0,
     p: 0
@@ -31,20 +29,19 @@ export const dotContainerStyles = {
   li: {
     position: 'relative',
     display: 'inline-block',
-
     m: 0,
     p: 0,
 
     cursor: 'pointer',
 
     '&.slick-active :before': {
-      bg: 'accent'
+      bg: 'primaryLight'
     }
   }
 }
 
 export const dotStyles = {
-  bg: 'muted',
+  bg: 'primaryBg',
   borderRadius: '50%',
   border: '2px dotted transparent',
   cursor: 'pointer',
@@ -54,13 +51,16 @@ export const dotStyles = {
   textAlign: 'center',
   width: 40,
   zIndex: 10,
+  m: '4px',
 
   ':focus': {
     borderColor: 'primary'
   },
 
   ':before': {
-    bg: 'primaryLight',
+    bg: 'none',
+    border: '2px solid',
+    borderColor: 'primaryLight',
     width: 14,
     height: 14,
     content: '""',
@@ -83,8 +83,9 @@ export const dotStyles = {
 }
 
 export const dotLabelStyles = {
-  bottom: -35,
-  bg: 'accent',
+  bottom: -48,
+  display: 'none',
+  bg: 'primary',
   borderRadius: 4,
   fontWeight: '300',
   fontSize: 'body',
@@ -92,8 +93,8 @@ export const dotLabelStyles = {
   p: 2,
   position: 'absolute',
   transform: 'translateX(-50%)',
-  width: 215,
-  left: 20,
+  width: 220,
+  left: 24,
 
   '&::after': {
     borderLeft: '1rem solid transparent',

@@ -13,6 +13,10 @@ export const query = graphql`
           alt
           ... SanityImage
         }
+        ctaLink {
+          linkText
+          url
+        }
       }
       ... on SanityAboutStory {
         _key
@@ -23,6 +27,41 @@ export const query = graphql`
           ... SanityImage
         }
         blockImageDirectionLeft
+      }
+      ... on SanityCtaHeilsuvidtal {
+        _key
+        _type
+        eyebrow
+        heading
+        description
+        listWithIcon
+        ctaLink {
+          linkText
+          url
+        }
+        image {
+          alt
+          ... SanityImage
+        }
+        backgroundImage {
+          alt
+          ... SanityImage
+        }
+      }
+      ... on SanityCtaSimple {
+        _key
+        _type
+        eyebrow
+        heading
+        listWithIcon
+        ctaLink {
+          linkText
+          url
+        }
+        backgroundImage {
+          alt
+          ... SanityImage
+        }
       }
       ... on SanityDivider {
         _key
@@ -82,7 +121,6 @@ export const query = graphql`
           name
           description
         }
-
       }
       ... on SanityHero {
         _key
@@ -97,30 +135,58 @@ export const query = graphql`
           alt
           ... SanityImage
         }
+        backgroundImage {
+          alt
+          ... SanityImage
+        }
       }
-      ... on SanityImageTextList {
+      ... on SanityHomeServices {
         _key
         _type
-        heading
-        image {
-          ...SanityImage
-          alt
-        }
-        serviceList {
+        sectionHeader {
           _key
           _type
-          name
+          eyebrow
+          heading
+        }
+        heilsumark {
+          _key
+          _type
+          eyebrow
+          heading
+          subheading
           description
+          ctaLink {
+            _key
+            _type
+            linkText
+            url
+          }
+          image {
+            ...SanityImage
+            alt
+          }
+          blockImageDirectionLeft 
         }
-      }
-      ... on SanityImageTextListWithIcon {
-        _key
-        _type
-        image {
-          ...SanityImage
-          alt
+        radgjof {
+          _key
+          _type
+          eyebrow
+          heading
+          subheading
+          description
+          ctaLink {
+            _key
+            _type
+            linkText
+            url
+          }
+          image {
+            ...SanityImage
+            alt
+          }
+          blockImageDirectionLeft 
         }
-        listWithIcon
       }
       ... on SanityQuoteBanner {
         _key

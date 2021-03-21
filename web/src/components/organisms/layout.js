@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import {jsx, Box} from 'theme-ui'
 import Header from './header'
 import '../../styles/global.css'
+import Footer from './footer'
 
 const Layout = ({title, description, children}) => {
   return (
@@ -12,10 +13,10 @@ const Layout = ({title, description, children}) => {
         <meta name='description' content='HeilsuErla, heilsumarkþjálfun og ráðgjöf' />
       </Helmet>
       <Header />
-      <Box as='main' >
-        <Box>{children}</Box>
+      <Box as='main' variant='layout.main' >
+        {children}
       </Box>
-      <footer />
+      <Footer />
     </Box>
   )
 }

@@ -16,7 +16,16 @@ export {default as service} from './service'
 export {default as testimonial} from './testimonial'
 export {default as textIconList} from './textIconList'
 export {default as bigTextWithBorder} from './bigTextWithBorder'
-export {default as headingWithText} from './headingWithText'
+
+
+//section parts
+export { default as headingWithText } from './headingWithText'
+export { default as alterImageList} from './alterImageList'
+export { default as imageTextList } from './imageTextList'
+export { default as imageTextListWithIcon } from './imageTextListWithIcon'
+
+export { default as sectionHeader } from './sectionHeader'
+
 
 // page config
 export {default as pageBuilder} from './pageBuilder'

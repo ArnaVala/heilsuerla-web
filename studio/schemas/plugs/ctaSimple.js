@@ -1,7 +1,7 @@
 export default {
   name: 'ctaSimple',
   type: 'object',
-  title: 'Simple CTA',
+  title: 'Simple CTA with List',
   fields: [
     {
       title: 'Eyebrow',
@@ -32,7 +32,15 @@ export default {
       name: 'ctaLink',
       type: 'callToAction',
       title: 'CTA Link'
-    }
+    },
+    {
+      name: 'backgroundImage',
+      type: 'mainImage',
+      title: 'Image',
+      options: {
+        hotspot: true
+      }
+    },
   ],
   preview: {
     select: {

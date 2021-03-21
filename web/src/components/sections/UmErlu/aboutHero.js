@@ -8,10 +8,6 @@ import PortableText from '../../atoms/portableText'
 import {Section, Wrapper} from '../../common'
 
 const AboutHero = () => {
-  const about = useStaticQuery(query)
-  const {aboutIntro, _rawAboutIntro} = about.sanityAuthor
-  const {eyebrow, heading, image} = aboutIntro
-
   return (
     <Section bg='muted'>
       <Wrapper variant='container.wide'>
@@ -62,11 +58,3 @@ const AboutHero = () => {
   )
 }
 export default AboutHero
-
-export const query = graphql`
-  query AboutQuery {
-    sanityAuthor(slug: {current: {eq: "erla-gudmundsdottir"}}) {
-      ...SanityAbout
-    }
-  }
-`

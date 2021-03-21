@@ -1,7 +1,7 @@
 export default {
-  name: 'ctaHeilsuvidtal',
+  name: 'aboutIntro',
   type: 'object',
-  title: 'ctaHeilsuvidtal',
+  title: 'About Intro',
   fields: [
     {
       title: 'Eyebrow',
@@ -14,40 +14,32 @@ export default {
       type: 'string'
     },
     {
-      title: 'text',
-      name: 'text',
-      type: 'text'
-    },
-    {
       title: 'Description',
       name: 'description',
       type: 'bodyPortableText'
     },
-    {
-      title: 'List with Icon',
-      name: 'listWithIcon',
-      type: 'array',
-      of: [
-        {
-          type: 'text'
-        }
-      ]
-    },
-    {
+     {
       name: 'ctaLink',
       type: 'callToAction',
       title: 'CTA Link'
     },
     {
-      name: 'image',
-      type: 'mainImage',
-      title: 'Image',
+      name: 'backgroundColor',
+      type: 'string',
+      title: 'BackgroundColor',
       options: {
-        hotspot: true
+        list: [
+          {title: 'MutedOat', value: 'muted'},
+          {title: 'White', value: 'white'},
+          {title: 'PrimaryMuted', value: 'primaryMuted'},
+          {title: 'AccentMuted', value: 'accentMuted'},
+          {title: 'Primary Light', value: 'primaryLight'}
+        ],
+        layout: 'dropdown' // <-- defaults to 'dropdown'
       }
     },
     {
-      name: 'backgroundImage',
+      name: 'image',
       type: 'mainImage',
       title: 'Image',
       options: {
