@@ -52,7 +52,7 @@ const CopyRightArea = styled.div`
 
 const Footer = () => (
   <Box as='footer' bg='primary' sx={{width: '100%', px: ['16px', '48px', '64px', null], pt: ['64px']}}>
-    <Wrapper variant='container.full'>
+    <Wrapper variant='container.full' sx={{pb: '32px'}}>
       <Flex variant='container.row' sx={{gap: '32px'}}>
         <Flex variant='container.row' sx={{flexDirection: ['column', 'row'], justifyContent: 'space-between', alignItems: 'center', flex: '100%'}}>
           <Link sx={{zIndex: '2'}} to='/'>
@@ -108,16 +108,7 @@ const Footer = () => (
               erla@heilsuerla.is
             </a>
           </Link>
-          <Box
-            sx={{color: 'primaryBg',
-              fontWeight: '300',
-              fontSize: '16px',
-              letterSpacing: '0.03em',
-              lineHeight: '28px'}}>
-            Erla Guðmundsdóttir er heilsumarkþjálfi og ráðgjafi.
-          </Box>
         </Flex>
-
         <Flex variant='container.column' sx={{pt: '32px'}} >
           <Text variant='eyebrow' color='accentMuted' sx={{fontSize: '14px', letterSpacing: '0.1em', pb: '8px'}}>
             HeilsuErla

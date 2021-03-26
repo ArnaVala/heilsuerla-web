@@ -38,7 +38,6 @@ const RadgjofPage = (props) => {
       <SEO />
       <Container>
         <PageBuilder pageBuilder={pageBuilder} _rawPageBuilder={_rawPageBuilder} />
-        <Contact />
       </Container>
     </Layout>
   )

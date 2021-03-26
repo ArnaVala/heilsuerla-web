@@ -10,7 +10,17 @@ export default function PostListAllSection ({posts, title}) {
       <Wrapper variant='container.wide' sx={{m: '0 auto'}}>
         <Flex variant='container.column'>
           {
-            title && <Text variant='subtitle' sx={{textAlign: 'center', mb: '64px', fontWeight: '400'}}>{title}</Text>
+            title && <Text
+              variant='sectionTitle'
+              color='primaryLight'
+              sx={{
+                maxWidth: '640px',
+                pb: '64px'
+              }}
+            >
+              {title}
+            </Text>
+
           }
         </Flex>
         <Box

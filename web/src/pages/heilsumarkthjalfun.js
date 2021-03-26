@@ -4,7 +4,6 @@ import GraphQLErrorList from '../components/atoms/graphql-error-list'
 import SEO from '../components/atoms/seo'
 import Layout from '../components/organisms/layout'
 import {Container} from 'theme-ui'
-
 import PageBuilder from '../components/organisms/pageBuilder'
 
 export const query = graphql`
@@ -37,6 +36,7 @@ const HeilsumarkthjalfunPage = (props) => {
       <SEO />
       <Container>
         <PageBuilder pageBuilder={pageBuilder} _rawPageBuilder={_rawPageBuilder} />
+
       </Container>
     </Layout>
   )
