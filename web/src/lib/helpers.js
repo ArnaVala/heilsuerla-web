@@ -18,7 +18,7 @@ export function filterOutDocsPublishedInTheFuture ({publishedAt}) {
 }
 
 export function getBlogUrl (slug) {
-  return `/pistlar/${slug.current || slug}/`
+  return `/blogg/${slug.current || slug}/`
 }
 
 export function buildImageObj (source = {asset: {}}) {

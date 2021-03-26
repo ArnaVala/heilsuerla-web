@@ -33,7 +33,7 @@ const ButtonGroup = styled(Box)`
 
 const Tabs = styled(Box)`
   overflow: hidden;
-  background: white;
+  background:none;
   font-family: 'Sofia Pro';
   height: '64px';
 `
@@ -97,140 +97,154 @@ const HeilsumarkInfo = ({block, raw}) => {
           )}
           <Box sx={{height: '2px', mt: '16px', mb: '16px', bg: 'accent', width: '128px'}} />
           {description && (
-            <Text as='p' variant='bigBody' sx={{maxWidth: '560px'}}>
+            <Text as='p' variant='bigBody' color='primaryBg' sx={{maxWidth: '560px'}}>
               {description}
             </Text>
           )}
         </Flex>
 
-        <Box>
-          <Flex
+        <Flex
+          sx={{
+            flexDirection: 'column',
+            width: '100%',
+            height: '100%',
+            textAlign: 'center',
+            justifyContent: 'center',
+            alignItems: 'center',
+            maxWidth: '960px'
+          }}
+        >
+
+          <Tabs
             sx={{
-              flexDirection: 'column',
-              width: '100%',
-              height: '100%',
-              textAlign: 'center',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
-
-            <Tabs sx={{borderBottom: '1px solid white'
+              borderBottom: '1px solid',
+              borderColor: 'primaryBg',
+              width: '100%'
             }}>
-              <Tab onClick={handleClick} active={active === 0} id={0}>
-                {stepsTab.tabTitle}
-              </Tab>
-              <Tab onClick={handleClick} active={active === 1} id={1}>
-                {
-                  pricingTab.tabTitle
-                }
+            <Tab onClick={handleClick} active={active === 0} id={0}>
+              {stepsTab.tabTitle}
+            </Tab>
+            <Tab onClick={handleClick} active={active === 1} id={1}>
+              {
+                pricingTab.tabTitle
+              }
 
-              </Tab>
-              <Tab onClick={handleClick} active={active === 2} id={2}>
-                {
-                  includedTab.tabTitle
-                }
+            </Tab>
+            <Tab onClick={handleClick} active={active === 2} id={2}>
+              {
+                includedTab.tabTitle
+              }
 
-              </Tab>
-            </Tabs>
-            <Content
-              active={active === 0}
-              sx={{px: ['16px', '32px', '64px'], pb: '64px', m: '0 auto'}}>
-              <Flex variant='container.column' py='64px' sx={{justifyContent: 'center', alignItems: 'center'}}>
-                <Text color='primaryBg' variant='subheading' sx={{maxWidth: '560px', fontWeight: '300'}}>{stepsTab.description}</Text>
-              </Flex>
-              <Grid columns={[1, 2, 3]}sx={{justifyContent: 'center'}}>
-                {stepsTab.stepsList.map((item) => {
+            </Tab>
+          </Tabs>
+          <Content
+            active={active === 0}
+            sx={{px: ['16px', '32px', '64px'], pb: '64px', m: '0 auto'}}>
+            <Flex
+              variant='container.column'
+              py='64px'
+              sx={{
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <Text color='primaryBg' variant='subheading' sx={{maxWidth: '560px', fontWeight: '300'}}>{stepsTab.description}</Text>
+            </Flex>
+            <Grid columns={[1, 2, 4]}sx={{justifyContent: 'center'}}>
+              {stepsTab.stepsList.map((item) => {
+                const {heading, description} = item
+                return (
+                  <Grid columns={1} key={item._key}>
+                    <Flex variant='container.column' sx={{justifyContent: 'start', alignItems: 'center'}}>
+                      <Box bg='accent' my='16px' sx={{height: '48px', width: '48px', borderRadius: '50%'}}>
+                        <Text color='' sx={{fontFamily: 'body', fontSize: '40px', lineHeight: '52px'}}>3</Text>
+                      </Box>
+                      <Text color='primaryBg' variant='subheading' sx={{fontWeight: '300', pb: '8px'}}>
+                        {heading}
+                      </Text>
+                      <Text color='primaryBg' as='p' sx={{fontSize: '16px'}}>
+                        {description}
+                      </Text>
+                    </Flex>
+
+                  </Grid>
+                )
+              })}
+            </Grid>
+          </Content>
+          <Content active={active === 1} sx={{width: '100%', px: ['16px', '32px', '64px'], pb: '64px', m: '0 auto'}}>
+            <Flex variant='container.column' py='64px' sx={{justifyContent: 'center', alignItems: 'center'}}>
+              <Text color='primaryBg' variant='subheading' sx={{maxWidth: '560px', fontWeight: '300'}}>
+                {pricingTab.description}
+              </Text>
+            </Flex>
+            <Flex variant='container.row' sx={{columnGap: '32px'}}>
+              {pricingTab.prices.map((item) => {
+                const {plan, amount, payment, info} = item
+                return (
+                  <Flex key={item._key} bg='primaryBg' variant='container.column' sx={{flexBasis: '100%', flex: 1, justifyContent: 'start', alignItems: 'center'}}>
+                    <Box bg='accent' sx={{px: '32px', py: '24px', width: '100%', alignSelf: 'flex-center'}}>
+                      <Text as='h4' color='white' variant='eyebrow' sx={{}}>
+                        {plan}
+                      </Text>
+                    </Box>
+                    <Flex variant='container.column' p='32px'>
+                      <Text as='p' sx={{fontSize: '32px', fontWeight: 'bold'}}>
+                        {amount}{' '}
+                      </Text>
+                      <Text as='p' sx={{fontSize: '16px'}}>
+                        {payment}{' '}
+                      </Text>
+                      <Text as='p' sx={{fontSize: '16px'}}>
+                        {info}
+                      </Text>
+                    </Flex>
+                  </Flex>
+                )
+              })}
+            </Flex>
+            <Text py={'32px'} variant='bigBody' color='primaryBg' sx={{letterSpacing: '0.03em'}}>
+              Athugið að mörg stéttarfélög veita styrki fyrir markþjálfun.
+            </Text>
+
+          </Content>
+          <Content
+            active={active === 2}
+            sx={{px: ['16px', '32px', '64px'], pb: '64px', m: '0 auto'}}
+          >
+            <Flex variant='container.column' py='64px' sx={{justifyContent: 'center', alignItems: 'center'}}>
+              <Text color='primaryBg' variant='subheading' sx={{maxWidth: '560px', fontWeight: '300'}}>
+                {includedTab.description}
+              </Text>
+            </Flex>
+            <Flex variant='container.column' sx={{justifyContent: 'center'}}>
+              <Grid columns={[1, 2, null, null]} sx={{py: ['32px', '48px', '64px'], px: ['16px', '32px', null], m: '0 auto'}}>
+                {includedTab.includedList.map((item) => {
                   const {heading, description} = item
                   return (
-                    <Grid columns={1} key={item._key}>
-                      <Flex variant='container.column' sx={{justifyContent: 'start', alignItems: 'center'}}>
-                        <Box bg='accent' my='16px' sx={{height: '48px', width: '48px', borderRadius: '50%'}}>
-                          <Text color='' sx={{fontFamily: 'body', fontSize: '40px', lineHeight: '52px'}}>3</Text>
-                        </Box>
-                        <Text color='primaryBg' variant='subheading' sx={{fontWeight: '300', pb: '8px'}}>
+                    <Grid
+                      columns={'24px 1fr'}
+                      key={item._key}
+                    >
+                      <Flex sx={{justifyContent: 'center', mr: '-24px'}}>
+                        <FiArrowRightCircle color='#ff7476' fontSize='24px' />
+                      </Flex>
+                      <Flex variant='container.column' sx={{textAlign: 'left'}}>
+                        <Text color='primaryBg' variant='bigBody' sx={{fontWeight: '400', lineHeight: 'body', pb: '8px'}}>
                           {heading}
                         </Text>
                         <Text color='primaryBg' as='p' sx={{fontSize: '16px'}}>
                           {description}
                         </Text>
                       </Flex>
-
                     </Grid>
                   )
                 })}
               </Grid>
-            </Content>
-            <Content active={active === 1} sx={{px: ['16px', '32px', '64px'], pb: '64px', m: '0 auto'}}>
-              <Flex variant='container.column' py='64px' sx={{justifyContent: 'center', alignItems: 'center'}}>
-                <Text color='primaryBg' variant='subheading' sx={{maxWidth: '560px', fontWeight: '300'}}>
-                  {pricingTab.description}
-                </Text>
-              </Flex>
-              <Grid columns={[1, 2]} sx={{justifyContent: 'center'}}>
-                {pricingTab.prices.map((item) => {
-                  const {plan, amount, payment, info} = item
-                  return (
-                    <Grid columns={1} key={item._key}>
-                      <Flex variant='container.column' sx={{justifyContent: 'start', alignItems: 'center'}}>
-                        <Card variant='default' bg='primaryMuted' sx={{width: '100%', height: '100%'}}>
-                          <Text as='h4' variant='eyebrow' pb='16px' sx={{}}>
-                            {plan}
-                          </Text>
-                          <Text as='p' sx={{fontSize: '32px', fontWeight: 'bold'}}>
-                            {amount}{' '}
-                          </Text>
-                          <Text as='p' sx={{fontSize: '16px'}}>
-                            {payment}{' '}
-                          </Text>
-                          <Text as='p' sx={{fontSize: '16px'}}>
-                            {info}
-                          </Text>
-                        </Card>
-                      </Flex>
-                    </Grid>
-                  )
-                })}
-              </Grid>
-            </Content>
-            <Content
-              active={active === 2}
-              sx={{px: ['16px', '32px', '64px'], pb: '64px', m: '0 auto'}}
-            >
-              <Flex variant='container.column' py='64px' sx={{justifyContent: 'center', alignItems: 'center'}}>
-                <Text color='primaryBg' variant='subheading' sx={{maxWidth: '560px', fontWeight: '300'}}>
-                  {includedTab.description}
-                </Text>
-              </Flex>
-              <Flex variant='container.column' sx={{justifyContent: 'center'}}>
-                <Grid columns={[1, 2, null, null]} sx={{py: ['32px', '48px', '64px'], px: ['16px', '32px', null], m: '0 auto'}}>
-                  {includedTab.includedList.map((item) => {
-                    const {heading, description} = item
-                    return (
-                      <Grid
-                        columns={'24px 1fr'}
-                        key={item._key}
-                      >
-                        <Flex sx={{justifyContent: 'center', mr: '-24px'}}>
-                          <FiArrowRightCircle color='#ff7476' fontSize='24px' />
-                        </Flex>
-                        <Flex variant='container.column' sx={{textAlign: 'left'}}>
-                          <Text color='primaryBg' variant='bigBody' sx={{fontWeight: '600', lineHeight: 'heading', pb: '8px'}}>
-                            {heading}
-                          </Text>
-                          <Text color='primaryBg' as='p' sx={{fontSize: '16px'}}>
-                            {description}
-                          </Text>
-                        </Flex>
-                      </Grid>
-                    )
-                  })}
-                </Grid>
-              </Flex>
-            </Content>
+            </Flex>
+          </Content>
 
-          </Flex>
-        </Box>
+        </Flex>
       </Wrapper>
     </Section>
   )
