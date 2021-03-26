@@ -16,8 +16,9 @@ export const arrowStyles = {
 
 export const dotContainerStyles = {
   position: 'relative',
+  bg: 'transparent',
   width: '100%',
-  p: '48px',
+  p: '24px',
   m: 0,
   listStyle: 'none',
   textAlign: 'center',
@@ -41,20 +42,22 @@ export const dotContainerStyles = {
 }
 
 export const dotStyles = {
-  bg: 'primaryBg',
+  bg: 'transparent',
   borderRadius: '50%',
   border: '2px dotted transparent',
   cursor: 'pointer',
   display: 'block',
-  height: '40px',
+  height: 40,
   outline: 'none',
   textAlign: 'center',
   width: 40,
   zIndex: 10,
   m: '4px',
+  mt: '-12px',
 
   ':focus': {
-    borderColor: 'primary'
+    bg: 'primaryMuted',
+    borderColor: 'accent'
   },
 
   ':before': {

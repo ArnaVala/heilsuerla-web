@@ -4,7 +4,7 @@ export default {
   title: 'Page Builder',
   of: [
     // Home page
-     {
+    {
       type: 'hero',
       title: 'Home - Hero Section header'
     },
@@ -16,7 +16,7 @@ export default {
       type: 'ctaHeilsuvidtal',
       title: 'Call to Action Heilsuviðtal'
     },
-     {
+    {
       type: 'testimonials',
       title: 'Testimonials'
     },
@@ -31,7 +31,6 @@ export default {
       title: 'About Story'
     },
 
-    
     // Heilsumark page
     {
       type: 'heilsumarkIntro',
@@ -42,12 +41,11 @@ export default {
       title: 'Heilsumark Content'
     },
     {
-      type: 'pricing',
-      title: 'Pricing'
+      type: 'heilsumarkInfo',
+      title: 'Heilsumark Info'
     },
-    
-    // Radgjof page
 
+    // Radgjof page
 
     // Shared sections
     {
@@ -73,8 +71,7 @@ export default {
     {
       type: 'textImageBlock',
       title: 'Text Heading Image'
-    },
-
+    }
 
   ]
 }

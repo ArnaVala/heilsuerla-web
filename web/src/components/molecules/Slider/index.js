@@ -52,7 +52,7 @@ const PrevArrow = (props) => {
 
 const AppendDots = (dots) => {
   return (
-    <Box sx={{maxWidth: '1280px'}}>
+    <Box sx={{position: 'relative', top: '-64px'}}>
       <Box sx={dotContainerStyles} variant='slider.appendDots'>
         <ul>{dots}</ul>
       </Box>

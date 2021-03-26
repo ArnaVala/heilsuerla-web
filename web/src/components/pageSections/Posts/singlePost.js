@@ -6,6 +6,7 @@ import PortableText from '../../../components/atoms/portableText'
 
 import {Box, Container, Flex, Grid, Text} from 'theme-ui'
 import Share from '../../common/Share'
+import {Wrapper} from '../../common'
 
 export default function SinglePost (props) {
   const {categories, image, publishedAt, _rawBody, _rawExcerpt, authors, title} = props
@@ -14,15 +15,15 @@ export default function SinglePost (props) {
   return (
     <div>
       <Grid bg='muted' columns={[1, 2, 2]} gap={0} >
-        <Flex px={[2, 3, 4]} sx={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%'}}>
+        <Flex px={[2, 3, 4]} sx={{flexDirection: 'column', order: [1, 0], justifyContent: 'center', alignItems: 'center', height: '100%', py: '64px'}}>
           <Box>
             {categories.map((category) => (
-              <Text as='h4' variant='caps' key={category.id}>
+              <Text as='h4' variant='eyebrow' pb='32px' key={category.id}>
                 {category.title}
               </Text>
             ))}
           </Box>
-          <Text variant='title' sx={{textAlign: 'center'}}>{title}</Text>
+          <Text variant='sectionTitle' sx={{textAlign: 'center', pb: '32px'}}>{title}</Text>
           {publishedAt && (
             <Text variant='caps' sx={{fontSize: '14px'}}>
               {differenceInDays(new Date(publishedAt), new Date()) > 3
@@ -36,21 +37,29 @@ export default function SinglePost (props) {
           {image && image.asset && (
             <Image
               {...image}
-              width={3200}
-              height={2400}
+              width={1500}
+              height={1200}
               alt={image.alt}
               css={{objectFit: 'cover', height: '100%', width: '100%'}}
             />
           )}
         </Flex>
+
       </Grid>
 
-      <Container variant='container.inner' as='article' my={4}>
+      <Wrapper
+        variant='container.wide'
+        sx={{
+          px: ['20px', '64px'],
+          py: ['64px']
+        }}
+      >
+
         {_rawExcerpt && <PortableText blocks={_rawExcerpt} />}
-        <Box as='div' variant='container.blog'>
+        <Box as='div' variant='container.blog' sx={{maxWidth: '560px', margin: '0 auto'}}>
           {_rawBody && <PortableText blocks={_rawBody} />}
         </Box>
-      </Container>
+      </Wrapper>
     </div>
 
   )

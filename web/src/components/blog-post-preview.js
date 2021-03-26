@@ -3,46 +3,48 @@ import React from 'react'
 import {getBlogUrl} from '../lib/helpers'
 import Image from 'gatsby-plugin-sanity-image'
 
-import {Box, Flex, Text} from 'theme-ui'
-import Card from '../components/common/Card'
+import {Box, Flex, Text, Card} from 'theme-ui'
 
-function BlogPostPreview (props) {
+function BlogPostPreview ({post}) {
+  const {image, categories, title, slug} = post
+
   return (
-    <Card>
-      <Link
-        to={getBlogUrl(props.slug.current)}
-      >
-        <Box>
-          {props.categories && (
-            <Box sx={{display: 'inline-block'}}>
-              {props.categories.map((category) => (
-                <Box variant='text.tag' sx={{}} key={props.category._id}>
-                  {props.category.title}
-                </Box>
-              ))}
-            </Box>
-          )}
+    <Card variant='postCard'>
+      <Link to={getBlogUrl(slug.current)}>
+        <Box sx={{
+          display: 'grid',
+          gridTemplateRows: 'auto auto auto',
+          gridGap: 2
+        }}>
+          <Box sx={{height: 'auto'}}>
+            {image && image.asset && (
+              <Image
+                {...image}
+                width={800}
+                height={800}
+                alt={image.alt}
+                css={{width: '100%', height: '100%', objectFit: 'cover'}}
+              />
+
+            )}
+          </Box>
+          ;<Flex sx={{alignItems: 'center', justifyContent: 'center', mt: '8px'}}>
+            {categories.map((category) => (
+              <Text variant='postCategory' key={category.id}>
+                {category.title}
+              </Text>
+            ))}
+          </Flex>
+          <Flex
+            sx={{justifyContent: 'center', alignItems: 'center', p: '24px', height: '120px', mb: '32px'}}
+          >
+            <Text sx={{justifyContent: 'center'}} variant='postTitle'>
+              {title}
+            </Text>
+          </Flex>
         </Box>
-
-        <Flex>
-          {props.image && props.image.asset && (
-            <Image
-              {...props.image}
-              width={1920}
-              height={1920}
-              alt={props.image.alt}
-              css={{width: '100%', height: '100%', objectFit: 'cover', maxWidth: '480px'}}
-            />
-
-          )}
-        </Flex>
       </Link>
-      <Box >
-        <Box as='h4' variant='text.postTitle'>{props.title}</Box>
-
-      </Box>
     </Card>
-
   )
 }
 

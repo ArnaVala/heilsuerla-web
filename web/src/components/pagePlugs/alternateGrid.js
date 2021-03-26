@@ -6,7 +6,6 @@ import Image from 'gatsby-plugin-sanity-image'
 import PortableText from '../atoms/portableText'
 
 import TextLink from '../atoms/TextLink'
-import HeroTextBlock from '../atoms/heroTextBlock'
 import '../../styles/global.css'
 
 import {Section, Wrapper} from '../common'

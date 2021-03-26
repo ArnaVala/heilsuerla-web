@@ -4,7 +4,6 @@ import {imageUrlFor} from '../../lib/image-url'
 
 import {Section, Wrapper} from '../common'
 import {FiArrowRightCircle} from 'react-icons/fi'
-import PortableText from '../atoms/portableText'
 import TextLink from '../atoms/TextLink'
 
 const CtaHeilsuvidtal = ({block, raw}) => {
@@ -13,14 +12,12 @@ const CtaHeilsuvidtal = ({block, raw}) => {
   } = block
 
   return (
-    <Box as='section' variant='container.full'>
+    <Section variant='container.full'>
       <Flex
         {... backgroundImage}
         variant='container.full'
         alt={backgroundImage.alt}
         sx={{
-          py: '96px',
-          px: [0, '32px', '64px'],
           backgroundImage: `url(${imageUrlFor(backgroundImage)
             .width(1920)
             .height(1600)
@@ -29,62 +26,74 @@ const CtaHeilsuvidtal = ({block, raw}) => {
             )`
         }}
       >
-        <Wrapper variant='container.wide' >
-          <Card variant='default' bg='white' sx={{m: '0 auto'}}>
+        <Wrapper
+          variant='container.wide'
+          sx={{
+            px: ['20px', '32px', '64px', '0px'],
+            py: ['64px', null, '96px']
+          }}
+        >
+          <Card variant='feature' bg='white' sx={{width: '100%', py: '64px', px: ['16px', '64px']}}>
             <Box
+              variant='text.eyebrow'
               sx={{
                 textAlign: 'center',
                 alignItems: 'center',
                 justifyContent: 'center',
                 py: ['16px'],
+                pb: ['32px', '64px'],
                 px: ['16px'],
                 m: '0 auto',
-                maxWidth: '840px'
+                maxWidth: '720px'
               }}
             >
-              <Text variant='eyebrow' sx={{mb: '32px'}}>
-                {eyebrow}
-              </Text>
-              <Text variant='title' sx={{mb: '32px'}}>
-                {heading}
-              </Text>
+              {eyebrow}
             </Box>
 
-            <Grid columns={[1, 1, 2, null]}>
+            <Flex variant='container.row' sx={{flexDirection: ['column', null, 'row', null], width: '100%', columnGap: '32px', rowGap: '64px'}}>
+              <Flex variant='container.column' sx={{justifyContent: 'flex-start'}}>
+                <Box
+                  sx={{
+                    maxWidth: '560px',
+                    m: '0 auto'
+                  }}
+                >
+                  <Text variant='subtitle' sx={{mb: '32px'}}>
+                    {heading}
+                  </Text>
 
-              <Flex variant='container.column' sx={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                p: '16px',
-                maxWidth: '540px',
-                margin: '0 auto'}}>
-                <Text variant='subheading' sx={{mb: '32px'}}>
-                  {description}
-                </Text>
+                  <Text variant='bigBody' sx={{fontSize: '20px'}}>
+                    {description}
+                  </Text>
+                </Box>
               </Flex>
 
-              <Flex variant='container.column' sx={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                maxWidth: '540px',
-                p: '16px',
-                m: '0 auto'}}>
-                {listWithIcon.map((item) => {
-                  return (
-                    <Grid columns={'24px 1fr'} key={item._key} sx={{my: '16px'}}>
-                      <Flex sx={{justifyContent: 'center', mr: '-24px'}}>
-                        <FiArrowRightCircle color='#ff7476' fontSize='24px' />
-                      </Flex>
-                      <Text variant='body' sx={{}}>
-                        {item}
-                      </Text>
-                    </Grid>
-                  )
-                })}
+              <Flex variant='container.column' sx={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+                <Flex
+                  sx={{
+                    maxWidth: '560px',
+                    m: '0 auto',
+                    rowGap: '32px',
+                    flexDirection: 'column'
+                  }}
+                >
+                  {listWithIcon.map((item) => {
+                    return (
+                      <Grid columns={'24px 1fr'} key={item._key}>
+                        <Flex sx={{justifyContent: 'center', mr: '-24px'}}>
+                          <FiArrowRightCircle color='#ff7476' fontSize='24px' />
+                        </Flex>
+                        <Text variant='body' sx={{}}>
+                          {item}
+                        </Text>
+                      </Grid>
+                    )
+                  })}
+                </Flex>
               </Flex>
-            </Grid>
+            </Flex>
 
-            <Flex sx={{justifyContent: 'center', alignItems: 'center', mt: '32px'}}>
+            <Flex sx={{justifyContent: 'center', alignItems: 'center', mt: '64px'}}>
               <TextLink toLink={ctaLink.url} data-text={ctaLink.linkText}>
                 {ctaLink.linkText}
               </TextLink>
@@ -92,7 +101,7 @@ const CtaHeilsuvidtal = ({block, raw}) => {
           </Card>
         </Wrapper>
       </Flex>
-    </Box>
+    </Section>
   )
 }
 export default CtaHeilsuvidtal

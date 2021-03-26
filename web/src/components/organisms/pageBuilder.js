@@ -11,6 +11,8 @@ import HeilsumarkContent from '../pageSections/heilsumarkContent'
 import QuoteBanner from '../pageSections/quoteBanner'
 import HomeServices from '../pageSections/homeServices'
 import CtaHeilsuvidtal from '../pageSections/ctaHeilsuvidtal'
+import HeilsumarkInfo from '../pageSections/heilsumarkInfo'
+import Divider from '../pageSections/divider'
 
 function PageBuilder (props) {
   const {type, pageBuilder, _rawPageBuilder} = props
@@ -29,6 +31,7 @@ function PageBuilder (props) {
     // ** heislumark **//
     heilsumarkIntro: HeilsumarkIntro,
     heilsumarkContent: HeilsumarkContent,
+    heilsumarkInfo: HeilsumarkInfo,
     // pricing: HeilsumarkPricing
 
     // ** radgjofPage **//
@@ -41,7 +44,8 @@ function PageBuilder (props) {
 
     // ** shared **/
     quoteBanner: QuoteBanner,
-    textHeader: PageHeader
+    textHeader: PageHeader,
+    divider: Divider
 
   }
   // 'raw' content needs to be passed in for the PortableText Component

@@ -3,9 +3,7 @@ import {Link as GatsbyLink} from 'gatsby'
 import {jsx, Box, Grid, Flex, Card, Text, Link} from 'theme-ui'
 import Image from 'gatsby-plugin-sanity-image'
 
-import {Section, Wrapper} from '../common'
-import TextLink from '../atoms/TextLink'
-import AlterImageText from '../pagePlugs/alterImageTextBlock'
+import {Section, TextLink, Wrapper} from '../common'
 
 const ServiceCardSection = ({block}) => {
   const {sectionHeader, heilsumark, radgjof} = block
@@ -19,9 +17,9 @@ const ServiceCardSection = ({block}) => {
           <Text variant='subtitle' sx={{textAlign: 'center'}}>
             {sectionHeader.heading}
           </Text>
-
         </Box>
-        <Grid columns={[1, 1, 1]} gap={'64px'} sx={{px: ['16px', null, '0px']}}>
+        <Grid>
+        <Grid columns={[1, 1, 2]} gap={'64px'} sx={{px: ['16px', null, '0px']}}>
           <Card variant='default'>
             <Flex sx={{flexDirection: ['column', null, 'row'], justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
               <Box variant='container.column'>
@@ -65,33 +63,6 @@ const ServiceCardSection = ({block}) => {
           </Card>
 
         </Grid>
-        <Card>
-          <AlterImageText
-            blockImageDirectionLeft={radgjof.blockImageDirectionLeft}
-            eyebrow={radgjof.eyebrow}
-            heading={radgjof.heading}
-            subheading={radgjof.subheading}
-            description={radgjof.description}
-            linkText={radgjof.ctaLink.linkText}
-            dataText={radgjof.ctaLink.linkText}
-            url={radgjof.ctaLink.url}
-            image={radgjof.image}
-          />
-        </Card>
-        <Card>
-          <AlterImageText
-            blockImageDirectionLeft={heilsumark.blockImageDirectionLeft}
-            eyebrow={heilsumark.eyebrow}
-            heading={heilsumark.heading}
-            subheading={heilsumark.subheading}
-            description={heilsumark.description}
-            linkText={heilsumark.ctaLink.linkText}
-            dataText={heilsumark.ctaLink.linkText}
-            url={heilsumark.ctaLink.url}
-            image={heilsumark.image}
-          />
-        </Card>
-
       </Wrapper>
     </Section>
   )

@@ -12,7 +12,7 @@ export default {
       title: 'Þjónustu lýsing',
       name: 'description',
       type: 'text'
-    },
+    }
 
   ]
 }

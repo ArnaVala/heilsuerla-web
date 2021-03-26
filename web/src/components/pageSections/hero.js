@@ -1,28 +1,80 @@
 /** @jsx jsx */
-import {jsx, Box, Flex, Grid} from 'theme-ui'
+import buildImageObj from '../../lib/helpers'
+import {imageUrlFor} from '../../lib/image-url'
+import {urlFor} from '@sanity/image-url'
 import Image from 'gatsby-plugin-sanity-image'
 
-import TextLink from '../atoms/TextLink'
-import HeroTextBlock from '../atoms/heroTextBlock'
+import {jsx, Box, Flex, Grid} from 'theme-ui'
+import PortableText from '../atoms/portableText'
+
 import '../../styles/global.css'
 
+import {Section, TextLink, Eyebrow, HeroTitle} from '../common'
+import {BackgroundImage} from '../molecules'
+
 const Hero = ({block, raw}) => {
-  const {ctaLink, image, eyebrow, heading} = block
+  const {ctaLink, image, eyebrow, backgroundImage, heading} = block
 
   return (
-    <Box as='section' variant='layout.container' sx={{m: '0'}}>
-      <Flex sx={{flexDirection: ['column-reverse', null, 'row'], width: '100%'}}>
-        <HeroTextBlock eyebrow={eyebrow} heading={heading} description={raw.description}>
-          <Box sx={{mt: '32px'}}>
-            <TextLink toLink={ctaLink.url} data-text={ctaLink.linkText}>
-              {ctaLink.linkText}
-            </TextLink>
-          </Box>
-        </HeroTextBlock>
-        <Box variant='container.column' sx={{minHeight: '50vw'}}>
-          {
-            image && image.asset && (
-              <Flex sx={{justifyContent: 'center', height: ['320px', '50vh', '100%']}}>
+    <Section variant='container.full'>
+      <Grid gap={0} columns={[1, null, 2, null]} >
+        <Flex
+          px={['20px', '32px', '48px', '64px']}
+          pt={['64px', '96px', '96px']}
+          pb={['64px', '96px']}
+          sx={{
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            order: [1, null, 0, null]
+          }}
+        >
+          <Flex variant='container.column' sx={{alignSelf: 'center', maxWidth: [null, null, null, '560px', '720px'], rowGap: ['24px', '32px', null, null, '48px']
+          }}>
+            <Eyebrow as='h1'>{eyebrow}</Eyebrow>
+            <Box>
+              <HeroTitle
+                as='h2'
+                variant='hero'
+                children={heading}
+              />
+              <Box sx={{maxWidth: '480px'}} >
+                <PortableText blocks={raw.description} />
+              </Box>
+            </Box>
+            <Box>
+              <TextLink
+                toLink={ctaLink.url}
+                data-text={ctaLink.linkText}
+              >
+                {ctaLink.linkText}
+              </TextLink>
+            </Box>
+          </Flex>
+        </Flex>
+
+        <Flex
+          variant='container.column'
+          sx={{
+            alignItems: 'center'
+          }}
+        >
+          <BackgroundImage
+            image={backgroundImage}
+            width={1920}
+            height={1080}
+            sx={{
+              height: '100%',
+              width: '100%',
+              objectFit: 'cover'
+            }}
+          >
+            {image && image.asset && (
+              <Flex
+                sx={{
+                  width: '100%',
+                  p: ['20px', '64px', '48px', '64px'],
+                  height: ['320px', '640px', '100%']}}>
                 <Image
                   {...image}
                   width={1600}
@@ -31,13 +83,27 @@ const Hero = ({block, raw}) => {
                   css={{width: '100%', height: '100%', objectFit: 'cover'}}
                 />
               </Flex>
-            )
-          }
 
-        </Box>
-      </Flex>
-    </Box>
+            )}
+          </BackgroundImage>
+        </Flex>
+      </Grid>
+    </Section>
   )
 }
 
 export default Hero
+
+/* {
+  image && image.asset && (
+    <Flex sx={{justifyContent: 'center', height: ['320px', '50vh', '100%']}}>
+      <Image
+        {...image}
+        width={1600}
+        height={1600}
+        alt={image.alt}
+        css={{width: '100%', height: '100%', objectFit: 'cover'}}
+      />
+    </Flex>
+  )
+} */

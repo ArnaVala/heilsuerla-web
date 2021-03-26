@@ -4,12 +4,18 @@ import {jsx, Box, Flex, Text} from 'theme-ui'
 
 const HeaderTextBlock = ({heading, description}) => {
   return (
-    <Flex variant='container.column' sx={{textAlign: 'center', alignItems: 'center', justifyContent: 'center'}}>
-      <Text variant='subtitle' sx={{maxWidth: '640px', mb: '32px'}}>{heading}</Text>
-      <Box bg='accent' sx={{width: '40%', height: '2px', mb: '32px'}} />
-      <Text variant='bigBody' sx={{mb: 0, fontWeight: '300', maxWidth: '640px'}}>{description}</Text>
+    <Flex sx={{justifyContent: 'center'}}>
+      <Text variant='sectionTitle' sx={{color: 'accent', maxWidth: '640px'}}>{heading}</Text>
+
     </Flex>
   )
 }
 
 export default HeaderTextBlock
+/* <Text
+  variant='sectionTitle'
+  sx={{color: 'primaryLight', mb: 0, fontWeight: '300', maxWidth: '560px'}}
+>
+  {description}
+</Text>
+ */

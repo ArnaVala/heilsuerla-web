@@ -6,18 +6,24 @@ import {jsx, Flex, Box, Text} from 'theme-ui'
 
 const IntroTextBlock = ({eyebrow, heading, subheading, description, children}) => {
   return (
-    <Flex variant='container.column' sx={{justifyContent: 'center'}}>
-      <Box sx={{py: ['32px', '48px', '64px'], px: ['16px', '32px', null], maxWidth: '720px', m: '0 auto'}}>
+    <Flex variant='container.column' sx={{justifyContent: 'center', flex: [1, 2, 3]}}>
+      <Box
+        sx={{
+          maxWidth: '560px',
+          m: '0 auto'
+        }}
+      >
         {eyebrow && (
           <Text variant='eyebrow'>{eyebrow}</Text>
         )}
         {heading && (
-          <Text variant='title'>{heading}</Text>
+          <Text sx={{fontFamily: 'heading', fontWeight: 'bold', lineHeight: 'heading', my: '32px', fontSize: ['32px', '40px', '36px']}}>
+            {heading}
+          </Text>
+
         )}
-        { subheading && <Text variant='subtitle'>{subheading}</Text>
-        }
         {description && (
-          <Box>
+          <Box sx={{maxWidth: '560px'}}>
             <PortableText blocks={description} />
           </Box>
         )}

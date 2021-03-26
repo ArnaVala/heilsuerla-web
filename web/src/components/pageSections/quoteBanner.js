@@ -1,36 +1,38 @@
 
 /** @jsx jsx */
-import {buildImageObj} from '../../lib/helpers'
-import {imageUrlFor} from '../../lib/image-url'
+
 import {jsx, Box, Flex, Container, Text} from 'theme-ui'
 
-import {Section, Wrapper} from '../common'
+import {Section, Wrapper, Quote} from '../common'
+import {BackgroundImage} from '../molecules'
 
 const QuoteBanner = ({block}) => {
-  const {quote, quoted, backgroundImage} = block
+  const {quote, quoted} = block
 
   return (
-    <Box as='section'>
+    <Section variant='container.full'>
       <Wrapper>
         <Flex
-          {...backgroundImage}
-          variant='container.full'
-          alt={backgroundImage.alt}
+          bg='primary'
+          color='primaryBg'
           sx={{
-            backgroundImage: `url(${imageUrlFor(backgroundImage).width(1920).height(1600).auto('format').url()}
-            )`
-
+            width: '100%',
+            flexDirection: 'column',
+            textAlign: 'center',
+            justifyContent: 'center',
+            alignItems: 'center',
+            px: ['16px', '32px', '64px', null],
+            pt: ['64px', '96px', null, null],
+            pb: '48px'
           }}
         >
-          <Flex bg='primary' color='primaryBg' variant='container.quoteBanner' sx={{my: '32px'}}>
-            <Text as='p' variant='quote' sx={{lineHeight: 'body', fontSize: '32px', fontWeight: '300'}}>{quote}</Text>
-            { quoted && (
-              <Text as='h5' variant='eyebrow'>{quoted}</Text>
-            )}
-          </Flex>
+          <Quote children={quote} />
+          { quoted && (
+            <Text as='h5' variant='eyebrow'>{quoted}</Text>
+          )}
         </Flex>
       </Wrapper>
-    </Box>
+    </Section>
   )
 }
 

@@ -4,46 +4,31 @@ import {jsx, Box, Grid, Flex, Card, Text, Link} from 'theme-ui'
 import Image from 'gatsby-plugin-sanity-image'
 
 import {Section, Wrapper} from '../common'
-import TextLink from '../atoms/TextLink'
-import AlterImageText from '../pagePlugs/alterImageTextBlock'
-import HeaderTextBlock from '../atoms/headerTextBlock'
+import {FeatureCard, SectionTitle} from '../molecules'
+
 const HomeServices = ({block}) => {
   const {sectionHeader, heilsumark, radgjof} = block
   return (
     <Section bg='primaryBg'>
-      <Wrapper variant='container.wide'>
-        <Box sx={{py: '64px'}}>
-          <HeaderTextBlock heading={sectionHeader.eyebrow} description={sectionHeader.heading} />
-        </Box>
-        <Box py='32px'>
-          <Card variant='default'>
-            <AlterImageText
-              blockImageDirectionLeft={heilsumark.blockImageDirectionLeft}
-              eyebrow={heilsumark.eyebrow}
-              heading={heilsumark.heading}
-              description={heilsumark.description}
-              linkText={heilsumark.ctaLink.linkText}
-              dataText={heilsumark.ctaLink.linkText}
-              url={heilsumark.ctaLink.url}
-              image={heilsumark.image}
-            />
-          </Card>
-        </Box>
-        <Box py='32px'>
-          <Card variant='default' my='32px'>
-            <AlterImageText
-              blockImageDirectionLeft={radgjof.blockImageDirectionLeft}
-              eyebrow={radgjof.eyebrow}
-              heading={radgjof.heading}
-              description={radgjof.description}
-              linkText={radgjof.ctaLink.linkText}
-              dataText={radgjof.ctaLink.linkText}
-              url={radgjof.ctaLink.url}
-              image={radgjof.image}
-            />
-          </Card>
-        </Box>
+      <Wrapper variant='container.wide' sx={{m: '0 auto', px: ['16px', '64px', null, '0px']}}>
+        <SectionTitle eyebrow={sectionHeader.eyebrow} heading={sectionHeader.eyebrow} description={sectionHeader.heading} />
+        <Grid columns={[1]} gap='128px'>
+          <FeatureCard
+            image={heilsumark.image}
+            ctaLink={heilsumark.ctaLink}
+            eyebrow={heilsumark.eyebrow}
+            heading={heilsumark.heading}
+            description={heilsumark.description}
+          />
 
+          <FeatureCard
+            image={radgjof.image}
+            ctaLink={radgjof.ctaLink}
+            eyebrow={radgjof.eyebrow}
+            heading={radgjof.heading}
+            description={radgjof.description}
+          />
+        </Grid>
       </Wrapper>
     </Section>
   )

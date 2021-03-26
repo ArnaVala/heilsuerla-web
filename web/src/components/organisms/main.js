@@ -1,14 +1,14 @@
+
 /** @jsx jsx */
 import React from 'react'
 import {jsx, Box} from 'theme-ui'
 
-const Footer = ({children}) => (
+const Main = ({children}) => (
   <Box
-    as='footer'
-    sx=''
+    as='main' variant='layout.main'
   >
     {children}
   </Box>
 )
 
-export default Footer
+export default Main

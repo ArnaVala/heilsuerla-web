@@ -4,14 +4,14 @@ import {format, distanceInWords, differenceInDays} from 'date-fns'
 import {toPlainText} from '../lib/helpers'
 import GraphQLErrorList from '../components/atoms/graphql-error-list'
 import Container from '../components/organisms/container'
-import SinglePost from '../components/sections/Posts/singlePost'
+import SinglePost from '../components/pageSections/Posts/singlePost'
 import Layout from '../components/organisms/layout'
 import SEO from '../components/atoms/seo'
+import RelatedPosts from '../components/pageSections/Posts/postListRelatedPosts'
 
-export default function PostTemplate (props) {
-  const {data, errors} = props
+export default function PostTemplate ({data, errors, pageContext}) {
   const post = data && data.post
-
+  const relatedPosts = data && data.relatedPosts
   return (
     <Layout>
       {
@@ -34,14 +34,17 @@ export default function PostTemplate (props) {
         )
       }
       {post && <SinglePost {...post} />}
+      {
+        relatedPosts && <RelatedPosts related={relatedPosts} title={'Sjá fleiri pósta'} categories={post.categories} id={pageContext.slug} />
+      }
+
     </Layout>
   )
 };
 
 export const query = graphql`
   query PostTemplateQuery($slug: String!) {
-    post: 
-      sanityPost(slug: {
+    post: sanityPost(slug: {
         current: {
           eq: $slug
         }
@@ -79,9 +82,9 @@ export const query = graphql`
               alt
             }
             _rawBio(resolveReferences: {maxDepth: 5})
-
         }
       }
     }
   }
+
 `

@@ -106,6 +106,57 @@ export const query = graphql`
           ... SanityImage
         }
       }
+      ... on SanityHeilsumarkInfo {
+        _key
+        _type
+        heading
+        description
+        image {
+          alt
+          ... SanityImage
+        }
+        includedTab {
+          _key
+          _type
+          tabTitle
+          heading
+          description
+          includedList {
+            _key
+            _type
+            heading
+            description
+          }
+        }
+        pricingTab {
+          _key
+          _type
+          tabTitle
+          heading
+          description
+          prices {
+            _key
+            _type
+            plan
+            amount
+            payment
+            info
+          }
+        }
+        stepsTab {
+          _key
+          _type
+          tabTitle
+          heading
+          description
+          stepsList {
+            _key
+            _type
+            heading
+            description
+          }
+        }
+      }
       ... on SanityHeilsumarkIntro {
         _key
         _type

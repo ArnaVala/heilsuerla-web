@@ -9,7 +9,7 @@ function BlogPost (props) {
   const {_rawBody, _rawExcerpt, authors, title, image, publishedAt} = props
   return (
     <Container as='section' variant='container.full'>
-      <Box variant='container.wrapper' bg='muted'>
+      <Box variant='container.wrapper' bg='primaryBg'>
         {image && image.asset && (
           <Box as='header' variant='container.innerWrapper' sx={{pt: '128px', pb: '64px'}}>
             <Box sx={{mb: '64px'}}>

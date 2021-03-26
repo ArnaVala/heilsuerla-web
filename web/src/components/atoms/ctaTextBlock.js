@@ -3,13 +3,14 @@
 import PortableText from '../atoms/portableText'
 
 import {jsx, Flex, Box, Text} from 'theme-ui'
+import {Eyebrow} from '../common'
 
 const CtaTextBlock = ({eyebrow, heading, subheading, description, children}) => {
   return (
     <Flex variant='container.column' sx={{justifyContent: 'center'}}>
       <Box sx={{py: ['16px'], px: ['16px'], maxWidth: '640px', m: '0 auto'}}>
         {eyebrow && (
-          <Text variant='eyebrow'>{eyebrow}</Text>
+          <Eyebrow>{eyebrow}</Eyebrow>
         )}
         {heading && (
           <Text variant='cardtitle' sx={{mb: '32px'}}>{heading}</Text>

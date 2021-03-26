@@ -1,9 +1,13 @@
 /** @jsx jsx */
 import Helmet from 'react-helmet'
+import Headroom from 'react-headroom'
+
 import {jsx, Box} from 'theme-ui'
-import Header from './header'
 import '../../styles/global.css'
+
+import Header from './header'
 import Footer from './footer'
+import Main from './main'
 
 const Layout = ({title, description, children}) => {
   return (
@@ -13,9 +17,7 @@ const Layout = ({title, description, children}) => {
         <meta name='description' content='HeilsuErla, heilsumarkþjálfun og ráðgjöf' />
       </Helmet>
       <Header />
-      <Box as='main' variant='layout.main' >
-        {children}
-      </Box>
+      <Main children={children} />
       <Footer />
     </Box>
   )

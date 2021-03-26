@@ -25,8 +25,8 @@ const Testimonials = ({block}) => {
   }
 
   return (
-    <Section bg='primaryBg'>
-      <Wrapper variant='container.wide' sx={{m: '0 auto'}} >
+    <Section bg='primaryBg' variant='container.section'>
+      <Wrapper variant='container.narrow' sx={{m: '0 auto'}} >
         <Box
           sx={{
             textAlign: 'center',
@@ -46,29 +46,33 @@ const Testimonials = ({block}) => {
         </Box>
         <Box>
           <Slider {...settings}>
-
             { testimonials.map(testimonial => (
-
-              <Box sx={{display: 'relative'}} >
+              <Box>
                 <Card
                   variant='testimonial'
                   key={testimonial._key}
                 >
                   <Flex sx={{flexDirection: 'column', minHeight: '320px', width: '100%', justifyContent: 'space-between', alignItems: 'center'
                   }}>
-                    <FaQuoteRight color='primaryLight' fontSize='96px'
+                    <FaQuoteRight color='primaryLight' fontSize='32px'
                     />
                     <Box>
-                      <Text variant='cards.testimonial.quote'>{testimonial.quote}</Text>
+                      <Text variant='quote' sx={{fontSize: '24px'}}>{testimonial.quote}</Text>
                     </Box>
                     <Text>{testimonial.name}</Text>
                   </Flex>
                 </Card>
               </Box>
             ))}
+
           </Slider>
+          <Flex sx={{mt: '-48px', justifyContent: 'center', alignItems: 'center', fontSize: '18px', color: 'primaryLight'}}>
+            <Link as='a' to='/blogg/reynslusögur'>
+              Skoða reynslusögur á blogginu
+            </Link>
+
+          </Flex>
         </Box>
-        <Flex variant='container.flex'><Link to={'/blogg/Reynslusögur'}>Lesa reynslusögur</Link></Flex>
 
       </Wrapper>
     </Section>

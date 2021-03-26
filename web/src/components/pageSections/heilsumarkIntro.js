@@ -3,53 +3,59 @@ import {jsx, Box, Flex, Grid, Text} from 'theme-ui'
 import Image from 'gatsby-plugin-sanity-image'
 
 import {Section, Wrapper} from '../common'
-import HeaderTextBlock from '../atoms/headerTextBlock'
-
+import {SectionTitle} from '../molecules'
 const HeilsumarkIntro = ({block}) => {
-  const {heading, description, image, serviceList
+  const {heading, eyebrow, description, image, serviceList
   } = block
 
   return (
-    <Section bg='primaryBg'>
-      <Wrapper variant='container.wide'>
-        <Box sx={{}}>
-          <HeaderTextBlock heading={heading} description={description} />
-          <Grid columns={['100%', '1fr 1fr', null]} sx={{mt: '64px'}}>
-            <Flex sx={{justifyContent: 'center', alignItems: 'center'}}>
+    <Section mb='0px'>
+      <Wrapper
+        variant='container.wide'
+        sx={{
+          px: ['20px', '64px']
+        }}
+      >
+        <SectionTitle sx={{alignSelf: 'center'}} heading={heading} description={description} />
+
+        <Flex variant='container.row' mt='32px' sx={{flexDirection: ['column', null, 'row', null], width: '100%', columnGap: '32px', rowGap: '64px'}}>
+          <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center'}}>
+            <Box sx={{maxHeight: ['360px', null, '520px']}}>
               {image && image.asset && (
                 <Image
                   {...image}
                   alt={image.alt}
-                  css={{width: '100%', height: '100%', objectFit: 'contain', maxWidth: '480px'}}
+                  css={{width: '100%', height: '100%', objectFit: 'contain'}}
                 />
               )}
+            </Box>
+          </Flex>
+
+          <Flex variant='container.column' sx={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+            <Flex
+              sx={{
+                maxWidth: '560px',
+                m: '0 auto',
+                rowGap: '32px',
+                flexDirection: 'column'
+              }}
+            >
+              {serviceList.map((service = []) => {
+                const {name, description, _key} = service
+                return (
+                  <Box key={_key}>
+                    <Text variant='subheading' color='primaryLight'>
+                      {name}
+                    </Text>
+                    <Text variant='body'>
+                      {description}
+                    </Text>
+                  </Box>
+                )
+              })}
             </Flex>
-            <Flex sx={{flexDirection: 'column', justifyContent: 'center'}}>
-              <Grid gap='32px' columns={1}>
-                {serviceList.map((service = []) => {
-                  const {name, description, _key} = service
-                  return (
-                    <Box sx={{width: '100%'}}>
-                      <Flex
-                        as='li'
-                        sx={{flexDirection: 'column', margin: '0 auto', maxWidth: '560px'}}
-                        key={_key}
-                      >
-                        <Text variant='subheading' sx={{mb: '8px'}}>
-                          {name}
-                        </Text>
-                        <Text variant='body'>
-                          {description}
-                        </Text>
-                      </Flex>
-                    </Box>
-                  )
-                })}
-              </Grid>
-            </Flex>
-          </Grid>
-          <Box />
-        </Box>
+          </Flex>
+        </Flex>
       </Wrapper>
     </Section>
 

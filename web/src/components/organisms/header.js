@@ -4,19 +4,8 @@ import {Box, Flex, jsx, NavLink, Styled} from 'theme-ui'
 import styled from '@emotion/styled'
 import Hamburger from '../atoms/Hamburger'
 import HeMonogram from '../atoms/Logo/heMonogram'
-import Logo from '../../assets/Logo_HE.png'
-
-const StyledLi = ({children}) => (
-  <li
-    sx={{
-      fontWeight: '300',
-      color: 'white',
-      display: ['none', 'none', 'list-item']
-    }}
-  >
-    {children}
-  </li>
-)
+import logo from '../../assets/LogoAccent.svg'
+import {Headroom} from 'react-headroom'
 
 const LogoContainer = styled(Box)`
   object-fit: contain;
@@ -28,9 +17,9 @@ const LogoContainer = styled(Box)`
   }
 `
 
-const StyledHeader = () => {
+const Header = () => {
   return (
-    <Box variant='layout.header'>
+    <Box bg='white' variant='layout.header'>
       <Flex
         sx={{
           margin: '0 auto',
@@ -50,8 +39,8 @@ const StyledHeader = () => {
               alignItems: 'center'
             }}
           >
-            <LogoContainer sx={{width: ['36px']}}>
-              <img src={Logo} alt='logo' />
+            <LogoContainer sx={{width: ['40px', '48px']}}>
+              <img src={logo} alt='logo' />
             </LogoContainer>
             <span
               sx={{
@@ -59,7 +48,7 @@ const StyledHeader = () => {
                 fontSize: ['24px', '32px'],
                 fontFamily: 'heading',
                 fontWeight: '300',
-                mx: 2,
+                mx: 1,
                 mt: '4px',
                 display: 'inline'
               }}
@@ -91,18 +80,15 @@ const StyledHeader = () => {
             <NavLink as={Link} to='/blogg'>
               Blogg
             </NavLink>
-
             <NavLink as={Link} to='/um-erlu'>
               Um Erlu
             </NavLink>
-
           </Styled.ul>
           <Hamburger />
         </nav>
       </Flex>
     </Box>
-
   )
 }
 
-export default StyledHeader
+export default Header

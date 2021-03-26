@@ -28,7 +28,7 @@ export default {
       type: 'text',
       description: 'Optional'
     },
-     {
+    {
       name: 'ctaLink',
       type: 'callToAction',
       title: 'CTA Link'

@@ -63,7 +63,7 @@ async function createCategoryPages (graphql, actions) {
 
     createPage({
       path,
-      component: require.resolve('./src/pages/pistlar.js'),
+      component: require.resolve('./src/pages/blogg.js'),
       context: {
         category: title
       }

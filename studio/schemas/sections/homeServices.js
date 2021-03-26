@@ -17,7 +17,7 @@ export default {
       name: 'radgjof',
       type: 'alterImageTextBlock',
       title: 'Ráðgjöf, fyrirlestrar og vinnustofur'
-    },
+    }
   ],
   preview: {
     select: {

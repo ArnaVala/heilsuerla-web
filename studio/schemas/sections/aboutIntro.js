@@ -18,7 +18,7 @@ export default {
       name: 'description',
       type: 'bodyPortableText'
     },
-     {
+    {
       name: 'ctaLink',
       type: 'callToAction',
       title: 'CTA Link'

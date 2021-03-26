@@ -1,19 +1,18 @@
+import global from './global'
+import breakpoints from './breakpoints'
+import forms from './forms'
 
 const fonts = {
   Sofia: "'Sofia Pro', 'Lato', 'Inter', sans-serif",
   Recoleta: "'Recoleta Alt', 'Georgia', 'Inter', serif"
 }
 export default {
-  breakpoints: [
-    '600px',
-    '1000px',
-    '1200px'
-  ],
+  breakpoints,
+  forms,
   fonts: {
     ...fonts,
     body: "'Sofia Pro', 'Lato', 'Inter', sans-serif",
-    heading: "'Recoleta Alt', 'Georgia', 'Inter', serif",
-    monospace: 'Menlo, monospace'
+    heading: "'Recoleta Alt', 'Georgia', 'Inter', serif"
   },
   colors: {
     text: '#003c51',
@@ -54,50 +53,51 @@ export default {
   //
 
   container: {
-    full: {
-      minWidth: '100vw',
-      width: '100%',
-      m: '0 auto'
-    },
     section: {
       width: '100%',
       minWidth: '100vw',
-      px: ['0px', '32px', '64px'],
-      py: ['64px', '96px', '128px'],
       display: 'flex',
       flexDirection: 'column',
-      flexWrap: 'wrap',
-      margin: '0 auto'
+      margin: '0 auto',
+      py: ['64px', '96px', null, '128px']
     },
+    full: {
+      width: '100%',
+      m: '0 auto'
+    },
+
     wide: {
+      margin: '0 auto',
+      display: 'flex',
+      flexWrap: 'wrap',
       width: '100%',
       maxWidth: '1280px',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column'
+    },
+    narrow: {
+      width: '100%',
+      maxWidth: '960px',
       margin: '0 auto'
     },
-    inner: {
-      width: '100%',
-      maxWidth: '1120px',
-      margin: '0 auto',
-      px: [2, 3]
-    },
-    wrapper: {
-      width: '100%',
-      margin: '0 auto'
-    },
-    innerWrapper: {
-      width: '100%',
-      maxWidth: '1280px',
-      margin: '0 auto',
-      px: '32px'
-    },
-    grid: {
+
+    textCol: {
+      m: '0 auto',
+      flexDirection: 'column',
+      flexBasis: '100%',
+      flex: '1',
+      justifyContent: 'center',
+      rowGap: '32px',
       width: '100%'
     },
+
     gridContainer: {
       width: '100%',
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))'
     },
+
     row: {
       display: 'flex',
       flexDirection: 'row',
@@ -107,22 +107,8 @@ export default {
     column: {
       display: 'flex',
       flexDirection: 'column',
-      flexBasis: '100%',
-      flex: '1'
-    },
-    textCol: {
-      flexDirection: 'column',
-      justifyContent: 'flex-start',
-      height: '100%',
-      minHeight: ['50vh', null, null, '100vh'],
-      p: ['16px', null, null, '32px'],
-      pl: ['16px', '64px', '32px', '128px'],
-      pr: [null, '64px', '64px', null]
-    },
-    imgCol: {
-      height: '100%',
-      minHeight: ['50vh', null, null, null],
-      p: 0
+      flex: '1',
+      flexbasis: '100%'
     },
 
     quoteBanner: {
@@ -136,22 +122,6 @@ export default {
       ],
       pt: '96px',
       pb: '32px'
-    },
-    hero: {
-      bg: 'white',
-      width: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100%',
-      minHeight: '100vh'
-    },
-
-    flex: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'column'
     },
     excerpt: {
       fontSize: '24px',
@@ -194,15 +164,16 @@ export default {
       fontWeight: 'normal',
       margin: '0 auto',
       width: '100%',
-      pr: ['16px', '32px'],
-      pl: ['16px', '32px'],
+      pr: ['16px', '32px', '40px', null],
+      pl: ['16px', '24px', '36px', null],
       py: '24px',
 
       logo: {
-        width: ['40px', '48px', '64px']
+        width: ['40px', '48px', null, '64px']
       }
     },
     main: {
+      overflow: 'hidden',
       bg: 'white',
       width: '100%',
       minWidth: '100vw',
@@ -223,6 +194,22 @@ export default {
     }
   },
   text: {
+    hero: {
+      fontFamily: 'heading',
+      fontWeight: 'bold',
+      lineHeight: 'heading',
+      letterSpacing: '0.01em',
+      fontSize: ['48px', '72px', '64px', '80px', '96px'],
+      pb: '32px'
+    },
+    title: {
+      fontFamily: 'heading',
+      fontWeight: '500',
+      lineHeight: 'heading',
+      fontSize: ['50px', '60px', '60px'],
+      marginBottom: 3
+    },
+
     tag: {
       bg: 'accentMuted',
       textTransform: 'uppercase',
@@ -236,65 +223,49 @@ export default {
       borderRadius: '4px'
 
     },
-    quote: {
-      fontFamily: 'heading',
-      fontSize: '30px',
-      lineHeight: 'heading',
-      pb: '32px',
-      maxWidth: '640px'
-    },
-    hero: {
-      fontFamily: 'heading',
-      fontWeight: 'medium',
-      lineHeight: '1.125',
-      letterSpacing: '0.01em',
-      fontSize: ['50px', '70px', '70px', '70px'],
-      mb: '32px'
-    },
 
     // collection of used
+    smallBody: {
+      fontFamily: 'body',
+      fontWeight: 'body',
+      fontSize: '16px',
+      lineHeight: 'body'
+    },
     body: {
       fontFamily: 'body',
       fontWeight: 'body',
-      fontSize: '18px',
+      fontSize: ['16px', null, '18px', null],
       lineHeight: 'body'
     },
     bigBody: {
       fontFamily: 'body',
       color: 'primary',
       fontWeight: '300',
-      lineHeight: '1.5',
-      fontSize: 3,
-      mb: [2, 3]
+      lineHeight: ['28px', null, null, '32px'],
+      fontSize: ['18px', null, null, '20px']
     },
-    description: {
-      fontFamily: 'body',
-      fontWeight: 'light',
-      fontSize: '18px',
-      lineHeight: 'body',
-      mb: 3,
-      maxWidth: '540px'
-    },
+
     heading: {
       fontFamily: 'heading',
       fontWeight: 'heading',
-      lineHeight: 'heading',
-      fontSize: ['24px', '30px']
+      lineHeight: ['32px', '40px', null, '48px'],
+      fontSize: ['24px', '32px', null, '40px']
     },
+
     subheading: {
       fontFamily: 'body',
       fontWeight: 'heading',
       lineHeight: 'body',
       fontSize: '24px'
     },
-    title: {
-      fontFamily: 'Recoleta',
-      fontWeight: '500',
+
+    sectionTitle: {
+      fontFamily: 'heading',
+      fontWeight: 'bold',
       lineHeight: 'heading',
-      fontSize: ['50px', '60px', '60px'],
-      marginBottom: 3,
-      maxWidth: '840px'
+      fontSize: ['32px', '40px']
     },
+
     subtitle: {
       fontFamily: 'heading',
       fontWeight: 'heading',
@@ -314,13 +285,23 @@ export default {
       textTransform: 'uppercase',
       color: 'primaryLight',
       fontSize: '16px',
-      letterSpacing: '.05em',
-      mb: 3
+      letterSpacing: '.05em'
     },
     postTitle: {
       fontFamily: 'heading',
-      fontWeight: 'heading',
-      fontSize: '24px'
+      fontWeight: '400',
+      lineHeight: 'heading',
+      fontSize: '28px',
+      textAlign: 'center'
+    },
+    postCategory: {
+      fontFamily: 'body',
+      fontWeight: 'body',
+      textAlign: 'center',
+      color: 'primaryLight',
+      textTransform: 'uppercase',
+      letterSpacing: 'wide',
+      fontSize: 1
     },
     caps: {
       fontFamily: 'body',
@@ -373,20 +354,22 @@ export default {
       textDecoration: 'none',
       color: 'white',
       fontFamily: 'body',
-      fontWeight: 'normal',
+      fontWeight: '300',
       letterSpacing: '0.05em',
       fontSize: '24px',
       '&:hover': {
-        color: 'pink'
+        color: 'accentMuted'
       }
+    },
+    textLink: {
+      color: 'accent',
+      bg: 'primaryMuted'
     }
   },
   hr: {
     border: '2px solid black'
   },
-  buttons: {
 
-  },
   slider: {
     arrow: {
       backgroundColor: 'accentMuted',
@@ -404,6 +387,15 @@ export default {
       backgroundColor: 'primaryMuted'
     }
   },
+  grid: {
+    bigCard: {
+      display: 'grid',
+      gridTemplateColumns: ['1fr', '1fr', '1fr 1fr', '2fr 3fr'],
+      gridGap: [2, null, 3, null],
+      margin: '0 auto'
+    }
+
+  },
   cards: {
     default: {
       bg: 'white',
@@ -419,24 +411,62 @@ export default {
         bg: 'white'
       }
     },
-    primary: {
-      bg: 'muted',
-      padding: 2,
-      borderRadius: 4,
-      boxShadow: '0 12px 32px rgba(0,0,0, 0.3)'
-    },
-    testimonial: {
-      width: '100%',
-      bg: 'primaryBg',
-      px: ['16px', '32px', '64px'],
+    feature: {
+      bg: 'white',
+      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
+      zIndex: 2,
 
-      quote: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        mb: '24px',
-        textAlign: 'center'
+      '&:hover': {
+        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
+        zIndex: '10',
+        bg: 'white'
       }
+    },
+    image: {
+      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)'
+    },
+
+    testimonial: {
+      m: '0 auto',
+      my: '96px',
+      bg: 'white',
+      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
+      zIndex: 2,
+      width: '100%',
+      maxWidth: '720px',
+      py: '64px',
+      px: '32px',
+      textAlign: 'center',
+      color: 'primaryLight',
+
+      '&:hover': {
+        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
+        zIndex: '10',
+        bg: 'white'
+      }
+    },
+    postCard: {
+      bg: 'white',
+      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
+      zIndex: 2,
+
+      '&:hover': {
+        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
+        zIndex: '10',
+        bg: 'white'
+      }
+    },
+    featureCard: {
+      bg: 'white',
+      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
+      zIndex: 2,
+
+      '&:hover': {
+        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
+        zIndex: '10',
+        bg: 'white'
+      }
+
     }
   },
   styles: {
@@ -481,7 +511,7 @@ export default {
       a: {
         textDecoration: 'none',
         fontStyle: 'normal',
-        color: 'primary',
+        color: 'primaryLight',
         fontFamily: 'body',
         transform: 'color',
         '&:hover': {
@@ -556,5 +586,6 @@ export default {
 
       }
     }
-  }
+  },
+  global
 }

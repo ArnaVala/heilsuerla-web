@@ -19,9 +19,8 @@ const allPlugs = Object.values(plugs).map(plug => {
   return {...plug, fields: plug.fields}
 })
 const allSections = Object.values(sections).map(section => {
-  return { ...section, fields: section.fields }
+  return {...section, fields: section.fields}
 })
-
 
 export default createSchema({
   // We name our schema

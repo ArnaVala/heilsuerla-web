@@ -4,25 +4,29 @@ export default {
   title: 'Price',
   fields: [
     {
+      name: 'plan',
+      title: 'Plan',
+      type: 'string'
+    },
+    {
       name: 'amount',
       type: 'string',
       title: 'Verð'
     },
     {
-      title: 'Month or OneGo',
       name: 'payment',
-      type: 'text'
+      title: 'Month or OneGo',
+      type: 'string'
     },
     {
       title: 'info',
       name: 'info',
-      type: 'text'
+      type: 'string'
     }
   ],
   preview: {
     select: {
-      title: 'heading',
-      media: 'image'
+      title: 'plan'
     }
   }
 }

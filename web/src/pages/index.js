@@ -6,13 +6,14 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture
 } from '../lib/helpers'
-import BlogPostPreviewList from '../components/blog-post-preview-list'
+
 import GraphQLErrorList from '../components/atoms/graphql-error-list'
 import SEO from '../components/atoms/seo'
 
 import {jsx, Container} from 'theme-ui'
 import Layout from '../components/organisms/layout'
 import PageBuilder from '../components/organisms/pageBuilder'
+import PostListAllSection from '../components/pageSections/Posts/postListAllSection'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -38,16 +39,35 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          publishedAt
-          image {
-            ...SanityImage
-            alt
-          }
           title
           _rawExcerpt
           slug {
             current
+          }
+          id
+          publishedAt
+          slug {
+            current
+          }
+          image {
+              ...SanityImage
+              alt
+            }
+          categories {
+            id
+            title
+            slug {
+              current
+            }
+          }
+          authors {
+            author {
+              id
+              name
+              slug {
+                current
+              }
+            }
           }
         }
       }
@@ -55,8 +75,7 @@ export const query = graphql`
   }
 `
 
-const IndexPage = (props) => {
-  const {data, errors} = props
+const IndexPage = ({data, errors}) => {
   const indexPage = data && data.indexPage
   const {pageBuilder, _rawPageBuilder} = indexPage
 
@@ -69,7 +88,7 @@ const IndexPage = (props) => {
   }
   const site = (data || {}).site
 
-  const postNodes = (data || {}).posts
+  const posts = (data || {}).posts
     ? mapEdgesToNodes(data.posts)
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
@@ -94,8 +113,8 @@ const IndexPage = (props) => {
       <PageBuilder pageBuilder={pageBuilder} _rawPageBuilder={_rawPageBuilder} />
       <Container>
         {
-          postNodes && (
-            <BlogPostPreviewList title='Nýjast á blogginu' nodes={postNodes} browseMoreHref='/pistlar/' />
+          posts && (
+            <PostListAllSection title='Nýjast á blogginu' posts={posts} browseMoreHref='/blogg' />
           )
         }
       </Container>
