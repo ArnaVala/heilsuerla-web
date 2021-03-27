@@ -28,9 +28,7 @@ export default function PistlarPage ({data, errors, pageContext}) {
       {posts && (
         <PostList posts={posts} />
       )}
-      {relatedPosts && (
-        <PostListAllSection posts={relatedPosts} title={'Sjá fleiri pósta'} />
-      )}
+
     </Layout>
   )
 }
