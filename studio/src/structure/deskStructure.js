@@ -1,5 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
-import {MdSettings,
+import {
+  MdSettings,
   MdPerson,
   MdDescription,
   MdLocalOffer
@@ -73,15 +74,6 @@ export default () =>
         .icon(MdPerson)
         .schemaType('author')
         .child(S.documentTypeList('author').title('Um Erlu')),
-      S.listItem()
-        .title('Ráðgjöf, fyrirlestrar og vinnustofur')
-        .icon(MdPerson)
-        .child(
-          S.editor()
-            .schemaType('radgjof')
-            .documentId('radgjof')
-            .title('Ráðgjöf, fyrirlestrar og vinnustofur')
-        ),
       S.divider(),
 
       // `S.documentTypeListItems()` returns an array of all the document types
@@ -90,7 +82,7 @@ export default () =>
 
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'radgjof', 'author', 'post', 'siteSettings'].includes(
+          !['category', 'author', 'post', 'siteSettings'].includes(
             listItem.getId()
           )
       )

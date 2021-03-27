@@ -5,35 +5,36 @@ async function createBlogPostPages (graphql, actions) {
   const {createPage} = actions
   const result = await graphql(`
     {
-      allSanityPost(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}) {
-        nodes {
-          title
-          id
-          publishedAt
+      allSanityPost(
+        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      ) {
+        edges {
+          node {
+            id
+            publishedAt
             slug {
               current
             }
           }
+        }
       }
     }
   `)
 
   if (result.errors) throw result.errors
 
-  const postNodes = (result.data.allSanityPost || {}).nodes || []
+  const postEdges = (result.data.allSanityPost || {}).edges || []
 
-  postNodes
-    .filter((node) => !isFuture(node.publishedAt))
-    .forEach((node, index) => {
-      const {id, slug = {}} = node
+  postEdges
+    .filter(edge => !isFuture(edge.node.publishedAt))
+    .forEach((edge, index) => {
+      const {id, slug = {}} = edge.node
       const path = `/blogg/${slug.current}/`
 
       createPage({
         path,
-        component: require.resolve('./src/templates/postTemplate.js'),
-        context: {
-          slug: slug.current
-        }
+        component: require.resolve('./src/templates/post-template.js'),
+        context: {id}
       })
     })
 }
@@ -70,42 +71,6 @@ async function createCategoryPages (graphql, actions) {
     })
   })
 }
-
-/* async function createSanityPage (graphql, actions) {
-  const {createPage} = actions
-  const result = await graphql(`
-    {
-      allSanityPage(
-        filter: { slug: { current: { ne: null } } }
-      ) {
-        edges {
-          node {
-            id
-            slug {
-              current
-            }
-          }
-        }
-      }
-    }
-  `)
-  if (result.errors) throw result.errors
-
-  const pageEdges = (result.data.allSanityPage || {}).edges || []
-
-  pageEdges
-    .forEach((edge, index) => {
-      const {id, slug = {}} = edge.node
-      const path = `/${slug.current}/`
-      console.log(path)
-
-      createPage({
-        path,
-        component: require.resolve('./src/templates/page.js'),
-        context: {id}
-      })
-    })
-} */
 
 exports.createPages = async ({graphql, actions}) => {
   await Promise.all([

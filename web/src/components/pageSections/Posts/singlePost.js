@@ -3,13 +3,13 @@ import {format, distanceInWords, differenceInDays} from 'date-fns'
 import React from 'react'
 import Image from 'gatsby-plugin-sanity-image'
 import PortableText from '../../../components/atoms/portableText'
-import {Box, Container, Flex, Grid, Text} from 'theme-ui'
+import {Box, Flex, Grid, Text} from 'theme-ui'
 import Share from '../../common/Share'
 import {Wrapper} from '../../common'
 import PostListAllSection from './postListAllSection'
 
 export default function SinglePost (props) {
-  const {categories, image, publishedAt, _rawBody, _rawExcerpt, authors, title, posts} = props
+  const {categories, image, publishedAt, _rawBody, _rawExcerpt, title, posts} = props
   console.log(props)
 
   return (
@@ -60,10 +60,6 @@ export default function SinglePost (props) {
           {_rawBody && <PortableText blocks={_rawBody} />}
         </Box>
       </Wrapper>
-      {
-        posts && <PostListAllSection title='Nýjast á blogginu' posts={posts} browseMoreHref='/blogg' />
-      }
-
     </div>
 
   )

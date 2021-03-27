@@ -1,9 +1,7 @@
 
 /** @jsx jsx */
-import React from 'react'
-import {useStaticQuery, graphql, Link} from 'gatsby'
+import {Link} from 'gatsby'
 import {jsx, Box, Flex, Text} from 'theme-ui'
-import PostCard from './postCard'
 import {Section, Wrapper} from '../../common'
 import PostList from './postList'
 

@@ -8,10 +8,8 @@ import Layout from '../components/organisms/layout'
 import PostList from '../components/pageSections/Posts/postList'
 import CategoryFilter from '../components/pageSections/Posts/CategoryFilter'
 
-import PostListAllSection from '../components/pageSections/Posts/postListAllSection'
 export default function PistlarPage ({data, errors, pageContext}) {
   const posts = data.posts.nodes
-  const relatedPosts = data.relatedPosts.nodes
 
   if (errors) {
     return (
@@ -28,7 +26,6 @@ export default function PistlarPage ({data, errors, pageContext}) {
       {posts && (
         <PostList posts={posts} />
       )}
-
     </Layout>
   )
 }

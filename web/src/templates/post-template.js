@@ -1,6 +1,6 @@
 import React from 'react'
 import {graphql} from 'gatsby'
-import {format, distanceInWords, differenceInDays} from 'date-fns'
+
 import {toPlainText} from '../lib/helpers'
 import GraphQLErrorList from '../components/atoms/graphql-error-list'
 import Container from '../components/organisms/container'
@@ -8,8 +8,10 @@ import SinglePost from '../components/pageSections/Posts/singlePost'
 import Layout from '../components/organisms/layout'
 import SEO from '../components/atoms/seo'
 
-export default function PostTemplate ({data, errors}) {
+const BlogPostTemplate = props => {
+  const {data, errors} = props
   const post = data && data.post
+
   return (
     <Layout>
       {
@@ -35,15 +37,13 @@ export default function PostTemplate ({data, errors}) {
 
     </Layout>
   )
-};
+}
+
+export default BlogPostTemplate
 
 export const query = graphql`
-  query PostTemplateQuery($slug: String!) {
-    post: sanityPost(slug: {
-        current: {
-          eq: $slug
-        }
-      }) {
+  query PostTemplateQuery($id: String!) {
+    post: sanityPost(id: {eq: $id}) {
       title
         id
         slug {
