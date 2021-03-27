@@ -8,15 +8,15 @@ const serializers = {
     block (props) {
       switch (props.node.style) {
         case 'bigBody':
-          return <Text as='p' variant='bigBody' sx={{m: '0 auto', maxWidth: '840px'}}>{props.children}</Text>
+          return <Text as='p' sx={{textAlign: 'center', fontFamily: 'body', fontWeight: '300', fontSize: ['20px', null, '24px'], m: '0 auto', pb: '24px', maxWidth: '960px'}}>{props.children}</Text>
         case 'normal':
-          return <Text as='p' variant='body' sx={{maxWidth: '70ch', pb: 2}}>{props.children}</Text>
+          return <Text as='p' variant='body' sx={{maxWidth: '640px', pb: 2}}>{props.children}</Text>
         case 'h2':
           return <Text as='h2' variant='subtitle'>{props.children}</Text>
         case 'h3':
-          return <Text as='h3' variant='subheading' sx={{mt: '32px', mb: '8px'}}>{props.children}</Text>
+          return <Text as='h3' variant='subheading' sx={{mt: '16px', mb: '8px'}}>{props.children}</Text>
         case 'blockquote':
-          return <Styled.blockquote sx={{mb: '32px'}}>{props.children}</Styled.blockquote>
+          return <Text sx={{color: 'primaryLight', textAlign: 'center', fontFamily: 'heading', fontWeight: '300', fontSize: ['24px', null, '24px'], m: '0 auto', py: '32px', maxWidth: '960px'}}>{props.children}</Text>
         default:
           return <Text variant='body'>{props.children}</Text>
       }

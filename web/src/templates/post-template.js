@@ -33,8 +33,10 @@ const BlogPostTemplate = props => {
           </Container>
         )
       }
-      {post && <SinglePost {...post} />}
-
+      { post && (
+        <SinglePost {...post} />
+      )
+      }
     </Layout>
   )
 }

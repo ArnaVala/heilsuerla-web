@@ -62,19 +62,20 @@ export default {
       py: ['64px', '96px', null, '128px']
     },
     full: {
+      m: '0 auto',
       width: '100%',
-      m: '0 auto'
+      maxWidth: '100vw'
     },
-
     wide: {
-      margin: '0 auto',
+      m: '0 auto',
       display: 'flex',
       flexWrap: 'wrap',
       width: '100%',
       maxWidth: '1280px',
       justifyContent: 'center',
       alignItems: 'center',
-      flexDirection: 'column'
+      flexDirection: 'column',
+      px: ['20px', '64px', null, '0px']
     },
     narrow: {
       width: '100%',
@@ -128,6 +129,7 @@ export default {
       lineHeight: '32px',
       maxWidth: '70ch'
     },
+
     blog: {
       maxWidth: '70ch',
       lineHeight: '24px',
@@ -143,6 +145,9 @@ export default {
         li: {
           pb: '8px'
         }
+      },
+      p: {
+        fontSize: '24px'
       }
     }
   },
