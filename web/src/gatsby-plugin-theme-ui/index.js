@@ -74,8 +74,7 @@ export default {
       maxWidth: '1280px',
       justifyContent: 'center',
       alignItems: 'center',
-      flexDirection: 'column',
-      px: ['20px', '64px', null, '0px']
+      flexDirection: 'column'
     },
     narrow: {
       width: '100%',

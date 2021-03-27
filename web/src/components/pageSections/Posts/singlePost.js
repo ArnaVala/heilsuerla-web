@@ -46,14 +46,15 @@ export default function SinglePost (props) {
             )}
           </Flex>
         </Grid>
-        <Box variant='container.wide' py={['64px', '128px']}>
+        <Flex variant='container.wide' py={['64px', '128px']} px={['20px', '64px', null, '0px']
+        } sx={{}}>
           <Box pb='64px'>
             {_rawExcerpt && <PortableText blocks={_rawExcerpt} />}
           </Box>
           <Box sx={{width: '100%', m: '0 auto'}}>
             {_rawBody && <PortableText blocks={_rawBody} />}
           </Box>
-        </Box>
+        </Flex>
       </Wrapper>
     </Box>
 
