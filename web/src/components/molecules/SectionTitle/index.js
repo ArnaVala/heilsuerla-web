@@ -2,13 +2,14 @@
 
 import {jsx, Box, Flex, Text} from 'theme-ui'
 
-const SectionTitle = ({heading, description}) => {
+const SectionTitle = ({heading, description, color}) => {
   return (
     <Flex variant='container.column' pb='64px' sx={{width: '100%', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
       {heading && (
         <Text
+          as='h2'
           variant='sectionTitle'
-          color='primaryLight'
+          color='primary'
           sx={{
             maxWidth: '640px'
           }}
@@ -16,10 +17,9 @@ const SectionTitle = ({heading, description}) => {
           {heading}
         </Text>
       )}
-      <Box sx={{height: '2px', mt: '16px', mb: '16px', bg: 'accent', width: '128px'}} />
+      <Box sx={{height: '2px', mb: '24px', bg: 'accent', width: '128px'}} />
       {description && (
-        <Text as='p' variant='bigBody' sx={{maxWidth: '560px'
-        }}>
+        <Text as='p' color='primary' sx={{maxWidth: '560px', fontFamily: 'heading', fontSize: ['20px']}}>
           {description}
         </Text>
       )}

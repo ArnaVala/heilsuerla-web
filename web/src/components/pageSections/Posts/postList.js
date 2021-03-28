@@ -7,11 +7,10 @@ import postList from './postList'
 
 export default function PostList ({posts}) {
   return (
-    <Section bg='primaryBg' sx={{px: ['16px', '64px', null, null]}}>
+    <Section bg='primaryBg'>
       <Wrapper variant='container.wide'>
         <Box
           sx={{
-            px: '16px',
             display: 'grid',
             gap: [3, null, 4, null],
             rowGap: '64px',

@@ -4,15 +4,12 @@ import {jsx, Box} from 'theme-ui'
 
 const IngredientList = ({ingredient = []}) => {
   return (
-    <Box as='ul' sx={{listStyleType: 'none', textAlign: 'center', p: '0', py: '32px', fontFamily: 'heading'
-    }}>
+    <Box as='ul'>
       {ingredient.map((ingredientItem) => {
-        const {name, amount} = ingredientItem
+        const {name} = ingredientItem
         return (
           <Box as='li' sx={{textAlign: 'center'}} key={ingredientItem._key}>
-            <Box sx={{textAlign: 'center'}}>{amount}
-              {' '}
-              {name}</Box>
+            <Box sx={{textAlign: 'center'}}>{name}</Box>
           </Box>
         )
       })}

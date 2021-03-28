@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import React, {useState} from 'react'
 import {Link as gatsbyLink} from 'gatsby'
-import {jsx, Styled, Box, Flex, Nav, Grid, Link} from 'theme-ui'
+import {jsx, Styled, Box, Flex, Nav, Grid, Button, Link} from 'theme-ui'
 
 const Hamburger = ({...props}) => {
   const [isOpen, setOpen] = useState(false)
 
   const shared = {
-    backgroundColor: 'primary',
+    backgroundColor: isOpen ? 'white' : 'primary',
     borderRadius: '0',
     height: 3,
     content: '" "',
@@ -16,7 +16,7 @@ const Hamburger = ({...props}) => {
   }
 
   return (
-    <>
+    <Box>
       <button
         aria-controls='gatsby-nav'
         aria-expanded={isOpen ? 'active' : 'inactive'}
@@ -57,6 +57,7 @@ const Hamburger = ({...props}) => {
             position: 'relative',
             zIndex: '1000',
             borderRadius: '0',
+            postion: 'fixed',
             backgroundColor: isOpen ? 'transparent' : 'primary',
             transition: 'all 250ms cubic-bezier(.68,-.55,.265,1.55)',
             ':before': {
@@ -80,11 +81,11 @@ const Hamburger = ({...props}) => {
         <Flex
           sx={{
             display: ['flex', null, 'none'],
+            justifyContent: 'center',
             alignItems: 'center',
-            textAlign: 'center',
             backgroundColor: 'primary',
             transition: 'all 250ms ease-in-out',
-            opacity: isOpen ? '0.95' : '0',
+            opacity: isOpen ? '1' : '0',
             position: 'fixed',
             margin: 0,
             top: 0,
@@ -96,8 +97,6 @@ const Hamburger = ({...props}) => {
         >
           <nav
             sx={{
-              my: '6',
-              mx: '5',
               width: '100%',
               textAlign: 'center'
             }}
@@ -106,42 +105,34 @@ const Hamburger = ({...props}) => {
               as='ul'
               sx={{
                 flexDirection: 'column',
-                rowGap: '16px',
-                color: 'muted',
                 alignItems: 'center',
                 textAlign: 'center',
                 listStyle: 'none',
-                m: '0 auto',
                 p: 0
-
               }}
             >
 
-              <Link as={gatsbyLink} variant='nav.hamburger' sx={{color: 'white'}} to='/'>Heim</Link>
-              <Link as={gatsbyLink} variant='hamburger' to='/heilsumarkthjalfun'>
-                Heilsumarkþjálfun
-              </Link>
+              <Link as={gatsbyLink} variant='hamburger' to='/heilsumarkthjalfun'>Heilsumarkþjálfun</Link>
               <Link as={gatsbyLink} variant='hamburger' to='/radgjof'>
                 Ráðgjöf
               </Link>
+              <Link as={gatsbyLink} variant='hamburger' to='/um-erlu'>
+                Um Erlu
+              </Link>
+
               <Link as={gatsbyLink} variant='hamburger' to='/blogg'>
                 Blogg
               </Link>
-              <Link as={gatsbyLink} variant='hamburger' sx={{py: '8px', my: '16px', borderTop: '1px solid white'}} to='/hafa-samband'>
-                Panta heilsuviðtal
-              </Link>
+
               <Link as={gatsbyLink} variant='hamburger' to='/hafa-samband'>
-                Hafa samband
-              </Link>
-              <Link as='gatsbyLink' variant='hamburger' to='/hafa-samband'>
-                Hafa samband
+                Bóka heilsuviðtal
               </Link>
 
             </Flex>
           </nav>
         </Flex>
       )}
-    </>
+    </Box>
   )
 }
 

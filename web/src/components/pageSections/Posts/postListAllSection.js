@@ -25,7 +25,6 @@ export default function PostListAllSection ({posts, title}) {
         </Flex>
         <Box
           sx={{
-            px: '16px',
             display: 'grid',
             gap: [3, null, 4, null],
             rowGap: '64px',

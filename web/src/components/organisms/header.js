@@ -22,6 +22,7 @@ const Header = () => {
     <Box bg='white' variant='layout.header'>
       <Flex
         sx={{
+          position: 'sticky',
           margin: '0 auto',
           display: 'flex',
           flexWrap: 'wrap',

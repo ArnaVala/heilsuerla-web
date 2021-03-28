@@ -11,16 +11,12 @@ const HeilsumarkIntro = ({block}) => {
   return (
     <Section mb='0px'>
       <Wrapper
-        variant='container.wide'
-        sx={{
-          px: ['20px', '64px']
-        }}
-      >
+        variant='container.wide'>
         <SectionTitle sx={{alignSelf: 'center'}} heading={heading} description={description} />
 
         <Flex variant='container.row' mt='32px' sx={{flexDirection: ['column', null, 'row', null], width: '100%', columnGap: '32px', rowGap: '64px'}}>
           <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center'}}>
-            <Box sx={{maxHeight: ['360px', null, '520px']}}>
+            <Box sx={{height: '540px', maxHeight: ['360px', null, '540px']}}>
               {image && image.asset && (
                 <Image
                   {...image}
@@ -30,13 +26,11 @@ const HeilsumarkIntro = ({block}) => {
               )}
             </Box>
           </Flex>
-
           <Flex variant='container.column' sx={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
             <Flex
               sx={{
                 maxWidth: '560px',
                 m: '0 auto',
-                rowGap: '32px',
                 flexDirection: 'column'
               }}
             >
@@ -44,7 +38,7 @@ const HeilsumarkIntro = ({block}) => {
                 const {name, description, _key} = service
                 return (
                   <Box key={_key}>
-                    <Text variant='subheading' color='primaryLight'>
+                    <Text as='h3' variant='subheading' color='primaryLight'>
                       {name}
                     </Text>
                     <Text variant='body'>

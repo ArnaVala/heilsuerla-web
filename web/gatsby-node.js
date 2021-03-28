@@ -5,15 +5,20 @@ async function createBlogPostPages (graphql, actions) {
   const {createPage} = actions
   const result = await graphql(`
     {
-      allSanityPost(
-        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
-      ) {
+      allSanityPost(filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}) {
         edges {
           node {
             id
             publishedAt
             slug {
               current
+            }
+            categories {
+              title
+              id
+              slug {
+                current
+              }
             }
           }
         }
@@ -26,7 +31,7 @@ async function createBlogPostPages (graphql, actions) {
   const postEdges = (result.data.allSanityPost || {}).edges || []
 
   postEdges
-    .filter(edge => !isFuture(edge.node.publishedAt))
+    .filter((edge) => !isFuture(edge.node.publishedAt))
     .forEach((edge, index) => {
       const {id, slug = {}} = edge.node
       const path = `/blogg/${slug.current}/`
@@ -73,8 +78,5 @@ async function createCategoryPages (graphql, actions) {
 }
 
 exports.createPages = async ({graphql, actions}) => {
-  await Promise.all([
-    createBlogPostPages(graphql, actions),
-    createCategoryPages(graphql, actions)
-  ])
+  await Promise.all([createBlogPostPages(graphql, actions), createCategoryPages(graphql, actions)])
 }

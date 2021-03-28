@@ -8,9 +8,9 @@ const serializers = {
     block (props) {
       switch (props.node.style) {
         case 'bigBody':
-          return <Text as='p' sx={{textAlign: 'center', fontFamily: 'body', fontWeight: '300', fontSize: ['20px', null, '24px'], m: '0 auto', pb: '24px', maxWidth: '960px'}}>{props.children}</Text>
+          return <Text as='p' >{props.children}</Text>
         case 'normal':
-          return <Text as='p' variant='body' sx={{maxWidth: '640px', pb: 2}}>{props.children}</Text>
+          return <Text as='p' variant='body'>{props.children}</Text>
         case 'h2':
           return <Text as='h2' variant='subtitle'>{props.children}</Text>
         case 'h3':
@@ -24,7 +24,6 @@ const serializers = {
     authorReference: ({node}) => <span>{node.author.name}</span>,
     recipe: RecipeBlock,
     mainImage: Figure,
-
     marks: {
       decorators: [],
       internalLink: ({mark, children}) => {

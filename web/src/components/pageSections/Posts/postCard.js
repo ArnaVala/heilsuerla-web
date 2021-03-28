@@ -6,7 +6,7 @@ import Image from 'gatsby-plugin-sanity-image'
 
 import {Box, Text, Flex, Card} from 'theme-ui'
 
-export default function postCard ({post}) {
+export default function PostCard ({post}) {
   const {image, categories, title, slug} = post
   return (
     <Card variant='postCard'>

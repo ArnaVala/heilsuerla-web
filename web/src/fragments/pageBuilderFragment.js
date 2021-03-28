@@ -152,6 +152,7 @@ export const query = graphql`
           stepsList {
             _key
             _type
+            number
             heading
             description
           }

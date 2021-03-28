@@ -23,27 +23,29 @@ const Share = ({postURL, postTitle, ...props}) => {
   return (
     <Flex
       sx={{
-        flexDirection: 'row',
-        columnGap: '16px',
+        flexDirection: ['column'],
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        pt: '32px'
       }}
     >
       <Box
         variant='text.caps'
         sx={{
           fontWeight: 'light',
-          mb: '8px',
-          ':after': {
+          fontSize: '14px',
+          color: 'accent',
+          mb: '8px'
+          /* ':after': {
             content: '""',
             display: 'inline-block',
-            width: '120px',
-            height: '2px',
+            width: '2px',
+            height: '16px',
             backgroundColor: 'accent',
             color: 'accent',
-            verticalAlign: '4px',
-            ml: '8px'
-          }
+            verticalAlign: '-2px',
+            ml: '16px'
+          } */
         }}
       >
         Deildu
@@ -54,7 +56,7 @@ const Share = ({postURL, postTitle, ...props}) => {
             <SocialIcon
               name={platform.name}
               url={platform.url}
-              style={{color: 'primary', fontSize: [4]}}
+              style={{color: 'primary', fontSize: [4, 5]}}
               key={index}
             />
           )

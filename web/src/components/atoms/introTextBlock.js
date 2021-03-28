@@ -1,8 +1,8 @@
 
 /** @jsx jsx */
 import PortableText from '../atoms/portableText'
-
 import {jsx, Flex, Box, Text} from 'theme-ui'
+import {Eyebrow} from '../common'
 
 const IntroTextBlock = ({eyebrow, heading, subheading, description, children}) => {
   return (
@@ -14,7 +14,7 @@ const IntroTextBlock = ({eyebrow, heading, subheading, description, children}) =
         }}
       >
         {eyebrow && (
-          <Text variant='eyebrow'>{eyebrow}</Text>
+          <Eyebrow children={eyebrow} />
         )}
         {heading && (
           <Text sx={{fontFamily: 'heading', fontWeight: 'bold', lineHeight: 'heading', my: '32px', fontSize: ['32px', '40px', '36px']}}>

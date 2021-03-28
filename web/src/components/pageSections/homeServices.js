@@ -3,7 +3,7 @@ import {Link as GatsbyLink} from 'gatsby'
 import {jsx, Box, Grid, Flex, Card, Text, Link} from 'theme-ui'
 import Image from 'gatsby-plugin-sanity-image'
 
-import {Section, Wrapper} from '../common'
+import {Section, Wrapper, Eyebrow} from '../common'
 import {FeatureCard, SectionTitle} from '../molecules'
 
 const HomeServices = ({block}) => {
@@ -12,7 +12,7 @@ const HomeServices = ({block}) => {
     <Section bg='primaryBg'>
       <Wrapper variant='container.wide' sx={{m: '0 auto', px: ['16px', '64px', null, '0px']}}>
         <SectionTitle eyebrow={sectionHeader.eyebrow} heading={sectionHeader.eyebrow} description={sectionHeader.heading} />
-        <Grid columns={[1]} gap='128px'>
+        <Grid columns={[1]} gap={['64px', null]}>
           <FeatureCard
             image={heilsumark.image}
             ctaLink={heilsumark.ctaLink}

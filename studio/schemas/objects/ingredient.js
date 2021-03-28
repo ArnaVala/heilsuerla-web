@@ -7,11 +7,6 @@ export default {
       title: 'Ingredient Name',
       name: 'name',
       type: 'string'
-    },
-    {
-      title: 'Ingredient Amount',
-      name: 'amount',
-      type: 'string'
     }
   ]
 }

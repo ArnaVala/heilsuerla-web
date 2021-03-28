@@ -1,9 +1,9 @@
 export {default as articleReference} from './articleReference'
 export {default as authorReference} from './authorReference'
 export {default as bioPortableText} from './bioPortableText'
+export {default as recipePortableText} from './recipePortableText'
 export {default as bodyPortableText} from './bodyPortableText'
 export {default as callToAction} from './callToAction'
-
 export {default as excerptPortableText} from './excerptPortableText'
 
 export {default as mainImage} from './mainImage'

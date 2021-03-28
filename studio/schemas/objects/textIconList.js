@@ -12,6 +12,11 @@ export default {
       title: 'Description',
       name: 'description',
       type: 'text'
+    },
+    {
+      title: 'Number',
+      name: 'number',
+      type: 'string'
     }
   ],
   preview: {

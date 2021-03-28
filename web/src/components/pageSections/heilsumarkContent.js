@@ -42,8 +42,8 @@ const HeilsumarkContent = ({block}) => {
                 m: '0 auto'
               }}
             >
-              <Text variant='subheading' color='primaryLight'>{bigTextOne}</Text>
-              <Text variant='bigBody'>Saman vinum við að því að skoða og meta hvernig margvíslegir þættir hafa áhrif á heilsu þína, og hvaða þættir það eru sem stuðla að ójafnvægi í þínu lífi og hafa neikvæð áhrif á heilsu þína.</Text>
+              <Text variant='heading' sx={{pb: '16px'}}>{bigTextOne}</Text>
+              <Text variant='body'>Saman vinnum við að því að skoða og meta hvernig margvíslegir þættir hafa áhrif á heilsu þína – hvaða þættir það eru sem stuðla að ójafnvægi í þínu lífi og hafa neikvæð áhrif á heilsu þína.</Text>
 
             </Box>
           </Flex>
@@ -60,8 +60,8 @@ const HeilsumarkContent = ({block}) => {
             >
               {listRight.listWithIcon.map((item) => {
                 return (
-                  <Grid columns={'24px 1fr'} key={item._key} sx={{my: '16px'}}>
-                    <Flex sx={{justifyContent: 'center', mr: '-24px'}}>
+                  <Grid columns={'24px 1fr'} gap='16px' key={item._key} sx={{my: '16px'}}>
+                    <Flex sx={{justifyContent: 'center'}}>
                       <FiArrowRightCircle color='#ff7476' fontSize='24px' />
                     </Flex>
                     <Text variant='body' sx={{}}>

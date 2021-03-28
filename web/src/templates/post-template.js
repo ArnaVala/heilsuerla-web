@@ -33,6 +33,7 @@ const BlogPostTemplate = props => {
           </Container>
         )
       }
+
       { post && (
         <SinglePost {...post} />
       )
@@ -66,6 +67,7 @@ export const query = graphql`
         }
         _rawExcerpt(resolveReferences: {maxDepth: 5})
         _rawBody(resolveReferences: {maxDepth: 5})
+        
         authors {
           _key
           author {

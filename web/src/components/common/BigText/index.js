@@ -12,12 +12,12 @@ const BigText = ({bigText, bg, color, ...props}) => {
           as='blockquote'
           variant='quote'
           color={color}
-          sx={{p: 4,
-            textAlign: 'center',
-            m: '0',
-            border: 'none',
-            width: '100%',
-            maxWidth: '720px'}}
+          sx={{
+            py: '64px',
+            fontSize: ['24px', '32px'],
+            px: ['16px', '32px'],
+            lineHeight: 'heading'
+          }}
           {...props}
         >
           {bigText}

@@ -8,6 +8,7 @@ export default {
       title: 'Title for tab',
       type: 'string'
     },
+
     {
       name: 'heading',
       title: 'Heading for price block',

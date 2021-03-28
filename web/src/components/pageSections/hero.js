@@ -24,12 +24,13 @@ const Hero = ({block, raw}) => {
           pb={['64px', '96px']}
           sx={{
             width: '100%',
+            margin: '0 auto',
             justifyContent: 'center',
             alignItems: 'center',
             order: [1, null, 0, null]
           }}
         >
-          <Flex variant='container.column' sx={{alignSelf: 'center', maxWidth: [null, null, null, '560px', '720px'], rowGap: ['24px', '32px', null, null, '48px']
+          <Flex sx={{flexDirection: 'column', width: '100%', maxWidth: '540px'
           }}>
             <Eyebrow as='h1'>{eyebrow}</Eyebrow>
             <Box>

@@ -2,7 +2,7 @@
 import {jsx, Box, Flex, Grid, Card, Text} from 'theme-ui'
 import {imageUrlFor} from '../../lib/image-url'
 
-import {Section, Wrapper} from '../common'
+import {Section, Wrapper, Eyebrow} from '../common'
 import {FiArrowRightCircle} from 'react-icons/fi'
 import TextLink from '../atoms/TextLink'
 
@@ -34,56 +34,41 @@ const CtaHeilsuvidtal = ({block, raw}) => {
           }}
         >
           <Card variant='feature' bg='white' sx={{width: '100%', py: '64px', px: ['16px', '64px']}}>
-            <Box
-              variant='text.eyebrow'
-              sx={{
-                textAlign: 'center',
-                alignItems: 'center',
-                justifyContent: 'center',
-                py: ['16px'],
-                pb: ['32px', '64px'],
-                px: ['16px'],
-                m: '0 auto',
-                maxWidth: '720px'
-              }}
-            >
-              {eyebrow}
-            </Box>
+            <Eyebrow children={eyebrow} />
 
-            <Flex variant='container.row' sx={{flexDirection: ['column', null, 'row', null], width: '100%', columnGap: '32px', rowGap: '64px'}}>
-              <Flex variant='container.column' sx={{justifyContent: 'flex-start'}}>
+            <Flex variant='container.row' sx={{flexDirection: ['column', null, 'row', null], gap: ['32px'], width: '100%', height: '100%'}}>
+              <Flex variant='container.column' >
                 <Box
                   sx={{
                     maxWidth: '560px',
                     m: '0 auto'
                   }}
                 >
-                  <Text variant='subtitle' sx={{mb: '32px'}}>
+                  <Text variant='title' >
                     {heading}
                   </Text>
 
-                  <Text variant='bigBody' sx={{fontSize: '20px'}}>
+                  <Text variant='bigBody'>
                     {description}
                   </Text>
                 </Box>
               </Flex>
 
-              <Flex variant='container.column' sx={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+              <Flex variant='container.column' sx={{flexDirection: 'row', alignSelf: 'flex-end', justifyContent: 'center', alignItems: 'center'}}>
                 <Flex
                   sx={{
                     maxWidth: '560px',
                     m: '0 auto',
-                    rowGap: '32px',
                     flexDirection: 'column'
                   }}
                 >
                   {listWithIcon.map((item) => {
                     return (
-                      <Grid columns={'24px 1fr'} key={item._key}>
-                        <Flex sx={{justifyContent: 'center', mr: '-24px'}}>
+                      <Grid gap={'16px'} columns={'24px 1fr'} key={item._key}>
+                        <Flex sx={{justifyContent: 'center'}}>
                           <FiArrowRightCircle color='#ff7476' fontSize='24px' />
                         </Flex>
-                        <Text variant='body' sx={{}}>
+                        <Text variant='body'>
                           {item}
                         </Text>
                       </Grid>

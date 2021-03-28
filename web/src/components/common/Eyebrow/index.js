@@ -1,22 +1,15 @@
 /** @jsx jsx */
-import {jsx, Box} from 'theme-ui'
+import {jsx, Text} from 'theme-ui'
 
-function Eyebrow ({children, ...props}) {
+function Eyebrow ({children, color, ...props}) {
   return (
-    <Box
-      color='primaryLight'
-      sx={{
-        fontFamily: 'body',
-        fontWeight: 'bold',
-        lineHeight: 'body',
-        textTransform: 'uppercase',
-        fontSize: '16px',
-        letterSpacing: '.05em'
-      }}
+    <Text
+      color={color}
+      variant='text.eyebrow'
       {...props}
     >
       {children}
-    </Box>
+    </Text>
   )
 }
 
