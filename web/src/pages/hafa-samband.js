@@ -1,93 +1,20 @@
 import React from 'react'
-import {useForm} from 'react-hook-form'
-import {navigate} from 'gatsby'
+import PropTypes from 'prop-types'
 
-const HafaSambandPage = () => {
-  const {register, handleSubmit, errors, reset} = useForm()
+import {Section} from '../components/common'
+import {Box, Text} from 'theme-ui'
+import ContactForm from '../components/common/Forms/contactForm'
 
-  // Transforms the form data from the React Hook Form output to a format Netlify can read
-  const encode = (data) => {
-    return Object.keys(data)
-      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&')
-  }
-
-  // Handles the post process to Netlify so we can access their serverless functions
-  const handlePost = (formData, event) => {
-    fetch(`/`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: encode({'form-name': 'contact-form', ...formData})
-    })
-      .then((response) => {
-        navigate('/success/')
-        reset()
-        console.log(response)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-    event.preventDefault()
-  }
-
+const ContactPage = () => {
   return (
-    <form
-      onSubmit={handleSubmit(handlePost)}
-      name='contact-form'
-      method='POST'
-      action='/success/'
-      data-netlify='true'
-      netlify-honeypot='got-ya'
-    >
-      <input type='hidden' name='form-name' value='contact-form' />
-      <input
-        type='hidden'
-        name='formId'
-        value='contact-form'
-        ref={register()}
-      />
-      <label htmlFor='name'>
-        <p>Fullt nafn</p>
-        {errors.name && <span>Villuboð</span>}
-        <input name='name' ref={register({required: true})} />
-      </label>
-      <label htmlFor='email'>
-        <p>Netfang</p>
-        {errors.email && <span>Vinsamlegast settu inn gilt netfang</span>}
-        <input
-          name='email'
-          ref={register({
-            required: true,
-            pattern: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-          })}
-        />
-      </label>
-      <label htmlFor='message'>
-        <p>Skilaboð</p>
-        <textarea rows='4' name='message' ref={register()} />
-      </label>
-      <label
-        htmlFor='got-ya'
-        style={{
-          position: 'absolute',
-          overflow: 'hidden',
-          clip: 'rect(0 0 0 0)',
-          height: '1px',
-          width: '1px',
-          margin: '-1px',
-          padding: '0',
-          border: '0'
-        }}
-      >
-        Don’t fill this out if you're human:
-        <input tabIndex='-1' name='got-ya' ref={register()} />
-      </label>
-      <div>
-        <button type='submit'>Submit</button>
-      </div>
+    <Section>
+      <Box>
+        <Text>Hello this is contact</Text>
 
-    </form>
+        <ContactForm />
+      </Box>
+    </Section>
   )
 }
 
-export default HafaSambandPage
+export default ContactPage
