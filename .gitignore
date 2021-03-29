@@ -6,3 +6,8 @@
 
 # lerna files
 /lerna-debug.log
+
+# Local Netlify folder
+.netlify
+web/.env.production
+web/.env.development

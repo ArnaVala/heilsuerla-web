@@ -7,3 +7,4 @@ export {default as author} from './author'
 // referenced content
 export {default as feature} from './feature'
 export {default as page} from './page'
+export {default as contact} from './contact'

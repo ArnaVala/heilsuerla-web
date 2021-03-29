@@ -28,6 +28,7 @@ export default {
     accentMuted: '#ffd6d6',
     primaryBg: '#f2f5f6'
   },
+
   // fonts
   fontWeights: {
     body: 300,

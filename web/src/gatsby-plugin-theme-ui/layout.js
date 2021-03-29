@@ -7,13 +7,11 @@ export default {
       lineHeight: 'body',
       width: '100vw',
       height: '100%',
-      margin: ' 0 auto',
+      mx: 'auto',
       overflow: 'hidden'
     },
     header: {
-      backgroundColor: 'transparent',
-      fontWeight: 'normal',
-      margin: '0 auto',
+      mx: 'auto',
       width: '100%',
       pr: ['16px', '32px', '40px', null],
       pl: ['16px', '24px', '36px', null],
