@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import {Section} from '../components/common'
 import {Box, Text} from 'theme-ui'
@@ -10,7 +9,6 @@ const ContactPage = () => {
     <Section>
       <Box>
         <Text>Hello this is contact</Text>
-
         <ContactForm />
       </Box>
     </Section>
