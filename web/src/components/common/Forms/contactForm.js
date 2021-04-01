@@ -59,6 +59,11 @@ const ContactForm = () => {
         />
       </label>
       <label htmlFor='message'>
+        <p>Topic</p>
+        <input name='topic' ref={register({required: false})} />
+      </label>
+
+      <label htmlFor='message'>
         <p>Message</p>
         <textarea rows='4' name='message' ref={register()} />
       </label>
@@ -79,7 +84,7 @@ const ContactForm = () => {
         <input tabIndex='-1' name='got-ya' ref={register()} />
       </label>
       <div>
-        <button type='submit'>Submit</button>
+        <button type='submit'>Senda skilaboð</button>
       </div>
     </form>
   )

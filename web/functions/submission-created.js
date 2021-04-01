@@ -20,6 +20,7 @@ exports.handler = async function (event, context, callback) {
       _type: 'contact',
       name: payload.data.name,
       email: payload.data.email,
+      topic: payload.data.topic,
       message: payload.data.message
     }
 
