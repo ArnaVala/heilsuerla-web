@@ -1,19 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
 import {navigate} from 'gatsby'
+import {Text, Label, Input, Textarea, Button, Box} from 'theme-ui'
 
 const ContactForm = () => {
-  // Initiate forms
-  const {register, handleSubmit, errors, reset} = useForm()
+  const [submitted, setSubmitted] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    setError,
+    errors,
+    reset,
+    formState: {isSubmitting}
+  } = useForm()
 
-  // Transforms the form data from the React Hook Form output to a format Netlify can read
   const encode = (data) => {
     return Object.keys(data)
       .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
       .join('&')
   }
 
-  // Handles the post process to Netlify so we can access their serverless functions
   const handlePost = (formData, event) => {
     fetch(`/`, {
       method: 'POST',
@@ -21,52 +27,90 @@ const ContactForm = () => {
       body: encode({'form-name': 'contact-form', ...formData})
     })
       .then((response) => {
-        navigate('/success/')
+        setSubmitted(true)
         reset()
         console.log(response)
       })
       .catch((error) => {
+        setError(
+          'submit',
+          'submitError',
+          `Æ! Eitthvað hefur klikkað! ${error.message}`
+        )
         console.log(error)
       })
     event.preventDefault()
   }
 
-  return (
+  const showThankYou = (
+    <Box bg='primaryBg'>
+      <Text variant='bigBody'>Takk fyrir, skilaboðin hafa verið send, ég hef samband við fyrsta tækifæri.</Text>
+      <Button type='button' onClick={() => setSubmitted(false)}>Senda önnur skilaboð?</Button>
+    </Box>
+  )
+  const showForm = (
     <form
       onSubmit={handleSubmit(handlePost)}
       name='contact-form'
-      method='POST'
-      action='/success/'
       data-netlify='true'
       netlify-honeypot='got-ya'
+      method='post'
     >
       <input type='hidden' name='form-name' value='contact-form' />
-      <input type='hidden' name='formId' value='contact-form' ref={register()} />
-      <label htmlFor='name'>
-        <p>Name</p>
-        {errors.name && <span>Error message</span>}
-        <input name='name' ref={register({required: true})} />
-      </label>
-      <label htmlFor='email'>
-        <p>Email</p>
-        {errors.email && <span>Please format email correctly</span>}
-        <input
-          name='email'
-          ref={register({
-            required: true,
-            pattern: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-          })}
+      <input
+        type='hidden'
+        name='formId'
+        value='contact-form'
+        ref={register()}
+      />
+      <Box py='16px'>
+        <Label htmlFor='name'>
+          Fullt nafn
+        </Label>
+        <Input
+          type='text'
+          name='name'
+          id='name'
+          placeholder='Hvað heitir þú?'
+          ref={register({required: 'Vinsamlegast fylltu út reitinn.'})}
+          disabled={isSubmitting}
         />
-      </label>
-      <label htmlFor='message'>
-        <p>Topic</p>
-        <input name='topic' ref={register({required: false})} />
-      </label>
+        {errors.name && <Text pt='8px' color='accent'>Ég þarf að vita hvað þú heitir.</Text>}
+      </Box>
+      <Box>
+        <Label htmlFor='email'>
+          Netfang
+        </Label>
+        <Input
+          type='email'
+          name='email'
+          id='email'
+          placeholder='Netfangið þitt hér, t.d. nafn@email.is'
+          ref={register({required: 'Vinsamlegast fylltu út reitinn.'})}
+          disabled={isSubmitting}
+        />
+        {
+          errors.email && <Box>Athugaðu hvort netfang sé rétt.</Box>
+        }
 
-      <label htmlFor='message'>
-        <p>Message</p>
-        <textarea rows='4' name='message' ref={register()} />
-      </label>
+      </Box>
+      <Box>
+        <Label htmlFor='message'>
+          Skilaboð
+        </Label>
+        <Textarea
+          ref={register({required: 'Vinsamlegast fylltu út reitinn.'})}
+          name='message'
+          id='message'
+          rows='4'
+          placeholder='Skrifaðu skilaboð til mín hér.'
+          disabled={isSubmitting}
+        />
+        {
+          errors.message && <Box>Vinsamlegast skrifaðu mér skilaboð.</Box>
+        }
+
+      </Box>
       <label
         htmlFor='got-ya'
         style={{
@@ -80,13 +124,20 @@ const ContactForm = () => {
           border: '0'
         }}
       >
-        Don’t fill this out if you're human:
+        Ekki fylla þetta út ef þú ert lifandi vera:
         <input tabIndex='-1' name='got-ya' ref={register()} />
       </label>
-      <div>
-        <button type='submit'>Senda skilaboð</button>
-      </div>
+
+      <button type='submit' disabled={isSubmitting}>Senda skilaboð</button>
     </form>
+  )
+  return (
+    <Box>
+      <Box>
+        {errors && errors.submit && showSubmitError(errors.submit.message)}
+      </Box>
+      <Box>{submitted ? showThankYou : showForm}</Box>
+    </Box>
   )
 }
 

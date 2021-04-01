@@ -1,6 +1,5 @@
 import global from './global'
 import breakpoints from './breakpoints'
-import forms from './forms'
 
 const fonts = {
   Sofia: "'Sofia Pro', 'Lato', 'Inter', sans-serif",
@@ -8,7 +7,6 @@ const fonts = {
 }
 export default {
   breakpoints,
-  forms,
   fonts: {
     ...fonts,
     body: "'Sofia Pro', 'Lato', 'Inter', sans-serif",
@@ -52,6 +50,44 @@ export default {
   radii: [4, 32],
   zIndices: [-1, 1],
   //
+
+  forms: {
+    label: {
+      fontSize: 1,
+      fontWeight: 'bold'
+    },
+    input: {
+      borderColor: 'primaryMuted',
+      border: '1px solid',
+      '&:focus': {
+        border: '2px solid',
+        borderColor: 'transparent',
+        boxShadow: t => `0 0 0 2px ${t.colors.primaryLight}`,
+        outline: 'none'
+      }
+    },
+    select: {
+      borderColor: 'primaryMuted',
+      border: '1px solid',
+      '&:focus': {
+        borderColor: 'primary',
+        outline: 'none'
+      }
+    },
+    textarea: {
+      borderColor: 'primaryMuted',
+      border: '1px solid',
+      '&:focus': {
+        border: '1px solid',
+        borderColor: 'transparent',
+        boxShadow: t => `0 0 0 2px ${t.colors.primaryLight}`,
+        outline: 'none'
+      }
+    },
+    slider: {
+      bg: 'muted'
+    }
+  },
 
   container: {
     section: {
@@ -593,6 +629,7 @@ export default {
 
     }
   },
+
   styles: {
     root: {
       h1: {
