@@ -13,8 +13,8 @@ import BloggNav from '../molecules/Footer/bloggNav'
 
 const Footer = () => {
   return (
-    <Box as='footer' variant='container.full'>
-      <Wrapper bg='primary' variant='container.wide' mx='auto' pt={['64px', '64px']}>
+    <Box as='footer' variant='container.footer'>
+      <Wrapper bg='primary' variant='container.full' mx='auto' pt={['64px', '64px']}>
         <section
           sx={{
             mx: 'auto',
