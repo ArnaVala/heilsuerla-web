@@ -1,10 +1,9 @@
 /** @jsx jsx */
-import React from 'react'
 import {jsx} from 'theme-ui'
 
-import {Details, ContactForm, Intro, Header} from '../components/common/Forms'
+import {ContactForm, Intro, Header} from '../components/common/Forms'
 import Layout from '../components/organisms/layout'
-import {Section, Wrapper} from '../components/common'
+import {Wrapper} from '../components/common'
 
 const ContactPage = () => (
   <Layout>

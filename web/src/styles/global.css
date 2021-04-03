@@ -147,9 +147,6 @@ span.inner {
   z-index: 2;
   margin: 0 30px 0 40px;
   color: #cde3e7;
-
-
-
 }
 .btn:hover .inner {
   margin-right: 50px;
@@ -222,7 +219,7 @@ span.inner {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10000;
+  z-index: 3000;
   will-change: transform;
   background-color: white;
 }

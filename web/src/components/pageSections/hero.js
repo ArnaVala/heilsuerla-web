@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import buildImageObj from '../../lib/helpers'
 import {imageUrlFor} from '../../lib/image-url'
-import {urlFor} from '@sanity/image-url'
 import Image from 'gatsby-plugin-sanity-image'
 
 import {jsx, Box, Flex, Grid} from 'theme-ui'
@@ -21,7 +20,7 @@ const Hero = ({block, raw}) => {
         <Flex
           px={['20px', '32px', '48px', '64px']}
           pt={['32px', '64px', null, '96px']}
-          pb={['64px', '96px']}
+          pb={['64px', '64px', null, '96px']}
           sx={{
             width: '100%',
             margin: '0 auto',
@@ -55,9 +54,9 @@ const Hero = ({block, raw}) => {
         </Flex>
 
         <Flex
-          variant='container.column'
           sx={{
-            alignItems: 'center'
+            alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
           <BackgroundImage
@@ -67,19 +66,21 @@ const Hero = ({block, raw}) => {
             sx={{
               height: '100%',
               width: '100%',
-              objectFit: 'cover'
+              p: ['32px', '32px', '32px', '64px']
             }}
           >
             {image && image.asset && (
               <Flex
                 sx={{
-                  width: '100%',
-                  p: ['20px', '32px', '48px', '64px'],
-                  height: ['320px', '560px', '640px', '100%']}}>
+                  mx: 'auto',
+                  alignSelf: 'center',
+                  width: ['320px', '480px', '560px'],
+                  height: ['320px', '480px', '560px']
+                }}>
                 <Image
                   {...image}
-                  width={1600}
-                  height={1600}
+                  width={1500}
+                  height={1500}
                   alt={image.alt}
                   css={{width: '100%', height: '100%', objectFit: 'cover'}}
                 />

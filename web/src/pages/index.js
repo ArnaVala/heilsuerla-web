@@ -15,7 +15,6 @@ import Layout from '../components/organisms/layout'
 import PageBuilder from '../components/organisms/pageBuilder'
 import PostListAllSection from '../components/pageSections/Posts/postListAllSection'
 
-
 export const query = graphql`
   query IndexPageQuery {
     site: 
@@ -23,6 +22,13 @@ export const query = graphql`
       title
       description
       keywords
+      openGraph {
+        title
+        description
+        image {
+          ...SanityImage
+        }
+      }
     },
     indexPage: sanityPage(id: {eq: "20cdae87-1eeb-5515-a9e5-e28f9e4f8af7"}) {
       id

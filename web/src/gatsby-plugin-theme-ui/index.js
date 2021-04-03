@@ -132,7 +132,7 @@ export default {
       justifyContent: 'center',
       alignItems: 'center',
       margin: '0 auto',
-      py: ['64px', '96px', null, '128px']
+      py: ['64px', '128px']
     },
     sectionNoPad: {
       width: '100%',
@@ -295,8 +295,13 @@ export default {
       display: 'flex',
       flexDirection: 'column',
       flex: '1',
-      flexBasis: '100%',
+      flexbasis: '100%',
       px: ['0px', null, '16px', null]
+    },
+
+    card: {
+      display: 'flex',
+      flexDirection: 'column'
     },
 
     quoteBanner: {
@@ -333,6 +338,8 @@ export default {
       pr: ['16px', '32px', '40px', null],
       pl: ['16px', '24px', '36px', null],
       py: '24px',
+      zIndex: 30,
+      position: 'fixed',
 
       logo: {
         width: ['40px', '48px', null, '64px']
@@ -549,7 +556,6 @@ export default {
     },
     hamburger: {
       px: 2,
-      zIndex: '1000',
       textDecoration: 'none',
       color: 'primaryBg',
       fontFamily: 'heading',
@@ -610,15 +616,22 @@ export default {
       py: ['64px', '96px', null],
       mx: ['16px', '0px', null],
       boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
-      zIndex: 2,
 
       '&:hover': {
         boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
-        zIndex: '10',
         bg: 'white'
       }
     },
     feature: {
+      bg: 'white',
+      px: ['16px', '64px', '64px'],
+      py: ['64px', null, '96px', '128px'],
+      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
+
+      '&:hover': {
+        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
+        bg: 'white'
+      }
 
     },
     image: {
@@ -627,12 +640,8 @@ export default {
 
     testimonial: {
       mx: 'auto',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
       bg: 'white',
       boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
-      zIndex: 2,
       width: '100%',
       px: ['16px', '48px'],
       textAlign: 'center',
@@ -640,29 +649,24 @@ export default {
 
       '&:hover': {
         boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
-        zIndex: '10',
         bg: 'white'
       }
     },
     postCard: {
       bg: 'white',
       boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
-      zIndex: 2,
 
       '&:hover': {
         boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
-        zIndex: '10',
         bg: 'white'
       }
     },
     featureCard: {
       bg: 'white',
       boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
-      zIndex: 2,
 
       '&:hover': {
         boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
-        zIndex: '10',
         bg: 'white'
       }
     },
@@ -672,7 +676,6 @@ export default {
       px: ['16px', '16px', null, '0px'],
       py: ['48px', null],
       boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
-      zIndex: 2,
       'h3': {
         fontWeight: '600',
         fontSize: '20px',
@@ -686,7 +689,6 @@ export default {
 
       '&:hover': {
         boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
-        zIndex: '10',
         bg: 'white'
       }
     },
@@ -695,7 +697,6 @@ export default {
       textAlign: 'center',
       bg: 'transparent',
       boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
-      zIndex: 2,
 
       'h5': {
         fontWeight: '600',
@@ -710,7 +711,6 @@ export default {
 
       '&:hover': {
         boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
-        zIndex: '10',
         bg: 'white'
       }
     },
@@ -719,8 +719,6 @@ export default {
       width: '100%',
       textAlign: 'center',
       color: 'primaryBg',
-      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
-      zIndex: 2,
 
       'h3': {
         fontWeight: '500',
@@ -733,8 +731,7 @@ export default {
       },
 
       '&:hover': {
-        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
-        zIndex: '10'
+        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)'
 
       }
 

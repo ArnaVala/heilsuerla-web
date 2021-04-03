@@ -11,19 +11,12 @@ const Contact = () => {
       <Wrapper variant='container.wide'>
         <Grid
           sx={{
-            px: ['16px', '64px', null, '64px'],
             mb: 3,
             display: 'grid',
-            gridTemplateColumns: ['auto', null, '3fr 2fr', null],
+            gridTemplateColumns: ['auto', '3fr 2fr', '3fr 2fr', null],
             gridTemplateRows: ['auto'],
             gridTemplateAreas: [
-              `
-        "header"
-        'details'
-        "form"
-        
-        `,
-              null,
+              ` "header" "form"  'details' `,
               `
         "header header"
         "form details"
@@ -31,24 +24,24 @@ const Contact = () => {
             ]
           }}
         >
-          <div sx={{gridArea: 'header', mb: [1, null, 3]}}>
+          <div sx={{gridArea: 'header', mb: [1, 3]}}>
             <Header />
           </div>
 
           <div sx={{gridArea: 'form', pr: [0, null, 3]}}>
-            <Text>Fylltu út formið</Text>
+            <Text variant='subheading' pb='32px'>Fylltu út formið</Text>
             <ServiceForm />
           </div>
           <aside
             sx={{
               gridArea: 'details',
-              pl: [0, null, 3],
-              borderLeft: [null, null, '2px solid'],
-              borderLeftColor: [null, null, 'primaryMuted'],
-              mb: [3, null, 0],
-              pb: [3, null, 0],
-              borderTop: ['1px solid', null, 'none'],
-              borderTopColor: ['primaryMuted', null, null]
+              pl: [0, 3],
+              borderLeft: [null, '2px solid'],
+              borderLeftColor: [null, 'primaryLight'],
+              mt: [3, 0],
+              pt: [3, 0],
+              borderTop: ['1px solid', 'none'],
+              borderTopColor: ['primaryLight', null, null]
             }}
           >
             <Details />

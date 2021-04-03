@@ -26,7 +26,6 @@ white-space: nowrap;
  color:#FF7D73;
  font-weight:600;
  position:relative;
- z-index:2;
  transition:color .2s ease-in-out;
 
   &:before {
@@ -42,7 +41,6 @@ white-space: nowrap;
    position:absolute;
    width:48px;
    position:relative;
-   z-index:1;
    transition:all .2s ease-in-out
   }
   &:after {

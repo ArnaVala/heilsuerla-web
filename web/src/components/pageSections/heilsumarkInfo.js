@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+
+/** @jsx jsx */
+import {useState} from 'react'
 import styled from '@emotion/styled'
 import {FiArrowRightCircle} from 'react-icons/fi'
 
 import {jsx, Flex, Box, Text, Button, Grid, Card} from 'theme-ui'
 import {Section, Wrapper} from '../common'
-import {SectionTitle} from '../molecules'
 import TextLink from '../atoms/TextLink'
 
 const Tabs = styled(Box)`
@@ -23,9 +24,8 @@ const Tab = styled(Button)`
   height:auto;
   padding:16px;
   border-radius: 0;
-  color: '#cde3e7';
   color: ${(props) => (props.active ? '#003c51' : '')};
-  background-color: ${(props) => (props.active ? '#ffd6d6' : '')};
+  background-color: ${(props) => (props.active ? '#F2F5F6' : '')};
   transition: background-color 0.4s ease-in-out;
 
   :hover {
@@ -55,7 +55,7 @@ const HeilsumarkInfo = ({block, raw}) => {
       <Wrapper variant='container.wide'>
         <Flex
           variant='container.column'
-          pb='64px'
+          pb='96px'
           sx={{width: '100%', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}
         >
           {heading && (
@@ -126,8 +126,7 @@ const HeilsumarkInfo = ({block, raw}) => {
             sx={{pb: '64px', m: '0 auto'}}>
             <Flex
               variant='container.column'
-              pt='64px'
-              pb={['32px', '32px']}
+              py='64px'
               sx={{
                 justifyContent: 'center',
                 alignItems: 'center'

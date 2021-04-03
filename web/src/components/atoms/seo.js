@@ -99,6 +99,10 @@ const detailsQuery = graphql`
       author {
         name
       }
+      openGraph {
+        title
+        description
+      }
     }
   }
 `

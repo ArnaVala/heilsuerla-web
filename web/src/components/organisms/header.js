@@ -1,11 +1,9 @@
 /** @jsx jsx */
 import {Link} from 'gatsby'
-import {Box, Flex, jsx, NavLink, Styled} from 'theme-ui'
+import {Box, Flex, jsx, NavLink, Button, Styled} from 'theme-ui'
 import styled from '@emotion/styled'
 import Hamburger from '../atoms/Hamburger'
-import HeMonogram from '../atoms/Logo/heMonogram'
 import logo from '../../assets/LogoAccent.svg'
-import {Headroom} from 'react-headroom'
 
 const LogoContainer = styled(Box)`
   object-fit: contain;
@@ -19,10 +17,10 @@ const LogoContainer = styled(Box)`
 
 const Header = () => {
   return (
-    <Box bg='white' variant='layout.header'>
+    <Box bg='white' variant='layout.header' sx={{zIndex: 10}}>
       <Flex
         sx={{
-          position: 'sticky',
+          zIndex: 12,
           margin: '0 auto',
           display: 'flex',
           flexWrap: 'wrap',
@@ -32,7 +30,7 @@ const Header = () => {
           color: 'primary'
         }}
       >
-        <Link sx={{alignSelf: 'center', zIndex: '2'}} to='/'>
+        <Link sx={{alignSelf: 'center', zIndex: 15}} to='/'>
           <Box
             sx={{
               display: 'flex',
@@ -40,7 +38,7 @@ const Header = () => {
               alignItems: 'center'
             }}
           >
-            <LogoContainer sx={{width: ['40px', '48px']}}>
+            <LogoContainer sx={{zIndex: 15, width: ['40px', '48px']}}>
               <img src={logo} alt='logo' />
             </LogoContainer>
             <span
@@ -84,6 +82,10 @@ const Header = () => {
             <NavLink as={Link} to='/um-erlu'>
               Um Erlu
             </NavLink>
+            <NavLink as={Link} to='/boka-heilsuvidtal'>
+              Bóka heilsuviðtal
+            </NavLink>
+
           </Styled.ul>
           <Hamburger />
         </nav>

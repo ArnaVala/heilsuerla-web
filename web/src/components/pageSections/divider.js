@@ -17,6 +17,10 @@ const Divider = ({block}) => {
       <BackgroundImage
         image={backgroundImage}
         width={2400}
+        sx={{
+          height: '100%',
+          width: '100%'
+        }}
       />
     </Section>
   )

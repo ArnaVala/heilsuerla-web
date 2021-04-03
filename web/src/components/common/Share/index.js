@@ -1,7 +1,6 @@
 import React from 'react'
 import {jsx, Box, Flex} from 'theme-ui'
 import SocialIcon from '../../atoms/icon/socialIcons'
-import {FiShare2} from 'react-icons/fi'
 
 const Share = ({postURL, postTitle, ...props}) => {
   const sharePlatforms = [

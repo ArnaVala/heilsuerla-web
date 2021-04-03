@@ -23,6 +23,7 @@ const BlogPostTemplate = props => {
             title={post.title || 'Untitled'}
             description={toPlainText(post._rawExcerpt)}
             image={post.image}
+            pathname={post.slug.current}
           />
         )
       }

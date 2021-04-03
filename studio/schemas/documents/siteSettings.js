@@ -16,6 +16,12 @@ export default {
       description: 'Describe your blog for search engines and social media.'
     },
     {
+      title: 'Open graph',
+      name: 'openGraph',
+      description: 'These will be the default meta tags on all pages that have not set their own',
+      type: 'openGraph'
+    },
+    {
       name: 'url',
       type: 'url',
       title: 'Site URL'

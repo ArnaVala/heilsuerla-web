@@ -6,16 +6,16 @@ import PortableText from '../../../components/atoms/portableText'
 import {Box, Flex, Grid, Text} from 'theme-ui'
 import Share from '../../common/Share'
 import {Section, Wrapper, Eyebrow} from '../../common'
-import PostListAllSection from './postListAllSection'
-import PostCard from './postCard'
+import ShareButtons from './shareButtons'
 
 export default function SinglePost (props) {
-  const {categories, image, publishedAt, _rawBody, _rawExcerpt, title, posts} = props
+  const {categories, image, publishedAt, _rawBody, _rawExcerpt, title} = props
+  const url = typeof window !== 'undefined' ? window.location.href : ''
 
   return (
     <Section as='section' variant='container.full'>
       <Grid bg='muted' mb='96px' gap={0} columns={[1, null, 2, null]} >
-        <Flex px={[2, 3, 4]} pt={[4, 6]} pb={[2, 3]} sx={{flexDirection: 'column', order: [0, 0], alignItems: 'center', flexWrap: 'wrap', height: '100%'}}>
+        <Flex px={[2, 3, 4]} pt={[4, 6]} pb={[2, 4, 4]} sx={{flexDirection: 'column', justifyContent: 'center', order: [0, 0], alignItems: 'center', flexWrap: 'wrap', height: '100%'}}>
           <Box pb='16px'>
             {categories.map((category) => (
               <Eyebrow key={category.id}>
@@ -23,7 +23,7 @@ export default function SinglePost (props) {
               </Eyebrow>
             ))}
           </Box>
-          <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center'}}>
+          <Flex variant='container.column' pb='32px' sx={{justifyContent: 'center', alignItems: 'center'}}>
             <Text variant='sectionTitle' sx={{textAlign: 'center', maxWidth: '640px'}}>{title}</Text>
             {publishedAt && (
               <Text variant='caps' sx={{fontSize: '14px'}}>
@@ -33,7 +33,10 @@ export default function SinglePost (props) {
               </Text>
             )}
           </Flex>
-          <Share postTitle={title} />
+          <Flex pb='32px' sx={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+            <Text variant='eyebrow' pb='8px'>deila</Text>
+            <ShareButtons url={url} title={title} description={_rawExcerpt} />
+          </Flex>
         </Flex>
         <Flex bg='primary' sx={{width: '100%', height: '100%', maxHeight: ['240px', '400px', '100%']}}>
           {image && image.asset && (
@@ -55,6 +58,10 @@ export default function SinglePost (props) {
         <Box variant='container.blog'>
           {_rawBody && <PortableText blocks={_rawBody} />}
         </Box>
+        <Box sx={{px: '32px'}}>
+          <ShareButtons url={url} title={title} description={_rawExcerpt} />
+        </Box>
+
       </Wrapper>
     </Section>
 

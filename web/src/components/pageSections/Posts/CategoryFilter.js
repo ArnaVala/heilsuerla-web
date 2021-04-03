@@ -58,7 +58,7 @@ export default function CategoryFilter ({activeCategory}) {
   const categoriesWithCounts = countPostsInCategory(posts.nodes)
 
   return (
-    <Box bg='white' py={3} px={2} variant='container.full' sx={{borderBottom: '2px solid', borderTop: '2px solid', borderColor: 'primary'}} >
+    <Box bg='white' py={[2, null, 3]} px={2} variant='container.full' sx={{borderBottom: '2px solid', borderTop: '2px solid', borderColor: 'primary', position: ['block', 'fixed', null], top: [null, '105px']}} >
       <Wrapper as='div' variant='container.inner'>
         <Flex
           sx={{

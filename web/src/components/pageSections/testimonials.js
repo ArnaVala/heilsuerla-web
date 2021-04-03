@@ -1,4 +1,5 @@
-import React from 'react'
+
+/** @jsx jsx */
 import {Link as GatsbyLink} from 'gatsby'
 import styled from '@emotion/styled'
 import Slider from 'react-slick'
@@ -8,7 +9,10 @@ import {Section} from '../common'
 import SectionTitle from '../molecules/SectionTitle/index'
 
 const SliderStyled = styled(Slider)`
- 
+  .slick-slide {
+    height:'100%';
+    width:'100%'
+  }
   .slick-dots {
     position:relative;
     bottom: 24px;
@@ -42,12 +46,12 @@ const SliderStyled = styled(Slider)`
 const ContentCard = ({key, name, quote, className, ...props}) => (
   <Flex
     key={key}
-    p='32px'
+    p={['0px', '32px']}
     className={`${className}`}
     {...props}
     sx={{
-      flexDirection: 'column',
       height: '100%',
+      flexDirection: 'column',
       py: '64px',
       justifyContent: 'center',
       alignItems: 'center',
@@ -56,11 +60,10 @@ const ContentCard = ({key, name, quote, className, ...props}) => (
       }
     }}
   >
-    <Text pb='32px' variant='eyebrow'>
+    <Text py='32px' variant='eyebrow'>
       {name}
     </Text>
-
-    <Text variant='bigBody' color='primary' pb='0px'>
+    <Text variant='bigBody' color='primary' pb='16px'>
       {quote}
     </Text>
 
@@ -77,58 +80,67 @@ const Testimonials = ({block}) => {
     draggable: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          adaptiveHeight: true
+        }
+      }
+    ]
   }
   return (
-    <div>
-      <Section variant='container.section'>
-        <Flex variant='container.wide' sx={{textAlign: 'center', justifyContent: 'center', alignItems: 'center', width: '100%', maxWidth: '960px'}}>
-          <Box>
-            <SectionTitle heading={eyebrow} />
-            <Card variant='testimonial' sx={{}}>
-              <SliderStyled {...slickSettings}>
-                {
-                  testimonials.map((testimonial) => {
-                    const {name, _key, quote} = testimonial
-                    return (
-                      <Flex>
-                        <ContentCard
-                          index={_key}
-                          name={name}
-                          key={_key}
-                          quote={quote}
-                        />
-                      </Flex>
-                    )
-                  })
-                }
-              </SliderStyled>
-            </Card>
-          </Box>
-        </Flex>
-        <Text
-          as='p'
-          color='primary'
-          sx={{
-            mt: '64px',
-            maxWidth: '560px',
-            fontFamily: 'body',
-            letterSpacing: '0.03em',
-            fontWeight: '300',
-            fontSize: ['18px', '20px']
-          }}
-        >
-          Lestu{' '}
-          <Link as={GatsbyLink} variant='textLink' sx={{color: 'primary'}} to='/blogg/Reynslusögur'>
-            {' '}
-            reynslusögur
-          </Link>{' '}
-          á blogginu
-        </Text>
+    <Section bg='primaryBg' variant='container.section'>
+      <Flex variant='container.wide' sx={{textAlign: 'center', justifyContent: 'center', alignItems: 'center', maxWidth: '960px', width: '100%'}}>
+        <Box>
+          <SectionTitle heading={eyebrow}>
+            <Text
+              as='p'
+              color='primary'
+              sx={{
+                pt: '16px',
+                maxWidth: '560px',
+                fontFamily: 'body',
+                letterSpacing: '0.03em',
+                fontWeight: '300',
+                fontSize: ['18px', '20px']
+              }}
+            >
+              Lestu{' '}
+              <Link as={GatsbyLink} variant='textLink' sx={{color: 'primary'}} to='/blogg/Reynslusögur'>
+                {' '}
+                reynslusögur
+              </Link>{' '}
+              á blogginu
+            </Text>
 
-      </Section>
+          </SectionTitle>
+          <Card variant='testimonial' sx={{}}>
+            <SliderStyled {...slickSettings}>
+              {
+                testimonials.map((testimonial) => {
+                  const {name, _key, quote} = testimonial
+                  return (
+                    <Box>
+                      <ContentCard
+                        index={_key}
+                        name={name}
+                        key={_key}
+                        quote={quote}
+                      />
+                    </Box>
+                  )
+                })
+              }
+            </SliderStyled>
+          </Card>
+        </Box>
+      </Flex>
 
-    </div>
+    </Section>
+
   )
 }
 

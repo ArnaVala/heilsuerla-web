@@ -1,7 +1,8 @@
+
 /** @jsx jsx */
-import React, {useState} from 'react'
+import {useState} from 'react'
 import {Link as gatsbyLink} from 'gatsby'
-import {jsx, Styled, Box, Flex, Nav, Grid, Button, Link} from 'theme-ui'
+import {jsx, Box, Flex, Link} from 'theme-ui'
 
 const Hamburger = ({...props}) => {
   const [isOpen, setOpen] = useState(false)
@@ -51,13 +52,12 @@ const Hamburger = ({...props}) => {
         <Box
           className='hamburger'
           sx={{
+            zIndex: 400,
             width: '32px',
             height: 3,
             margin: '10px 0',
-            position: 'relative',
-            zIndex: '1000',
             borderRadius: '0',
-            postion: 'fixed',
+            position: 'relative',
             backgroundColor: isOpen ? 'transparent' : 'primary',
             transition: 'all 250ms cubic-bezier(.68,-.55,.265,1.55)',
             ':before': {
@@ -91,8 +91,7 @@ const Hamburger = ({...props}) => {
             top: 0,
             bottom: 0,
             right: 0,
-            left: 0,
-            zIndex: '101'
+            left: 0
           }}
         >
           <nav
