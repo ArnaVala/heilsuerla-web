@@ -6,7 +6,7 @@ import Layout from '../components/organisms/layout'
 import {Container} from 'theme-ui'
 
 import PageBuilder from '../components/organisms/pageBuilder'
-import Contact from '../components/sections/contact'
+import Contact from '../components/pageSections/contactSection'
 
 export const query = graphql`
   query RadgjofPageQuery {
@@ -38,6 +38,8 @@ const RadgjofPage = (props) => {
       <SEO />
       <Container>
         <PageBuilder pageBuilder={pageBuilder} _rawPageBuilder={_rawPageBuilder} />
+        <Contact />
+
       </Container>
     </Layout>
   )

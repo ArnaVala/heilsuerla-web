@@ -10,17 +10,12 @@ const AboutIntro = ({block, raw}) => {
 
   return (
     <Section>
-      <Wrapper
-        variant='container.wide'
-        sx={{
-          px: ['20px', '64px']
-        }}
-      >
-        <Flex variant='container.row' sx={{flexDirection: ['column-reverse', null, 'row', null], width: '100%', columnGap: '32px', rowGap: '64px'}}>
+      <Wrapper variant='container.wide'>
+        <Flex variant='container.row' sx={{flexDirection: ['column-reverse', null, 'row', null], width: '100%'}}>
           <IntroTextBlock eyebrow={eyebrow} heading={heading} description={raw.description} />
           {image && image.asset && (
-            <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center', flex: [1, 1, 2]}}>
-              <Box sx={{maxWidth: ['360px', null, '520px']}}>
+            <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center', flex: [1, 3, 3, 1]}}>
+              <Box my='64px' sx={{height: ['360px', '440px', null, '560px']}}>
                 {image && image.asset && (
                   <Image
                     {...image}

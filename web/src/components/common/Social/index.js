@@ -15,25 +15,20 @@ const Social = ({...props}) => {
   ]
 
   return (
-    <Flex
-      sx={{
-        flexDirection: 'row',
-        columnGap: '16px',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
+    <Box
+      {...props}
     >
       {socialPlatforms.map((platform, index) => {
         return (
           <SocialIcon
             name={platform.name}
             url={platform.url}
-            style={{color: 'primaryBg', fontSize: [5]}}
+            style={{mr: '16px', color: 'primaryLight'}}
             key={index}
           />
         )
       })}
-    </Flex>
+    </Box>
   )
 }
 

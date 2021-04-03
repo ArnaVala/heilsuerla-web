@@ -8,23 +8,22 @@ import {Section, Wrapper} from '../common'
 const AboutStory = ({block, raw}) => {
   const {blockImageDirectionLeft, image, heading} = block
   return (
-    <Box as='section' py='64px'>
-      <Wrapper
-        variant='container.wide'
-        sx={{
-          px: ['20px', '64px']
-        }}
-      >
-        <Flex variant='container.row' sx={{flexDirection: ['column-reverse', null, 'row-reverse', null], width: '100%', columnGap: '32px', rowGap: '64px'}}>
+    <Box as='section' pb={['0px', null, '96px', '128px']}>
+      <Wrapper variant='container.wide'>
+        <Flex variant='container.row'sx={{flexDirection: ['column-reverse', null, 'row-reverse', null], width: '100%'}}>
           {blockImageDirectionLeft ? (
-            <Flex variant='container.column' sx={{order: '0', justifyContent: 'center', flex: [1, 2, 3]}}>
+            <Flex variant='container.column' sx={{order: '0', justifyContent: 'center', alignItems: 'center', flex: [1, 3]}}>
               <Box
                 sx={{
+                  py: ['32px', '48px'],
                   maxWidth: '560px',
                   m: '0 auto'
                 }}
               >
-                <Text as='h3' variant='heading' sx={{mb: 2, fontWeight: 'bold'}}>{heading}</Text>
+                <Text as='h3' variant='subheading'>
+                  {heading}
+                </Text>
+
                 <PortableText blocks={raw.text} />
               </Box>
             </Flex>
@@ -32,8 +31,8 @@ const AboutStory = ({block, raw}) => {
             <Flex variant='container.column' sx={{order: ['1', null, '0'],
               justifyContent: 'center',
               alignItems: 'center',
-              flex: [1, 1, 2]}}>
-              <Box sx={{maxWidth: ['360px', null, '520px']}}>
+              flex: [1, 2]}}>
+              <Box py={['32px', null, '0px']} sx={{maxWidth: ['360px', null, '480px']}}>
                 {
                   image && image.asset && (
                     <Image {...image}
@@ -50,9 +49,9 @@ const AboutStory = ({block, raw}) => {
           {blockImageDirectionLeft ? (
             <Flex
               variant='container.column'
-              sx={{justifyContent: 'center', alignItems: 'center', flex: [1, 1, 2]}}
+              sx={{justifyContent: 'center', alignItems: 'center', flex: [1, 2]}}
             >
-              <Box sx={{maxWidth: ['360px', null, '520px']}}>
+              <Box py={['32px', null, '0px']}sx={{maxWidth: ['360px', null, '480px']}}>
                 {image && image.asset && (
                   <Image
                     {...image}
@@ -66,14 +65,15 @@ const AboutStory = ({block, raw}) => {
             </Flex>
 
           ) : (
-            <Flex variant='container.column' sx={{justifyContent: 'center', flex: [1, 2, 3]}}>
+            <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center', flex: [1, 3]}}>
               <Box
                 sx={{
+                  py: '32px',
                   maxWidth: '560px',
                   m: '0 auto'
                 }}
               >
-                <Text as='h3' variant='heading' sx={{mb: 2, fontWeight: 'bold'}}>
+                <Text as='h3' variant='subheading'>
                   {heading}
                 </Text>
                 <PortableText blocks={raw.text} />

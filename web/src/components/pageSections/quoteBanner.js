@@ -21,14 +21,14 @@ const QuoteBanner = ({block}) => {
             textAlign: 'center',
             justifyContent: 'center',
             alignItems: 'center',
-            px: ['16px', '32px', '64px', null],
-            pt: ['64px', '96px', null, null],
-            pb: '48px'
+            px: ['20px', '32px', '64px', null],
+            pt: ['96px'],
+            pb: ['32px']
           }}
         >
           <Quote children={quote} />
           { quoted && (
-            <Text as='h5' variant='eyebrow'>{quoted}</Text>
+            <Text as='h3' variant='eyebrow'>{quoted}</Text>
           )}
         </Flex>
       </Wrapper>

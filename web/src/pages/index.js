@@ -15,6 +15,7 @@ import Layout from '../components/organisms/layout'
 import PageBuilder from '../components/organisms/pageBuilder'
 import PostListAllSection from '../components/pageSections/Posts/postListAllSection'
 
+
 export const query = graphql`
   query IndexPageQuery {
     site: 
@@ -72,6 +73,9 @@ export const query = graphql`
         }
       }
     }
+    
+  
+
   }
 `
 
@@ -117,6 +121,7 @@ const IndexPage = ({data, errors}) => {
             <PostListAllSection title='Nýjast á blogginu' posts={posts} browseMoreHref='/blogg' />
           )
         }
+
       </Container>
     </Layout>
   )

@@ -6,10 +6,10 @@ import {Eyebrow} from '../common'
 
 const IntroTextBlock = ({eyebrow, heading, subheading, description, children}) => {
   return (
-    <Flex variant='container.column' sx={{justifyContent: 'center', flex: [1, 2, 3]}}>
+    <Flex variant='container.column' sx={{justifyContent: 'center', flex: [1, 4, 4, 1]}}>
       <Box
         sx={{
-          maxWidth: '560px',
+          maxWidth: '640px',
           m: '0 auto'
         }}
       >
@@ -17,7 +17,7 @@ const IntroTextBlock = ({eyebrow, heading, subheading, description, children}) =
           <Eyebrow children={eyebrow} />
         )}
         {heading && (
-          <Text sx={{fontFamily: 'heading', fontWeight: 'bold', lineHeight: 'heading', my: '32px', fontSize: ['32px', '40px', '36px']}}>
+          <Text variant='subtitle' sx={{mb: '16px'}}>
             {heading}
           </Text>
 

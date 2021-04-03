@@ -9,14 +9,13 @@ const HeilsumarkIntro = ({block}) => {
   } = block
 
   return (
-    <Section mb='0px'>
+    <Section variant='container.section'>
       <Wrapper
         variant='container.wide'>
         <SectionTitle sx={{alignSelf: 'center'}} heading={heading} description={description} />
-
-        <Flex variant='container.row' mt='32px' sx={{flexDirection: ['column', null, 'row', null], width: '100%', columnGap: '32px', rowGap: '64px'}}>
-          <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center'}}>
-            <Box sx={{height: '540px', maxHeight: ['360px', null, '540px']}}>
+        <Flex sx={{flexDirection: ['column', null, 'row', null], width: '100%'}}>
+          <Flex pb='64px' variant='container.column' sx={{justifyContent: 'center'}}>
+            <Box sx={{height: '560px', maxHeight: ['300px', '360px', '480px', '560px']}}>
               {image && image.asset && (
                 <Image
                   {...image}
@@ -26,7 +25,7 @@ const HeilsumarkIntro = ({block}) => {
               )}
             </Box>
           </Flex>
-          <Flex variant='container.column' sx={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+          <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center'}}>
             <Flex
               sx={{
                 maxWidth: '560px',
@@ -38,7 +37,7 @@ const HeilsumarkIntro = ({block}) => {
                 const {name, description, _key} = service
                 return (
                   <Box key={_key}>
-                    <Text as='h3' variant='subheading' color='primaryLight'>
+                    <Text as='h3' variant='subheading'>
                       {name}
                     </Text>
                     <Text variant='body'>

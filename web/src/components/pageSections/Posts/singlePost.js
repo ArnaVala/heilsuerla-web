@@ -13,9 +13,9 @@ export default function SinglePost (props) {
   const {categories, image, publishedAt, _rawBody, _rawExcerpt, title, posts} = props
 
   return (
-    <Section as='section' variant='container.sectionNoPad'>
-      <Grid bg='primaryBg' columns={[1, 1, 2, 2]} gap={0} >
-        <Flex px={[2, 3, 4]} pt='64px' pb='32px' sx={{flexDirection: 'column', order: [0, 0], justifyContent: 'center', alignItems: 'center', height: '100%', flexWrap: 'wrap'}}>
+    <Section as='section' variant='container.full'>
+      <Grid bg='muted' mb='96px' gap={0} columns={[1, null, 2, null]} >
+        <Flex px={[2, 3, 4]} pt={[4, 6]} pb={[2, 3]} sx={{flexDirection: 'column', order: [0, 0], alignItems: 'center', flexWrap: 'wrap', height: '100%'}}>
           <Box pb='16px'>
             {categories.map((category) => (
               <Eyebrow key={category.id}>
@@ -23,14 +23,16 @@ export default function SinglePost (props) {
               </Eyebrow>
             ))}
           </Box>
-          <Text variant='sectionTitle' sx={{textAlign: 'center', pb: '32px', maxWidth: '640px'}}>{title}</Text>
-          {publishedAt && (
-            <Text variant='caps' sx={{fontSize: '14px'}}>
-              {differenceInDays(new Date(publishedAt), new Date()) > 3
-                ? distanceInWords(new Date(publishedAt), new Date())
-                : format(new Date(publishedAt), 'DD / MM /YYYY')}
-            </Text>
-          )}
+          <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center'}}>
+            <Text variant='sectionTitle' sx={{textAlign: 'center', maxWidth: '640px'}}>{title}</Text>
+            {publishedAt && (
+              <Text variant='caps' sx={{fontSize: '14px'}}>
+                {differenceInDays(new Date(publishedAt), new Date()) > 3
+                  ? distanceInWords(new Date(publishedAt), new Date())
+                  : format(new Date(publishedAt), 'DD / MM /YYYY')}
+              </Text>
+            )}
+          </Flex>
           <Share postTitle={title} />
         </Flex>
         <Flex bg='primary' sx={{width: '100%', height: '100%', maxHeight: ['240px', '400px', '100%']}}>
@@ -45,7 +47,7 @@ export default function SinglePost (props) {
           )}
         </Flex>
       </Grid>
-      <Wrapper variant='container.wide' >
+      <Wrapper variant='container.wide' pb={[4, null, 6]} sx={{height: '100%', minHeight: '100%'}} >
 
         <Box variant='container.excerpt'>
           {_rawExcerpt && <PortableText blocks={_rawExcerpt} />}

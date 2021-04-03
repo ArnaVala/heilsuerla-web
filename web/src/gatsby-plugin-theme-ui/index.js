@@ -12,6 +12,37 @@ export default {
     body: "'Sofia Pro', 'Lato', 'Inter', sans-serif",
     heading: "'Recoleta Alt', 'Georgia', 'Inter', serif"
   },
+  buttons: {
+    primary: {
+      display: 'inline-block',
+      overflow: 'hidden',
+      postion: 'relative',
+      whiteSpace: 'nowrap',
+      height: '64px',
+      borderRadius: '32px',
+      px: '32px',
+      py: '16px',
+      fontSize: '16px',
+      letterSpacing: '0.1em',
+      bg: 'primary',
+      color: 'primaryBg',
+      border: '2px solid',
+      borderColor: 'primary',
+      transition: 'all .2s ease-in-out',
+
+      '&:hover': {
+        bg: 'primaryMuted',
+        color: 'primary',
+        transition: 'all .2s ease-in-out'
+
+      },
+      '&:focus': {
+        bg: 'primaryMuted',
+        color: 'primary',
+        transition: 'all .2s ease-in-out'
+      }
+    }
+  },
   colors: {
     text: '#003c51',
     heading: '#003c51',
@@ -85,7 +116,10 @@ export default {
       }
     },
     slider: {
-      bg: 'muted'
+      dots: {
+        color: 'accent',
+        bg: 'accent'
+      }
     }
   },
 
@@ -115,8 +149,8 @@ export default {
     wide: {
       width: '100%',
       maxWidth: '1280px',
-      margin: '0 auto',
-      px: ['20px', '64px', null, '0px']
+      mx: 'auto',
+      px: ['16px', '64px', null, '32px']
     },
     excerpt: {
       m: '0 auto',
@@ -261,7 +295,8 @@ export default {
       display: 'flex',
       flexDirection: 'column',
       flex: '1',
-      flexbasis: '100%'
+      flexBasis: '100%',
+      px: ['0px', null, '16px', null]
     },
 
     quoteBanner: {
@@ -397,16 +432,25 @@ export default {
 
     subheading: {
       fontFamily: 'body',
-      fontWeight: 'heading',
-      lineHeight: 'body',
-      fontSize: '24px'
+      fontWeight: '600',
+      lineHeight: 'heading',
+      fontSize: ['24px', '28px'],
+      pb: '8px'
+
     },
 
     sectionTitle: {
       fontFamily: 'heading',
       fontWeight: 'bold',
       lineHeight: 'heading',
-      fontSize: ['32px', '40px']
+      fontSize: ['32px', '40px'],
+      pb: '24px',
+
+      dark: {
+        fontWeight: '300',
+        color: 'primaryBg',
+        letterSpacing: '0.02em'
+      }
     },
     subtitle: {
       fontFamily: 'heading',
@@ -429,7 +473,18 @@ export default {
       letterSpacing: '.05em',
       pb: '32px',
       color: 'accent'
-
+    },
+    pageTitle: {
+      fontFamily: 'heading',
+      lineHeight: 'body',
+      letterSpacing: '0.05em',
+      fontWeight: '400',
+      textShadow: '0px 0px 8px rgba(0, 70, 90, 0.3)',
+      fontSize: ['32px', '48px'],
+      maxWidth: '840px',
+      overflowWrap: 'break-word',
+      hyphens: ' auto',
+      wordBreak: 'break-word'
     },
     postTitle: {
       fontFamily: 'heading',
@@ -523,30 +578,22 @@ export default {
     },
     textLink: {
       color: 'accent',
-      bg: 'primaryMuted'
+      borderBottom: '1px solid',
+      borderColor: 'accent',
+      transition: 'all 0.3s ease-in-out',
+
+      '&:hover': {
+        color: 'accentMuted',
+        borderBottom: '1px solid',
+        borderColor: 'accentMuted',
+        transition: 'all 0.3s ease-in-out'
+      }
     }
   },
   hr: {
     border: '2px solid black'
   },
 
-  slider: {
-    arrow: {
-      backgroundColor: 'accentMuted',
-      border: '2px dotted transparent',
-      color: 'accent',
-      '&:focus': {
-        borderColor: 'accent'
-      },
-      '&:hover': {
-        color: 'accent',
-        borderColor: 'accent'
-      }
-    },
-    quoteSymbol: {
-      backgroundColor: 'primaryMuted'
-    }
-  },
   grid: {
     bigCard: {
       display: 'grid',
@@ -572,30 +619,22 @@ export default {
       }
     },
     feature: {
-      bg: 'white',
-      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
-      zIndex: 2,
 
-      '&:hover': {
-        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
-        zIndex: '10',
-        bg: 'white'
-      }
     },
     image: {
       boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)'
     },
 
     testimonial: {
-      m: '0 auto',
-      my: '96px',
+      mx: 'auto',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
       bg: 'white',
       boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
       zIndex: 2,
       width: '100%',
-      maxWidth: '720px',
-      py: '64px',
-      px: '32px',
+      px: ['16px', '48px'],
       textAlign: 'center',
       color: 'primaryLight',
 
@@ -625,6 +664,78 @@ export default {
         boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
         zIndex: '10',
         bg: 'white'
+      }
+    },
+    steps: {
+      bg: 'white',
+      color: 'primary',
+      px: ['16px', '16px', null, '0px'],
+      py: ['48px', null],
+      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
+      zIndex: 2,
+      'h3': {
+        fontWeight: '600',
+        fontSize: '20px',
+        letterSpacing: '0.03em',
+        pb: '8px'
+      },
+
+      'p': {
+        fontSize: '16px'
+      },
+
+      '&:hover': {
+        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
+        zIndex: '10',
+        bg: 'white'
+      }
+    },
+    price: {
+      width: '100%',
+      textAlign: 'center',
+      bg: 'transparent',
+      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
+      zIndex: 2,
+
+      'h5': {
+        fontWeight: '600',
+        fontSize: '48px',
+        letterSpacing: '0.03em',
+        pb: '8px',
+        color: 'primary'
+      },
+      'p': {
+        fontSize: '16px'
+      },
+
+      '&:hover': {
+        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
+        zIndex: '10',
+        bg: 'white'
+      }
+    },
+    included: {
+      padding: '16px',
+      width: '100%',
+      textAlign: 'center',
+      color: 'primaryBg',
+      boxShadow: '0px 32px 64px rgba(0, 70, 90, 0.3)',
+      zIndex: 2,
+
+      'h3': {
+        fontWeight: '500',
+        fontSize: '20px',
+        letterSpacing: '0.03em',
+        pb: '8px'
+      },
+      'p': {
+        fontSize: '16px'
+      },
+
+      '&:hover': {
+        boxShadow: '0px 0px 32px rgba(0, 70, 90, 0.15)',
+        zIndex: '10'
+
       }
 
     }

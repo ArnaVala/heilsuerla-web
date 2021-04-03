@@ -50,13 +50,13 @@ const Share = ({postURL, postTitle, ...props}) => {
       >
         Deildu
       </Box>
-      <Flex sx={{columnGap: '16px'}}>
+      <Flex sx={{px: '16px'}}>
         {sharePlatforms.map((platform, index) => {
           return (
             <SocialIcon
               name={platform.name}
               url={platform.url}
-              style={{color: 'primary', fontSize: [4, 5]}}
+              style={{color: 'primary', fontSize: [4, 5], my: '16px', mx: '8px'}}
               key={index}
             />
           )

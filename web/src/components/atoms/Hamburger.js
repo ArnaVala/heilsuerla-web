@@ -124,7 +124,7 @@ const Hamburger = ({...props}) => {
                 Blogg
               </Link>
 
-              <Link as={gatsbyLink} variant='hamburger' to='/hafa-samband'>
+              <Link as={gatsbyLink} variant='hamburger' to='/boka-heilsuvidtal'>
                 Bóka heilsuviðtal
               </Link>
 

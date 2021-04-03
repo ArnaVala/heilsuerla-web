@@ -13,42 +13,42 @@ const ContactPage = () => (
         sx={{
           mb: 3,
           display: 'grid',
-          gridTemplateColumns: [`auto`, null, `2fr 1fr`],
-          gridTemplateRows: [`auto`],
+          gridTemplateColumns: ['auto', null, '1fr 1fr'],
+          gridTemplateRows: ['auto'],
           gridTemplateAreas: [
             `
         "header"
+        'intro'
         "form"
-        "details"
+        
         `,
             null,
             `
         "header header"
-        "form details"
+        "intro form"
         `
           ]
         }}
       >
-        <div sx={{gridArea: `header`, mb: [1, null, 3]}}>
-          <Header />
-        </div>
-        <div sx={{gridArea: `form`, pr: [0, null, 5]}}>
-          <Intro />
+        <div sx={{gridArea: 'header', mb: [1, null, 3]}}><Header /></div>
+
+        <div sx={{gridArea: 'form', pl: [0, null, 5]}}>
           <ContactForm />
         </div>
         <aside
           sx={{
-            gridArea: `details`,
-            pl: [0, null, 5],
-            borderLeft: [null, null, '2px solid'],
-            borderLeftColor: [null, null, 'muted'],
-            mt: [3, null, 0],
-            pt: [3, null, 0],
-            borderTop: ['1px solid', null, 'none'],
-            borderTopColor: ['muted', null, null]
+            gridArea: 'intro',
+            pr: [0, null, 5],
+            borderRight: [null, null, '2px solid'],
+            borderRightColor: [null, null, 'muted'],
+            mb: [3, null, 0],
+            pb: [3, null, 0],
+            borderBottom: ['1px solid', null, 'none'],
+            borderBottomColor: ['muted', null, null]
           }}
         >
-          <Details />
+          <Intro />
+
         </aside>
       </section>
     </Wrapper>

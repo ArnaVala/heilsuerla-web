@@ -11,14 +11,16 @@ const BackgroundImage = ({image, width, children, ...props}) => {
       {...image}
       alt={image.alt}
       sx={{
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
         backgroundImage: `url(${imageUrlFor(buildImageObj(image))
           .maxWidth(width)
           .height(Math.floor((9 / 16) * width))
           .fit('crop')
           .auto('format')
           .url()}
-            )`,
-        objectFit: 'cover'
+            )`
+
       }}
     >
       {children}

@@ -4,7 +4,6 @@ import Image from 'gatsby-plugin-sanity-image'
 
 import {Section, Wrapper, BigText} from '../common'
 import {SectionTitle} from '../molecules'
-import HeaderTextBlock from '../atoms/headerTextBlock'
 import {FiArrowRightCircle
 } from 'react-icons/fi'
 
@@ -15,17 +14,11 @@ const HeilsumarkContent = ({block}) => {
 
   return (
     <Section mb='0px'>
-      <Wrapper
-        variant='container.wide'
-        sx={{
-          px: ['20px', '64px']
-        }}
-      >
+      <Wrapper variant='container.wide'>
         <SectionTitle sx={{alignSelf: 'center'}} heading={heading} description={description} />
-
-        <Flex variant='container.row' sx={{flexDirection: ['column', null, 'row', null], width: '100%', columnGap: '32px', rowGap: '64px'}}>
-          <Flex variant='container.column' my='64px' sx={{justifyContent: 'center', alignItems: 'center'}}>
-            <Box sx={{maxWidth: ['360px', null, '520px']}}>
+        <Flex sx={{flexDirection: ['column', null, 'row', null], width: '100%'}}>
+          <Flex variant='container.column' mb='96px' sx={{justifyContent: 'center', alignItems: 'center'}}>
+            <Box sx={{maxWidth: ['300px', '360px', null, '520px']}}>
               {image && image.asset && (
                 <Image
                   {...image}
@@ -42,7 +35,7 @@ const HeilsumarkContent = ({block}) => {
                 m: '0 auto'
               }}
             >
-              <Text variant='heading' sx={{pb: '16px'}}>{bigTextOne}</Text>
+              <Text as='h4' variant='subheading'>{bigTextOne}</Text>
               <Text variant='body'>Saman vinnum við að því að skoða og meta hvernig margvíslegir þættir hafa áhrif á heilsu þína – hvaða þættir það eru sem stuðla að ójafnvægi í þínu lífi og hafa neikvæð áhrif á heilsu þína.</Text>
 
             </Box>
@@ -50,7 +43,7 @@ const HeilsumarkContent = ({block}) => {
         </Flex>
 
         <BigText bigText={bigTextTwo} color='primaryLight' bg='primaryMuted' />
-        <Flex variant='container.row' my='64px' sx={{flexDirection: ['column-reverse', null, 'row', null], width: '100%', columnGap: '32px', rowGap: '64px'}}>
+        <Flex my='128px' sx={{flexDirection: ['column-reverse', null, 'row', null], width: '100%'}}>
           <Flex variant='container.column' sx={{justifyContent: 'center'}}>
             <Box
               sx={{
@@ -60,20 +53,20 @@ const HeilsumarkContent = ({block}) => {
             >
               {listRight.listWithIcon.map((item) => {
                 return (
-                  <Grid columns={'24px 1fr'} gap='16px' key={item._key} sx={{my: '16px'}}>
-                    <Flex sx={{justifyContent: 'center'}}>
+                  <Flex key={item._key} sx={{flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
+                    <Box sx={{height: '32px', minWidth: '40px'}}>
                       <FiArrowRightCircle color='#ff7476' fontSize='24px' />
-                    </Flex>
+                    </Box>
                     <Text variant='body' sx={{}}>
                       {item}
                     </Text>
-                  </Grid>
+                  </Flex>
                 )
               })}
             </Box>
           </Flex>
-          <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center'}}>
-            <Box sx={{maxWidth: ['360px', null, '520px']}}>
+          <Flex py='32px' variant='container.column' sx={{justifyContent: 'center', alignItems: 'center'}}>
+            <Box sx={{maxWidth: ['280px', '360px', null, '520px']}}>
               {firstImage && firstImage.asset && (
                 <Image
                   {...firstImage}
@@ -86,17 +79,14 @@ const HeilsumarkContent = ({block}) => {
         </Flex>
         <BigText bigText={bigTextThree} color='primaryLight' bg='accentMuted' />
         <Flex
-          variant='container.row'
-          my='64px'
+          mt='128px'
           sx={{
             flexDirection: ['column', null, 'row', null],
-            width: '100%',
-            columnGap: '32px',
-            rowGap: '64px'
+            width: '100%'
           }}
         >
           <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center'}}>
-            <Box sx={{maxWidth: ['360px', null, '520px']}}>
+            <Box pb='64px' sx={{maxWidth: ['280px', '360px', null, '520px']}}>
               {secondImage && secondImage.asset && (
                 <Image
                   {...secondImage}
@@ -110,19 +100,23 @@ const HeilsumarkContent = ({block}) => {
             <Box
               sx={{
                 maxWidth: '560px',
-                m: '0 auto'
+                mx: 'auto'
               }}
             >
               {listLeft.listWithIcon.map((item) => {
                 return (
-                  <Grid columns={'24px 1fr'} key={item._key} sx={{my: '16px'}}>
-                    <Flex sx={{justifyContent: 'center', mr: '-24px'}}>
+                  <Flex
+                    key={item._key}
+                    sx={{flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'flex-start'}}
+                  >
+                    <Box sx={{height: '32px', minWidth: '40px'}}>
                       <FiArrowRightCircle color='#ff7476' fontSize='24px' />
-                    </Flex>
+                    </Box>
                     <Text variant='body' sx={{}}>
                       {item}
                     </Text>
-                  </Grid>
+                  </Flex>
+
                 )
               })}
             </Box>

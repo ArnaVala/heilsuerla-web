@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
-import {navigate} from 'gatsby'
 import {Text, Flex, Label, Input, Link, Textarea, Button, Box} from 'theme-ui'
-import MoreLink from '../moreLink'
 
-const ContactForm = () => {
+const ServiceForm = () => {
   const [submitted, setSubmitted] = useState(false)
   const {
     register,
@@ -45,7 +43,7 @@ const ContactForm = () => {
 
   const showThankYou = (
     <Flex bg='primary' sx={{flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%', minHeight: '360px'}}>
-      <Text color='primaryBg' variant='heading'>Takk fyrir!</Text>
+      <Text color='primaryBg' variant='heading'>Takk fyrir að hafa samband!</Text>
       <Text variant='bigBody' pb='16px' color='primaryBg' sx={{letterSpacing: '0.03em', fontWeight: '300', textAlign: 'center', maxWidth: '360px'}}>Skilaboðin hafa verið send, ég hef samband við fyrsta tækifæri.</Text>
       <Link pt='16px' variant='textLink' role='button' onClick={() => setSubmitted(false)}>Senda önnur skilaboð?</Link>
     </Flex>
@@ -91,6 +89,31 @@ const ContactForm = () => {
           disabled={isSubmitting}
         />
         {errors.name && <Text role='alert' sx={{position: 'absolute', fontSize: '14px'}} pt='4px' color='accent'>{errors.name.message}</Text>}
+      </Box>
+      <Box pb='32px'>
+        <Label htmlFor='title'>
+          Vinnustaður / Hópur
+        </Label>
+        <Input
+          type='text'
+          aria-invalid={errors.title ? 'true' : 'false'}
+          name='title'
+          id='title'
+          placeholder='Vinnustaður eða hópur'
+          ref={register({
+            required: {
+              value: true,
+              message: 'Fylltu inn reitinn.'
+            },
+            minLength: {
+              value: 3,
+              message: 'Vinsamlegast fylltu út reitinn.'
+            }
+
+          })}
+          disabled={isSubmitting}
+        />
+        {errors.title && <Text role='alert' sx={{position: 'absolute', fontSize: '14px'}} pt='4px' color='accent'>{errors.title.message}</Text>}
       </Box>
       <Box pb='32px'>
         <Label htmlFor='email'>
@@ -196,7 +219,7 @@ const ContactForm = () => {
         <input tabIndex='-1' name='got-ya' ref={register()} />
       </label>
 
-      <Button variant='primary' type='submit' mt='16px' disabled={isSubmitting}>Senda skilaboð</Button>
+      <Button variant='primary' type='submit' mt='16px' disabled={isSubmitting}>Senda fyrirspurn</Button>
     </form>
   )
   return (
@@ -207,4 +230,4 @@ const ContactForm = () => {
   )
 }
 
-export default ContactForm
+export default ServiceForm

@@ -2,35 +2,10 @@ import React, {useState} from 'react'
 import styled from '@emotion/styled'
 import {FiArrowRightCircle} from 'react-icons/fi'
 
-import {jsx, Flex, Box, Text, Button, Grid} from 'theme-ui'
+import {jsx, Flex, Box, Text, Button, Grid, Card} from 'theme-ui'
 import {Section, Wrapper} from '../common'
 import {SectionTitle} from '../molecules'
 import TextLink from '../atoms/TextLink'
-
-const ButtonGroup = styled(Box)`
-  .btn {
-    border-radius: 4px 0 0 4px;
-    font-family: 'Sofia Pro';
-    letter-spacing: 0.05em;
-    height: 64px;
-    margin: 16px;
-    padding: 8px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    color: blue;
-    font-size: 16px;
-    font-weight: 700;
-    color: black;
-    &.active {
-      background-color: blue;
-      color: #fff;
-    }
-    & + .btn {
-      border-radius: 0 4px 4px 0;
-    }
-  }
-`
 
 const Tabs = styled(Box)`
   overflow: hidden;
@@ -42,10 +17,11 @@ const Tab = styled(Button)`
   border: none;
   font-family:'Sofia Pro';
   outline: none;
-  min-width: 96px;
   cursor: pointer;
   position: relative;
-  font-size: 16px;
+  font-size: 14px;
+  height:auto;
+  padding:16px;
   border-radius: 0;
   color: '#cde3e7';
   color: ${(props) => (props.active ? '#003c51' : '')};
@@ -100,7 +76,7 @@ const HeilsumarkInfo = ({block, raw}) => {
             <Text
               as='p'
               color='primaryBg'
-              sx={{maxWidth: '560px', fontFamily: 'heading', fontSize: ['20px'], fontWeight: '300', letterSpacing: '0.03em'}}
+              sx={{maxWidth: '560px', fontFamily: 'body', fontSize: ['18px', '20px'], fontWeight: '300', letterSpacing: '0.03em'}}
             >
               {description}
             </Text>
@@ -116,8 +92,7 @@ const HeilsumarkInfo = ({block, raw}) => {
             textAlign: 'center',
             justifyContent: 'center',
             alignItems: 'center',
-            maxWidth: '1280px',
-            mt: '32px'
+            maxWidth: '1280px'
           }}
         >
 
@@ -126,7 +101,9 @@ const HeilsumarkInfo = ({block, raw}) => {
               borderBottom: '1px solid',
               borderColor: 'primaryBg',
               width: '100%',
-              px: '0px'
+              px: '0px',
+              display: 'flex',
+              justifyContent: ['space-around', 'center']
             }}>
             <Tab onClick={handleClick} active={active === 0} id={0}>
               {stepsTab.tabTitle}
@@ -146,95 +123,139 @@ const HeilsumarkInfo = ({block, raw}) => {
           </Tabs>
           <Content
             active={active === 0}
-            sx={{px: ['16px', '32px', '64px'], pb: '64px', m: '0 auto'}}>
+            sx={{pb: '64px', m: '0 auto'}}>
             <Flex
               variant='container.column'
-              py='64px'
+              pt='64px'
+              pb={['32px', '32px']}
               sx={{
                 justifyContent: 'center',
                 alignItems: 'center'
               }}
             >
-              <Text color='primaryBg' sx={{maxWidth: '560px', fontFamily: 'heading', fontSize: '24px', fontWeight: '300'}}>{stepsTab.description}</Text>
+              <Text
+                variant='bigBody'
+                color='primaryBg'
+                sx={{
+                  maxWidth: '560px',
+                  fontFamily: 'heading',
+                  lineHeight: 'body',
+                  fontWeight: '300'
+                }}>
+                {stepsTab.description}
+              </Text>
             </Flex>
             <Grid columns={[1, 2, null, 4]} sx={{justifyContent: 'center'}}>
               {stepsTab.stepsList.map((item) => {
                 const {heading, description, number} = item
                 return (
-                  <Grid columns={1} key={item._key}>
-                    <Flex variant='container.column' sx={{justifyContent: 'start', alignItems: 'center', px: '16px'}}>
-                      <Box bg='accent' my='16px' sx={{height: '48px', width: '48px', borderRadius: '50%'}}>
-                        <Text color='' sx={{fontFamily: 'body', fontSize: '40px', lineHeight: '52px'}}>{number}</Text>
+                  <Card variant='steps' key={item._key}>
+                    <Flex variant='container.column' sx={{justifyContent: 'start', alignItems: 'center'}}>
+                      <Box bg='accent' mb='32px' sx={{height: '64px', width: '64px', borderRadius: '50%'}}>
+                        <Text sx={{fontFamily: 'body', fontSize: '48px', lineHeight: '72px'}}>{number}</Text>
                       </Box>
-                      <Text as='h4' color='primaryBg' variant='subheading' sx={{fontSize: '24px', fontWeight: '300', pt: '8px', pb: '4px', lineHeight: 'heading'}}>
+                      <Text as='h3' sx={{fontSize: '24px'}}>
                         {heading}
                       </Text>
-                      <Text color='primaryBg' as='p' sx={{fontSize: '16px', letterSpacing: '0.02em', fontWeight: '300'
-                      }}>
+                      <Text as='p' variant='body' p='0px'>
                         {description}
                       </Text>
                     </Flex>
-                  </Grid>
+                  </Card>
                 )
               })}
             </Grid>
             <Flex sx={{width: '100%', justifyContent: 'center', alignItems: 'center', mt: '64px'}}>
-              <TextLink toLink='/hafa-samband' data-text='bóka heilsuviðtal'>
+              <TextLink toLink='/boka-heilsuvidtal' data-text='bóka heilsuviðtal'>
                 Bóka heilsuviðtal
               </TextLink>
             </Flex>
 
           </Content>
-          <Content active={active === 1} sx={{width: '100%', px: ['16px', '32px', '64px'], pb: '64px', m: '0 auto'}}>
-            <Flex variant='container.column' py='64px' sx={{justifyContent: 'center', alignItems: 'center'}}>
-              <Text color='primaryBg' variant='bigBody' sx={{fontWeight: '300'}}>
+          <Content
+            active={active === 1}
+            sx={{pb: '64px', m: '0 auto', width: '100%'}}>
+            <Flex
+              variant='container.column'
+              pt='64px'
+              pb={['32px', '32px']}
+              sx={{
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <Text
+                variant='bigBody'
+                color='primaryBg'
+                sx={{
+                  maxWidth: '560px',
+                  fontFamily: 'heading',
+                  lineHeight: 'body',
+                  fontWeight: '300'
+                }}>
                 {pricingTab.description}
               </Text>
             </Flex>
-            <Flex variant='container.row' >
+            <Grid columns={[1, 2]} sx={{justifyContent: 'center'}}>
               {pricingTab.prices.map((item) => {
                 const {plan, amount, payment, info} = item
                 return (
-                  <Flex mx='16px' key={item._key} bg='primaryBg' variant='container.column'
-                    sx={{flexBasis: '100%', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                    <Box bg='accent' sx={{px: '32px', width: '100%', alignSelf: 'flex-center'}}>
-                      <Text as='h4' color='white' variant='eyebrow' sx={{py: '16px'}}>
-                        {plan}
-                      </Text>
-                    </Box>
-                    <Flex sx={{height: '180px', flexDirection: 'column', justifyContent: 'center'}}>
-                      <Text as='p' sx={{fontSize: '32px', fontWeight: '600'}}>
-                        {amount}{' '}
-                      </Text>
-                      <Text as='p' sx={{fontSize: '16px'}}>
-                        {payment}{' '}
-                      </Text>
-                    </Flex>
-                    <Box bg='primaryMuted' sx={{width: '100%', alignSelf: 'center', py: '16px'}}>
-                      <Text as='p' sx={{fontSize: '16px'}}>
-                        {info}
-                      </Text>
-                    </Box>
+                  <Card variant='price' key={item._key}>
+                    <Flex bg='primaryBg' sx={{flexDirection: 'column', justifyContent: 'start', alignItems: 'center', flex: 1, flexBasis: '100%'}}>
+                      <Box bg='accent' sx={{width: '100%', alignSelf: 'flex-center'}}>
+                        <Text as='h3' color='white' variant='eyebrow' sx={{py: '16px'}}>
+                          {plan}
+                        </Text>
+                      </Box>
+                      <Flex sx={{height: '180px', flexDirection: 'column', justifyContent: 'center'}}>
+                        <Text as='h5'>
+                          {amount}{' '}
+                        </Text>
+                        <Text as='p'>
+                          {payment}{' '}
+                        </Text>
+                      </Flex>
+                      <Box bg='primaryMuted' sx={{width: '100%', alignSelf: 'center', py: '16px'}}>
+                        <Text as='p'>
+                          {info}
+                        </Text>
+                      </Box>
 
-                  </Flex>
+                    </Flex>
+                  </Card>
                 )
               })}
-            </Flex>
+            </Grid>
           </Content>
           <Content
             active={active === 2}
-            sx={{px: ['16px', '32px', '64px'], pb: '64px', m: '0 auto'}}
-          >
-            <Flex variant='container.column' pt='64px' pb='32px' sx={{justifyContent: 'center', alignItems: 'center'}}>
-              <Text color='primaryBg' variant='bigBody' sx={{fontWeight: '300'}}>
+            sx={{pb: '64px', m: '0 auto', width: '100%'}}>
+            <Flex
+              variant='container.column'
+              pt='64px'
+              pb={['32px', '32px']}
+              sx={{
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <Text
+                variant='bigBody'
+                color='primaryBg'
+                sx={{
+                  maxWidth: '560px',
+                  fontFamily: 'heading',
+                  lineHeight: 'body',
+                  fontWeight: '300'
+                }}>
                 {includedTab.description}
               </Text>
             </Flex>
-            <Flex variant='container.column' sx={{justifyContent: 'center'}}>
-              <Grid columns={[1, 2, null, 3]} sx={{px: ['16px', '32px', null], m: '0 auto'}}>
-                {includedTab.includedList.map((item) => {
-                  const {heading, description} = item
-                  return (
+            <Grid columns={[1, 2]} sx={{justifyContent: 'center'}}>
+              {includedTab.includedList.map((item) => {
+                const {heading, description} = item
+                return (
+                  <Card variant='included'>
                     <Grid
                       columns={'24px 1fr'}
                       gap='16px'
@@ -244,19 +265,18 @@ const HeilsumarkInfo = ({block, raw}) => {
                         <FiArrowRightCircle color='#ff7476' fontSize='24px' />
                       </Flex>
                       <Flex variant='container.column' sx={{textAlign: 'left'}}>
-                        <Text color='primaryBg' variant='bigBody' sx={{fontWeight: '400', lineHeight: 'body', pb: '8px'}}>
+                        <Text as='h3'>
                           {heading}
                         </Text>
-                        <Text color='primaryBg' as='p' sx={{fontSize: '16px', letterSpacing: '0.02em', fontWeight: '300'
-                        }}>
+                        <Text as='p'>
                           {description}
                         </Text>
                       </Flex>
                     </Grid>
-                  )
-                })}
-              </Grid>
-            </Flex>
+                  </Card>
+                )
+              })}
+            </Grid>
           </Content>
 
         </Flex>
@@ -266,3 +286,23 @@ const HeilsumarkInfo = ({block, raw}) => {
 }
 
 export default HeilsumarkInfo
+/* <Card variant='price'>
+                    <Grid
+                      columns={'24px 1fr'}
+                      gap='16px'
+                      key={item._key}
+                    >
+                      <Flex sx={{justifyContent: 'center'}}>
+                        <FiArrowRightCircle color='#ff7476' fontSize='24px' />
+                      </Flex>
+                      <Flex variant='container.column' sx={{textAlign: 'left'}}>
+                        <Text as='h3' sx={{fontSize: '24px'}}>
+                          {heading}
+                        </Text>
+                        <Text as='p' variant='body' p='0px'>
+                          {description}
+                        </Text>
+                      </Flex>
+                    </Grid>
+                  </Card>
+                ) */

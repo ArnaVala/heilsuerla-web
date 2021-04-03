@@ -1,27 +1,28 @@
 export const arrowStyles = {
   cursor: 'pointer',
   borderRadius: '50%',
-  display: 'none',
+  display: 'block',
   fontSize: 0,
-  height: '40px',
-  width: '40px',
+  height: '2.75rem',
   lineHeight: 0,
   outline: 'none',
   padding: '0.5rem',
   position: 'absolute',
-  bottom: ['-70px', null, '50%'],
-  transform: [null, null, 'translate(0, 50%)']
-
+  bottom: ['-70px', null, null, '50%'],
+  transform: [null, null, null, 'translate(0, 50%)'],
+  width: '2.75rem'
 }
 
 export const dotContainerStyles = {
-  position: 'relative',
-  bg: 'transparent',
+  position: ' absolute',
+  bottom: -40,
+  display: 'block',
   width: '100%',
-  p: '24px',
+  p: 0,
   m: 0,
   listStyle: 'none',
   textAlign: 'center',
+
   ul: {
     m: 0,
     p: 0
@@ -30,13 +31,14 @@ export const dotContainerStyles = {
   li: {
     position: 'relative',
     display: 'inline-block',
+
     m: 0,
     p: 0,
 
     cursor: 'pointer',
 
     '&.slick-active :before': {
-      bg: 'primaryLight'
+      bg: 'primaryDark'
     }
   }
 }
@@ -48,22 +50,17 @@ export const dotStyles = {
   cursor: 'pointer',
   display: 'block',
   height: 40,
+  fontSize: 0,
   outline: 'none',
   textAlign: 'center',
   width: 40,
-  zIndex: 10,
-  m: '4px',
-  mt: '-12px',
 
   ':focus': {
-    bg: 'primaryMuted',
-    borderColor: 'accent'
+    borderColor: 'primaryDark'
   },
 
   ':before': {
-    bg: 'none',
-    border: '2px solid',
-    borderColor: 'primaryLight',
+    bg: 'dark',
     width: 14,
     height: 14,
     content: '""',
@@ -86,24 +83,23 @@ export const dotStyles = {
 }
 
 export const dotLabelStyles = {
-  bottom: -48,
-  display: 'none',
-  bg: 'primary',
+  bottom: -35,
+  bg: 'secondary',
   borderRadius: 4,
-  fontWeight: '300',
-  fontSize: 'body',
+  fontWeight: 'lean',
+  fontSize: 'base',
   transition: 'opacity 0.2s linear',
-  p: 2,
+  p: 'xsmall',
   position: 'absolute',
   transform: 'translateX(-50%)',
-  width: 220,
-  left: 24,
+  width: 215,
+  left: 20,
 
   '&::after': {
     borderLeft: '1rem solid transparent',
     borderRight: '1rem solid transparent',
     borderBottom: '1rem solid',
-    borderBottomColor: 'primary',
+    borderBottomColor: 'secondary',
     content: '""',
     left: '50%',
     marginLeft: '-1rem',

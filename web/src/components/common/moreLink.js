@@ -21,8 +21,8 @@ white-space: nowrap;
 
  display:inline-block;
  height: 48px;
- padding-left:60px;
- padding-right:40px;
+ line-height: 40px;
+ padding-right:24px;
  color:#FF7D73;
  font-weight:600;
  position:relative;
@@ -34,17 +34,13 @@ white-space: nowrap;
    text-indent:0;
    text-align:center;
    vertical-align:top;
-   font-family:icons,Arial,Helvetica,sans-serif;
    font-weight:400;
    font-style:normal;
    white-space:nowrap;
    letter-spacing:0;
-   content:'>';
+   content:'';
    position:absolute;
-   left:-44px;
-   width:24px;
-   color: #fff;
-   font-size: 18px;
+   width:48px;
    position:relative;
    z-index:1;
    transition:all .2s ease-in-out
@@ -58,35 +54,31 @@ white-space: nowrap;
    right:0;
    background:#FF7D73;
    color: white;
-   border-radius:30px;
+   border-radius:32px;
    z-index:-1;
-   width:48px;
-   height:48px;
+   width:32px;
+   height:32px;
    transition:all .2s ease-in-out
   }
 
-  &:focus:before, &:hover:before {
-    content:'+';;
-    left:-30px;
-    color:#fff;
-  }
   &:focus:after, &:hover:after{
     width: 240px;
+    color: white;
     height: 100%;
   }
-
+ 
   a {
-    font-family: 'Founders Grotesk Text',;
-    font-size: 18px;
+    font-family: 'Sofia Pro',;
+    font-size: 16px;
     
     &:hover {
       color: white
     }
   }
 `
-const MoreLink = () => (
+const MoreLink = ({children}) => (
   <More as='span'>
-    <a>Meira um Erlu</a>
+    <a>{children}</a>
   </More>
 )
 

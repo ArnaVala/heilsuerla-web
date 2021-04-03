@@ -20,7 +20,7 @@ const Hero = ({block, raw}) => {
       <Grid gap={0} columns={[1, null, 2, null]} >
         <Flex
           px={['20px', '32px', '48px', '64px']}
-          pt={['64px', '96px', '96px']}
+          pt={['32px', '64px', null, '96px']}
           pb={['64px', '96px']}
           sx={{
             width: '100%',
@@ -30,7 +30,7 @@ const Hero = ({block, raw}) => {
             order: [1, null, 0, null]
           }}
         >
-          <Flex sx={{flexDirection: 'column', width: '100%', maxWidth: '540px'
+          <Flex sx={{flexDirection: 'column', width: '100%', maxWidth: '560px'
           }}>
             <Eyebrow as='h1'>{eyebrow}</Eyebrow>
             <Box>
@@ -74,8 +74,8 @@ const Hero = ({block, raw}) => {
               <Flex
                 sx={{
                   width: '100%',
-                  p: ['20px', '64px', '48px', '64px'],
-                  height: ['320px', '640px', '100%']}}>
+                  p: ['20px', '32px', '48px', '64px'],
+                  height: ['320px', '560px', '640px', '100%']}}>
                 <Image
                   {...image}
                   width={1600}
