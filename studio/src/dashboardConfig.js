@@ -18,10 +18,10 @@ export default {
                   apiId: '30a69399-0ddd-41d4-a21e-69e7d2346f77'
                 },
                 {
-                  buildHookId: '60411cc5d3ff0e00c358cd82',
-                  title: 'Blog Website',
+                  buildHookId: '6069e5a7d0439f9abf9f0ac1',
+                  title: 'HeilsuErla.is',
                   name: 'heilsa',
-                  apiId: '8e011d9a-ff9d-4946-9da2-6c5dae14f43c'
+                  apiId: 'e37dfc92-000b-41dc-b5ea-14e90e18700c'
                 }
               ]
             }
