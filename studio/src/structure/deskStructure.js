@@ -9,7 +9,7 @@ import {
 import IframePreview from '../previews/IframePreview'
 
 // Web preview configuration
-const remoteURL = 'https://heilsa.netlify.app'
+const remoteURL = 'https://www.heilsuerla.is'
 const localURL = 'http://localhost:8000'
 const previewURL =
   window.location.hostname === 'localhost' ? localURL : remoteURL
