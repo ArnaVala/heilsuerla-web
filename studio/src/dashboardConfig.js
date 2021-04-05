@@ -20,7 +20,7 @@ export default {
                 {
                   buildHookId: '6069e5a7d0439f9abf9f0ac1',
                   title: 'HeilsuErla.is',
-                  name: 'heilsa',
+                  name: 'heilsuerla',
                   apiId: 'e37dfc92-000b-41dc-b5ea-14e90e18700c'
                 }
               ]
