@@ -33,7 +33,7 @@ export default {
             value: 'https://github.com/ArnaVala/heilsa',
             category: 'Code'
           },
-          {title: 'Frontend', value: 'https://heilsa.netlify.app', category: 'apps'}
+          {title: 'Frontend', value: 'https://www.heilsuerla.is', category: 'apps'}
         ]
       }
     },
