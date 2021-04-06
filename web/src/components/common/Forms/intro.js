@@ -1,12 +1,12 @@
 import React from 'react'
 import {Box, Grid, Flex, Text} from 'theme-ui'
 import {FiArrowRightCircle} from 'react-icons/fi'
+import Details from './details'
 
 const Intro = () => (
-  <Flex as='ul' sx={{m: '0px', p: '0', height: '100%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-    <Text as='p' variant='bigBody'>
-      Ég býð upp á 50 mínútna heilsuviðtal fyrir þá sem vilja bæta heilsuna og kynna sér
-      heilsumarkþjálfun. Viðtalið er þér að kostnaðarlausu og án allra skuldbindinga.
+  <Flex as='ul' sx={{m: '0px', p: '0', height: '100%', flexDirection: 'column', justifyContent: 'flex-start'}}>
+    <Text as='h4' sx={{fontSize: '24px', pb: '32px'}}>
+      Fyrirkomulag
     </Text>
     <Flex sx={{flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
       <Box sx={{height: '32px', minWidth: '40px'}}>

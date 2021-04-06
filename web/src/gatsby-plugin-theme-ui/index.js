@@ -163,6 +163,16 @@ export default {
         fontWeight: '400',
         fontSize: ['18px', '20px'],
         pb: '24px'
+      },
+      a: {
+        color: 'accent',
+        fontFamily: 'inherit',
+
+        '&:hover': {
+          borderBottom: '1px solid',
+          borderBottomColor: 'accent'
+        }
+
       }
 
     },
@@ -243,11 +253,13 @@ export default {
       },
       h2: {
         maxWidth: '640px',
+        fontFamily: 'body',
         m: '0 auto',
-        fontSize: ['24px'],
+        fontSize: ['32px'],
         lineHeight: 'heading',
         fontWeight: '600',
-        py: ['24px']
+        py: ['16px'],
+        pt: ['32px']
       },
       h3: {
         maxWidth: '640px',
@@ -259,7 +271,13 @@ export default {
 
       },
       a: {
-        color: 'accent'
+        color: 'accent',
+        fontFamily: 'inherit',
+
+        '&:hover': {
+          borderBottom: '1px solid',
+          borderBottomColor: 'accent'
+        }
       }
     },
 

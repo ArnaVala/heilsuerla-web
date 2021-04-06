@@ -1,10 +1,10 @@
 import React from 'react'
 import {Box, Text} from 'theme-ui'
+import SectionTitle from '../../molecules/SectionTitle/index'
 
-const Header = () => (
+const Header = ({heading, description}) => (
   <Box>
-    <Text as='h2' variant='subtitle'>Bóka ókeypis heilsuviðtal</Text>
-
+    <SectionTitle heading={heading} description={description} />
   </Box>
 )
 

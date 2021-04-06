@@ -1,57 +1,48 @@
-/** @jsx jsx */
-import {jsx} from 'theme-ui'
-
-import {ContactForm, Intro, Header} from '../components/common/Forms'
+import React from 'react'
+import {graphql} from 'gatsby'
+import GraphQLErrorList from '../components/atoms/graphql-error-list'
+import SEO from '../components/atoms/seo'
 import Layout from '../components/organisms/layout'
-import {Wrapper} from '../components/common'
+import {Container} from 'theme-ui'
+import PageBuilder from '../components/organisms/pageBuilder'
 
-const ContactPage = () => (
-  <Layout>
-    <Wrapper variant='container.wide' py={['64px', '96px']}>
-      <section
-        sx={{
-          mb: 3,
-          display: 'grid',
-          gridTemplateColumns: ['auto', null, '1fr 1fr'],
-          gridTemplateRows: ['auto'],
-          gridTemplateAreas: [
-            `
-        "header"
-        'intro'
-        "form"
-        
-        `,
-            null,
-            `
-        "header header"
-        "intro form"
-        `
-          ]
-        }}
-      >
-        <div sx={{gridArea: 'header', mb: [1, null, 3]}}><Header /></div>
+import HeilsuContact from '../components/common/Forms/heilsuvidtalContact'
 
-        <div sx={{gridArea: 'form', pl: [0, null, 5]}}>
-          <ContactForm />
-        </div>
-        <aside
-          sx={{
-            gridArea: 'intro',
-            pr: [0, null, 5],
-            borderRight: [null, null, '2px solid'],
-            borderRightColor: [null, null, 'muted'],
-            mb: [3, null, 0],
-            pb: [3, null, 0],
-            borderBottom: ['1px solid', null, 'none'],
-            borderBottomColor: ['muted', null, null]
-          }}
-        >
-          <Intro />
+export const query = graphql`
+  query HeilsuvidtalPageQuery {
+    vidtalPage: sanityPage(slug: {current: {eq: "boka-heilsuvidtal"}}) {
+      id
+      title
+      slug {
+        current
+      }
+      ...PageBuilder
+    }
+  }
+`
 
-        </aside>
-      </section>
-    </Wrapper>
-  </Layout>
-)
+const HeilsuvidtalPage = (props) => {
+  const {data, errors} = props
+  const vidtalPage = data && data.vidtalPage
+  const {pageBuilder, _rawPageBuilder} = vidtalPage
 
-export default ContactPage
+  if (errors) {
+    return (
+      <Layout>
+        <GraphQLErrorList errors={errors} />
+      </Layout>
+    )
+  }
+
+  return (
+    <Layout>
+      <SEO />
+      <Container>
+        <PageBuilder pageBuilder={pageBuilder} _rawPageBuilder={_rawPageBuilder} />
+        <HeilsuContact />
+      </Container>
+    </Layout>
+  )
+}
+
+export default HeilsuvidtalPage

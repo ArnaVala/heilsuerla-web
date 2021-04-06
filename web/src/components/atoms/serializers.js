@@ -12,7 +12,7 @@ const serializers = {
         case 'normal':
           return <Text as='p' variant='body'>{props.children}</Text>
         case 'h2':
-          return <Text as='h2' variant='subtitle'>{props.children}</Text>
+          return <Text as='h2'>{props.children}</Text>
         case 'h3':
           return <Text as='h3' variant='subheading' sx={{mt: '16px', mb: '8px'}}>{props.children}</Text>
         case 'blockquote':
