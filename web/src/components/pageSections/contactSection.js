@@ -25,7 +25,7 @@ const Contact = () => {
           }}
         >
           <div sx={{gridArea: 'header', mb: [1, 3]}}>
-            <Header />
+            <Header heading='Hafa samband' description='Hafið endilega samband, til þess að fá tilboð í fyrirlestur eða vinnustofu. Einnig getum við hannað saman fyrirlestur eða námskeið sem hentar þér og þínum hóp eða fyrirtæki!' />
           </div>
 
           <div sx={{gridArea: 'form', pr: [0, null, 3]}}>

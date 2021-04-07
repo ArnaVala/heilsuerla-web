@@ -12,8 +12,7 @@ export default function PostList ({posts}) {
         <Box
           sx={{
             display: 'grid',
-            gap: [3, null, 4, null],
-            rowGap: '64px',
+            gap: [2, 3, null, 4],
             gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))'
           }}
         >

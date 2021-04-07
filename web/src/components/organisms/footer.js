@@ -18,7 +18,7 @@ const Footer = () => {
         <section
           sx={{
             mx: 'auto',
-            mb: 3,
+            mb: 4,
             display: 'grid',
             gridTemplateColumns: ['auto', '1fr 1fr', '1fr 1fr'],
             gridTemplateRows: ['auto'],
@@ -52,9 +52,9 @@ const Footer = () => {
             sx={{
               gridArea: 'nav',
               borderRight: [null, '1px solid', null],
-              borderRightColor: [null, 'primaryMuted', null ],
+              borderRightColor: [null, 'primaryMuted', null],
               mb: [3, null, 0],
-              pt: [4, null, 0],
+              pt: [4, 0, null, 0],
               borderTop: ['1px solid', 'none', null],
               borderTopColor: ['primaryMuted', null, null]
             }}
@@ -63,10 +63,11 @@ const Footer = () => {
           </aside>
         </section>
         <Box
+          px='32px'
           color='primaryBg'
-          sx={{pb: '32px', pt: '16px', borderTop: '1px solid', borderColor: 'primaryMuted'}}
+          sx={{fontWeight: '300', pb: '32px', pt: '16px', borderTop: '1px solid', borderColor: 'primaryMuted'}}
         >
-          HeilsuErla @ 2021
+          &copy; 2021 HeilsuErla. Allur réttur áskilinn.
         </Box>
       </Wrapper>
     </Box>

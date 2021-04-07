@@ -15,9 +15,9 @@ export default function PostListAllSection ({posts, title}) {
         <Grid
           sx={{
             display: 'grid',
-            gap: [4, null, 4, null],
+            gap: [3, null, 2, null],
             pb: '32px',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))'
           }}
         >
           {posts.map((post) => (

@@ -132,7 +132,7 @@ export default {
       justifyContent: 'center',
       alignItems: 'center',
       margin: '0 auto',
-      py: ['64px', '128px']
+      py: ['96px', '128px']
     },
     sectionNoPad: {
       width: '100%',
@@ -515,8 +515,9 @@ export default {
       fontFamily: 'heading',
       fontWeight: '400',
       lineHeight: 'heading',
-      fontSize: '28px',
-      textAlign: 'center'
+      fontSize: ['24px', null, null, '28px'],
+      textAlign: 'center',
+      color: 'primary'
     },
     postCategory: {
       fontFamily: 'body',
@@ -525,7 +526,7 @@ export default {
       color: 'primaryLight',
       textTransform: 'uppercase',
       letterSpacing: 'wide',
-      fontSize: 1
+      fontSize: ['14px', null, null, '16px']
     },
     caps: {
       fontFamily: 'body',

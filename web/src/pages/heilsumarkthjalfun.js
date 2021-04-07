@@ -33,7 +33,8 @@ const HeilsumarkthjalfunPage = (props) => {
 
   return (
     <Layout>
-      <SEO />
+      <SEO title={heilsumarkPage.title} />
+      <h1 hidden>Velkomin á {heilsumarkPage.title}</h1>
       <Container>
         <PageBuilder pageBuilder={pageBuilder} _rawPageBuilder={_rawPageBuilder} />
 
