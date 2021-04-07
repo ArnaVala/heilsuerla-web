@@ -35,7 +35,7 @@ const RadgjofPage = (props) => {
 
   return (
     <Layout>
-      <SEO />
+      <SEO title={radPage.title} />
       <Container>
         <PageBuilder pageBuilder={pageBuilder} _rawPageBuilder={_rawPageBuilder} />
         <Contact />

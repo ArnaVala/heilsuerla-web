@@ -13,44 +13,46 @@ const CtaHeilsuvidtal = ({block, raw}) => {
   } = block
 
   return (
-    <Section variant='container.full'>
+    <Section as='section' variant='container.full'>
       <BackgroundImage image={backgroundImage} width={1920}>
         <Wrapper
           variant='container.wide'
           sx={{
-            px: ['20px', '32px', '64px', '0px'],
-            py: ['64px', null, '96px']
+            px: ['20px', '64px', '64px', '0px'],
+            py: ['64px', '64px', '64px', null]
           }}
         >
-          <Card variant='feature' bg='white' sx={{textAlign: 'center', width: '100%', px: ['16px', '64px']}}>
-            <Eyebrow children={eyebrow} />
+          <Flex bg='white' sx={{flexDirection: 'column', alignItems: 'center', px: ['20px', '64px'], py: ['64px']}}>
+            <Eyebrow as='h3' children={eyebrow} />
 
-            <Flex variant='container.row' sx={{flexDirection: ['column', null, 'row', null], width: '100%', height: '100%'}}>
-              <Flex variant='container.column' >
-                <Box
-                  sx={{
-                    maxWidth: '560px',
-                    m: '0 auto'
-                  }}
-                >
-                  <Text variant='title' >
-                    {heading}
-                  </Text>
-
-                  <Text variant='bigBody'>
-                    {description}
-                  </Text>
-                </Box>
-              </Flex>
+            <Flex sx={{flexDirection: 'column', textAlign: 'center', width: '100%', height: '100%'}}>
+              <Box
+                sx={{
+                  maxWidth: ['560px', null, null, '720px'],
+                  m: '0 auto'
+                }}
+              >
+                <Text as='h4' variant='title'>
+                  {heading}
+                </Text>
+              </Box>
+              <Box sx={{
+                maxWidth: '480px',
+                m: '0 auto'
+              }}>
+                <Text as='p' variant='body'>
+                  {description}
+                </Text>
+              </Box>
 
             </Flex>
 
-            <Flex sx={{justifyContent: 'center', alignItems: 'center', mt: '16px'}}>
+            <Flex variant='container.column' sx={{justifyContent: 'center', alignItems: 'center', mt: '16px'}}>
               <TextLink toLink={ctaLink.url} data-text={ctaLink.linkText}>
                 {ctaLink.linkText}
               </TextLink>
             </Flex>
-          </Card>
+          </Flex>
         </Wrapper>
       </BackgroundImage>
     </Section>

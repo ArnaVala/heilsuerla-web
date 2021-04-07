@@ -13,7 +13,6 @@ export const query = graphql`
     aboutPage: sanityPage(slug: {current: {eq: "um-erlu"}}) {
     id
     title
-    description
     slug {
       current
     }
@@ -36,7 +35,7 @@ const UmErluPage = (props) => {
 
   return (
     <Layout>
-      <SEO title={aboutPage.title} description={aboutPage.description} />
+      <SEO title={aboutPage.title} />
       <Container>
         <h1 hidden>Welcome to {aboutPage.title}</h1>
       </Container>

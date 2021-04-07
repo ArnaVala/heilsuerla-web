@@ -21,7 +21,7 @@ export default function PistlarPage ({data, errors, pageContext}) {
 
   return (
     <Layout>
-      <SEO title='blogg' />
+      <SEO title='Blogg' />
       <CategoryFilter activeCategory={pageContext.category} />
       {posts && (
         <PostList posts={posts} />
