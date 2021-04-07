@@ -36,10 +36,7 @@ const UmErluPage = (props) => {
   return (
     <Layout>
       <SEO title={aboutPage.title} />
-      <Container>
-        <h1 hidden>Welcome to {aboutPage.title}</h1>
-      </Container>
-
+      <h1 hidden>Velkomin á {aboutPage.title}</h1>
       <Container>
         <PageBuilder pageBuilder={pageBuilder} _rawPageBuilder={_rawPageBuilder} />
       </Container>

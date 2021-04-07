@@ -37,6 +37,8 @@ const HeilsuvidtalPage = (props) => {
   return (
     <Layout>
       <SEO title={vidtalPage.title} />
+      <h1 hidden>Velkomin á {vidtalPage.title}</h1>
+
       <Container>
         <PageBuilder pageBuilder={pageBuilder} _rawPageBuilder={_rawPageBuilder} />
         <HeilsuContact />
