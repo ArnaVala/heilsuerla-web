@@ -21,7 +21,7 @@ const Intro = () => (
         <FiArrowRightCircle color='#ff7476' fontSize='24px' />
       </Box>
       <Text variant='body'>
-        Þegar viðtalið hefur verið bókað mun hef ég samband til að ákveða stað og stund fyrir samtalið
+        Þegar viðtalið hefur verið bókað hef ég samband til að ákveða stað og stund fyrir samtalið
         sem fer fram í gegnum netið eða í eigin persónu.
       </Text>
     </Flex>
