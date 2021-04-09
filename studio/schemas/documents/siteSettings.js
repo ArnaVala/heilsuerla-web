@@ -12,8 +12,7 @@ export default {
     {
       name: 'description',
       type: 'text',
-      title: 'Description',
-      description: 'Describe your blog for search engines and social media.'
+      title: 'Description'
     },
     {
       title: 'Open graph',

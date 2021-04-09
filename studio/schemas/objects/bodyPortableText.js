@@ -81,6 +81,7 @@ export default {
     },
     {
       type: 'recipe'
+
     }
   ]
 }
