@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import {jsx, Styled, Text} from 'theme-ui'
+import {jsx, Text} from 'theme-ui'
 import Figure from './Figure'
 import RecipeBlock from './recipeBlock'
+import {ReactPlayer} from 'react-player'
 
 const serializers = {
   types: {
