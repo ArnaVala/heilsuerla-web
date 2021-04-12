@@ -90,7 +90,7 @@ export default function CategoryFilter ({activeCategory}) {
             }
           }}>
           <Link to='/blogg'><Text variant='caps' mb={0} sx={{fontSize: '14px'}}>
-            Allir
+            Allt
           </Text>
           </Link>
           {
