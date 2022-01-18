@@ -19,8 +19,8 @@ const Hero = ({block, raw}) => {
       <Grid gap={0} columns={[1, null, 2, null]} >
         <Flex
           px={['0px', '0px', '0px', '0px']}
-          pt={['0px', '0px', '0px', '0px]}
-          pb={['0px', '0px', '0px', '0px]}
+          pt={['0px', '0px', '0px', '0px']}
+          pb={['0px', '0px', '0px', '0px']}
           sx={{
             width: '100%',
             margin: '0 auto',
