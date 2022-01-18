@@ -66,7 +66,7 @@ const Hero = ({block, raw}) => {
             sx={{
               height: '100%',
               width: '100%',
-              p: ['32px', null]
+              p: ['0px']
             }}
           >
             {image && image.asset && (
