@@ -18,9 +18,9 @@ const Hero = ({block, raw}) => {
     <Section variant='container.full'>
       <Grid gap={0} columns={[1, null, 2, null]} >
         <Flex
-          px={['20px', '32px', '48px', '64px']}
-          pt={['32px', '64px', null, '96px']}
-          pb={['64px', '64px', null, '96px']}
+          px={['0px', '0px', '0px', '0px']}
+          pt={['0px', '0px', '0px', '0px]}
+          pb={['0px', '0px', '0px', '0px]}
           sx={{
             width: '100%',
             margin: '0 auto',
