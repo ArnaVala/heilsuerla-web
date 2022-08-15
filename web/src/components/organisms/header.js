@@ -82,9 +82,7 @@ const Header = () => {
             <NavLink as={Link} to='/um-erlu'>
               Um Erlu
             </NavLink>
-            <NavLink as={Link} to='/boka-heilsuvidtal'>
-              Bóka heilsuviðtal
-            </NavLink>
+           
 
           </Styled.ul>
           <Hamburger />
