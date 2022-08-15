@@ -10,7 +10,7 @@ import HeilsuContact from '../components/common/Forms/heilsuvidtalContact'
 
 export const query = graphql`
   query HafaSambandPageQuery {
-    vidtalPage: sanityPage(slug: {current: {eq: "boka-heilsuvidtal"}}) {
+    vidtalPage: sanityPage(slug: {current: {eq: "hafa-samband"}}) {
       id
       title
       slug {
