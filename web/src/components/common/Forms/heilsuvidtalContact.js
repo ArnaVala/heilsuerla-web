@@ -14,7 +14,6 @@ const HeilsuContact = () => (
         gridTemplateAreas: [
           `
         "header"
-        'intro'
         "form"
         "details"
         
@@ -38,20 +37,6 @@ const HeilsuContact = () => (
         </Text>
         <ContactForm />
       </div>
-      <aside
-        sx={{
-          gridArea: 'intro',
-          pr: [0, null, 3, 5],
-          borderRight: [null, null, '2px solid'],
-          borderRightColor: [null, null, 'primaryMuted'],
-          mb: [3, null, 0, null],
-          pb: [3, null, 0, null],
-          borderBottom: ['2px solid', null, 'none'],
-          borderBottomColor: ['primaryMuted', null, null]
-        }}
-      >
-        <Intro />
-      </aside>
       <div sx={{gridArea: 'details',
         borderTop: '2px solid',
         borderTopColor: 'primaryMuted',
