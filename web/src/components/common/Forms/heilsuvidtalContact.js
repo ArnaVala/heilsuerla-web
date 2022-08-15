@@ -22,14 +22,14 @@ const HeilsuContact = () => (
           null,
           `
         "header header"
-        "intro form"
+        "form ."
         "details details"
         `
         ]
       }}
     >
       <div sx={{gridArea: 'header', mb: [1, null, 3]}}>
-        <Header heading='Bóka ókeypis heilsuviðtal' description='Erla býður upp á 50 mínútna heilsuviðtal fyrir þá sem vilja bæta heilsuna og kynna sér heilsumarkþjálfun. Viðtalið er þér að kostnaðarlausu og án allra skuldbindinga.' />
+        <Header heading='Senda fyrirspurn' description='Erla býður upp á einstaklingsráðgjöf um heildræna heilsu.' />
       </div>
 
       <div sx={{gridArea: 'form', pl: [0, null, 3, 5]}}>
