@@ -82,6 +82,9 @@ const Header = () => {
             <NavLink as={Link} to='/um-erlu'>
               Um Erlu
             </NavLink>
+            <NavLink as={Link} to='/hafa-samband'>
+              Hafa samband
+            </NavLink>
            
 
           </Styled.ul>
