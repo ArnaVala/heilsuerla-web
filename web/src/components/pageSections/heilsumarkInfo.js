@@ -165,8 +165,8 @@ const HeilsumarkInfo = ({block, raw}) => {
               })}
             </Grid>
             <Flex sx={{width: '100%', justifyContent: 'center', alignItems: 'center', mt: '64px'}}>
-              <TextLink toLink='/boka-heilsuvidtal' data-text='bóka heilsuviðtal'>
-                Bóka heilsuviðtal
+              <TextLink toLink='/hafa-samband' data-text='hafa samband'>
+                Hafa samband
               </TextLink>
             </Flex>
 
